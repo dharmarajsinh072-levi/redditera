@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, Legend } from 'recharts'
 import '../styles/Homepage.css'
 
 const Homepage = () => {
@@ -15,6 +16,54 @@ const Homepage = () => {
       [e.target.name]: e.target.value
     })
   }
+
+  // Revenue and Expenses data for line chart
+  const revenueData = [
+    { month: 'Jan', Revenue: 50000, Expenses: 30000 },
+    { month: 'Feb', Revenue: 65000, Expenses: 35000 },
+    { month: 'Mar', Revenue: 80000, Expenses: 40000 },
+    { month: 'Apr', Revenue: 95000, Expenses: 45000 },
+    { month: 'May', Revenue: 110000, Expenses: 50000 },
+    { month: 'Jun', Revenue: 125000, Expenses: 55000 },
+    { month: 'Jul', Revenue: 140000, Expenses: 60000 },
+    { month: 'Aug', Revenue: 160000, Expenses: 65000 },
+    { month: 'Sep', Revenue: 180000, Expenses: 70000 },
+    { month: 'Oct', Revenue: 200000, Expenses: 75000 },
+    { month: 'Nov', Revenue: 220000, Expenses: 80000 },
+    { month: 'Dec', Revenue: 240800, Expenses: 85000 },
+  ]
+
+  // Profit data for bar chart
+  const profitData = [
+    { time: '12 AM', value: 40 },
+    { time: '1 AM', value: 60 },
+    { time: '2 AM', value: 45 },
+    { time: '3 AM', value: 90 },
+    { time: '4 AM', value: 75 },
+    { time: '5 AM', value: 50 },
+    { time: '6 AM', value: 65 },
+    { time: '7 AM', value: 80 },
+    { time: '8 AM', value: 95 },
+    { time: '9 AM', value: 45 },
+    { time: '10 AM', value: 70 },
+    { time: '11 AM', value: 85 },
+    { time: '12 PM', value: 55 },
+    { time: '1 PM', value: 60 },
+    { time: '2 PM', value: 50 },
+  ]
+
+  const barColors = ['#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7']
+
+  // Sessions data for small line chart
+  const sessionsData = [
+    { day: 'Mon', value: 350 },
+    { day: 'Tue', value: 380 },
+    { day: 'Wed', value: 400 },
+    { day: 'Thu', value: 420 },
+    { day: 'Fri', value: 400 },
+    { day: 'Sat', value: 410 },
+    { day: 'Sun', value: 400 },
+  ]
 
   return (
     <div className="homepage bg-[#0a0a0a] text-white min-h-screen">
@@ -113,11 +162,12 @@ const Homepage = () => {
               </a>
             </div>
 
-            {/* Metrics Dashboard */}
+            {/* Interactive Metrics Dashboard */}
             <div className="w-full max-w-6xl mx-auto mt-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <div className="relative rounded-3xl border border-white/10 bg-[#09090a] p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {/* Metric Card 1 */}
+                {/* Top Row - 4 Small Metric Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                  {/* Pageviews */}
                   <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 hover:border-white/10 transition-colors group">
                     <div className="flex justify-between items-start mb-4">
                       <div className="flex items-center gap-2 text-sm text-gray-400 font-medium">
@@ -127,6 +177,9 @@ const Homepage = () => {
                         </svg>
                         <span>Pageviews</span>
                       </div>
+                      <svg className="w-4 h-4 text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                      </svg>
                     </div>
                     <div className="flex items-end gap-3">
                       <span className="text-2xl font-bold text-white">50.8K</span>
@@ -139,7 +192,7 @@ const Homepage = () => {
                     </div>
                   </div>
 
-                  {/* Metric Card 2 */}
+                  {/* Monthly users */}
                   <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 hover:border-white/10 transition-colors group">
                     <div className="flex justify-between items-start mb-4">
                       <div className="flex items-center gap-2 text-sm text-gray-400 font-medium">
@@ -148,6 +201,9 @@ const Homepage = () => {
                         </svg>
                         <span>Monthly users</span>
                       </div>
+                      <svg className="w-4 h-4 text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                      </svg>
                     </div>
                     <div className="flex items-end gap-3">
                       <span className="text-2xl font-bold text-white">23.6K</span>
@@ -160,20 +216,23 @@ const Homepage = () => {
                     </div>
                   </div>
 
-                  {/* Metric Card 3 */}
+                  {/* New sign ups */}
                   <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 hover:border-white/10 transition-colors group">
                     <div className="flex justify-between items-start mb-4">
                       <div className="flex items-center gap-2 text-sm text-gray-400 font-medium">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                         </svg>
-                        <span>Engagements</span>
+                        <span>New sign ups</span>
                       </div>
+                      <svg className="w-4 h-4 text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                      </svg>
                     </div>
                     <div className="flex items-end gap-3">
-                      <span className="text-2xl font-bold text-white">79K</span>
+                      <span className="text-2xl font-bold text-white">756</span>
                       <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
-                        +18.7%
+                        +3.1%
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                         </svg>
@@ -181,25 +240,195 @@ const Homepage = () => {
                     </div>
                   </div>
 
-                  {/* Metric Card 4 */}
+                  {/* Subscriptions */}
                   <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 hover:border-white/10 transition-colors group">
                     <div className="flex justify-between items-start mb-4">
                       <div className="flex items-center gap-2 text-sm text-gray-400 font-medium">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <span>Follower Growth</span>
+                        <span>Subscriptions</span>
                       </div>
+                      <svg className="w-4 h-4 text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                      </svg>
                     </div>
                     <div className="flex items-end gap-3">
                       <span className="text-2xl font-bold text-white">2.3K</span>
                       <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
-                        +9.1%
+                        +11.3%
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                         </svg>
                       </span>
                     </div>
+                  </div>
+                </div>
+
+                {/* Middle Row - 2 Large Chart Widgets */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+                  {/* Total Revenue - Line Chart */}
+                  <div className="lg:col-span-1 bg-[#0F0F11] border border-white/5 rounded-xl p-6 flex flex-col">
+                    <div className="flex justify-between items-start mb-6">
+                      <div>
+                        <div className="text-gray-400 text-sm font-medium flex items-center gap-2 mb-1">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          Total revenue
+                        </div>
+                        <div className="flex items-center gap-3 mt-1">
+                          <h3 className="text-2xl font-bold text-white">$240.8K</h3>
+                          <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
+                            +24.6%
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                          </span>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-gray-500">
+                        <span>Jan 2025 - Dec 2025</span>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="flex-1 h-64">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <LineChart data={revenueData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
+                          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
+                          <XAxis 
+                            dataKey="month" 
+                            stroke="#888" 
+                            tick={{ fill: '#888', fontSize: 11 }}
+                            axisLine={{ stroke: 'rgba(255,255,255,0.1)' }}
+                          />
+                          <YAxis 
+                            stroke="#888" 
+                            tick={{ fill: '#888', fontSize: 11 }}
+                            axisLine={{ stroke: 'rgba(255,255,255,0.1)' }}
+                            tickFormatter={(value) => `${value/1000}K`}
+                          />
+                          <Tooltip 
+                            contentStyle={{ 
+                              backgroundColor: '#1a1a1a', 
+                              border: '1px solid rgba(255,255,255,0.1)', 
+                              color: '#fff',
+                              borderRadius: '8px',
+                              padding: '8px 12px'
+                            }}
+                            labelStyle={{ color: '#888', fontSize: '11px' }}
+                            formatter={(value) => [`$${value.toLocaleString()}`, '']}
+                          />
+                          <Legend 
+                            wrapperStyle={{ fontSize: '12px', paddingTop: '10px' }}
+                            iconType="circle"
+                          />
+                          <Line 
+                            type="monotone" 
+                            dataKey="Revenue" 
+                            stroke="#A855F7" 
+                            strokeWidth={3}
+                            dot={false}
+                            activeDot={{ r: 6, fill: '#A855F7' }}
+                            name="Revenue"
+                          />
+                          <Line 
+                            type="monotone" 
+                            dataKey="Expenses" 
+                            stroke="#0EA5E9" 
+                            strokeWidth={2.5}
+                            dot={false}
+                            activeDot={{ r: 5, fill: '#0EA5E9' }}
+                            name="Expenses"
+                          />
+                        </LineChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </div>
+
+                  {/* Total Profit - Bar Chart */}
+                  <div className="lg:col-span-1 bg-[#0F0F11] border border-white/5 rounded-xl p-6 flex flex-col">
+                    <div className="flex justify-between items-start mb-6">
+                      <div>
+                        <div className="text-gray-400 text-sm font-medium flex items-center gap-2 mb-1">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                          </svg>
+                          Total profit
+                        </div>
+                        <div className="flex items-center gap-3 mt-1">
+                          <h3 className="text-2xl font-bold text-white">$144.6K</h3>
+                          <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
+                            +28.5%
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                          </span>
+                        </div>
+                      </div>
+                      <button className="text-xs text-purple-400 hover:text-purple-300 transition-colors">View report</button>
+                    </div>
+                    <div className="flex-1">
+                      <div className="h-24 flex items-end justify-between gap-1 mb-2">
+                        <ResponsiveContainer width="100%" height="100%">
+                          <BarChart data={profitData} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
+                            <Bar dataKey="value" radius={[4, 4, 0, 0]}>
+                              {profitData.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={barColors[index % barColors.length]} />
+                              ))}
+                            </Bar>
+                          </BarChart>
+                        </ResponsiveContainer>
+                      </div>
+                      <div className="flex justify-between text-[10px] text-gray-500 mt-2 font-medium uppercase tracking-wider">
+                        <span>12 AM</span>
+                        <span>8 AM</span>
+                        <span>4 PM</span>
+                        <span>11 PM</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Row - Total Sessions */}
+                <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <div className="text-gray-400 text-sm font-medium flex items-center gap-2 mb-1">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        Total sessions
+                      </div>
+                      <div className="flex items-center gap-3 mt-1">
+                        <h3 className="text-2xl font-bold text-white">400</h3>
+                        <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
+                          +16.8%
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <svg className="w-4 h-4 text-gray-600 hover:text-white cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                    </svg>
+                  </div>
+                  <div className="h-20">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <LineChart data={sessionsData} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
+                        <Line 
+                          type="monotone" 
+                          dataKey="value" 
+                          stroke="#A855F7" 
+                          strokeWidth={2}
+                          dot={false}
+                          activeDot={{ r: 4, fill: '#A855F7' }}
+                        />
+                      </LineChart>
+                    </ResponsiveContainer>
                   </div>
                 </div>
               </div>
