@@ -23,7 +23,16 @@ const Homepage = () => {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <a href="#" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-reddit-orange rounded-full flex items-center justify-center">
+              <img 
+                src="/images/cropped-redditera-logo-2.webp" 
+                alt="Redditera Logo" 
+                className="h-8 w-auto"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              <div className="w-8 h-8 bg-reddit-orange rounded-full flex items-center justify-center" style={{ display: 'none' }}>
                 <span className="text-white font-bold text-sm">R</span>
               </div>
               <span className="text-xl font-bold text-white">Redditera</span>
@@ -54,8 +63,20 @@ const Homepage = () => {
             {/* Testimonial Badge */}
             <div className="flex items-center gap-3 mb-6 animate-fade-in">
               <div className="flex -space-x-3">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="w-12 h-12 rounded-full border-2 border-[#0a0a0a] overflow-hidden bg-gradient-to-br from-purple-500 to-blue-500"></div>
+                {[
+                  'p3mZac3vHFT3FNOc4xkI8i552KM.webp',
+                  'PDcdMPnZtRPJ7Yi5rwCCfsbK4.webp',
+                  '360_F_636708884_seTHzKWBbeBGi8G2KHqZJjYPwp9k9Lvv.webp'
+                ].map((img, i) => (
+                  <img 
+                    key={i}
+                    src={`/images/${img}`}
+                    alt={`Client ${i + 1}`}
+                    className="w-12 h-12 rounded-full border-2 border-[#0a0a0a] object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
                 ))}
               </div>
               <div className="flex items-center gap-1">
@@ -196,17 +217,51 @@ const Homepage = () => {
             WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)'
           }}>
             <div className="flex animate-scroll hover:[animation-play-state:paused] w-max">
-              {['Blade', 'Bonkbot', 'Candy AI', 'Pulse', 'Redwalking'].map((name, idx) => (
+              {[
+                { name: 'Blade', file: 'blade-logo-whitee.webp' },
+                { name: 'Bonkbot', file: 'bonkbot-logo-whitee.webp' },
+                { name: 'Candy AI', file: 'candy-ai-logo-whitee.webp' },
+                { name: 'Pulse', file: 'pulse-logo-whitee.webp' },
+                { name: 'Redwalking', file: 'redwalking-logo-whitee.webp' }
+              ].map((partner, idx) => (
                 <div key={idx} className="flex items-center gap-12 md:gap-24 px-6 md:px-12">
                   <div className="h-12 w-auto min-w-[120px] md:min-w-[160px] flex items-center justify-center opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    <span className="text-white text-lg font-semibold">{name}</span>
+                    <img 
+                      src={`/images/${partner.file}`} 
+                      alt={partner.name}
+                      className="h-9 md:h-12 w-auto object-contain"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        const fallback = document.createElement('span');
+                        fallback.className = 'text-white text-lg font-semibold';
+                        fallback.textContent = partner.name;
+                        e.target.parentElement.appendChild(fallback);
+                      }}
+                    />
                   </div>
                 </div>
               ))}
-              {['Blade', 'Bonkbot', 'Candy AI', 'Pulse', 'Redwalking'].map((name, idx) => (
+              {[
+                { name: 'Blade', file: 'blade-logo-whitee.webp' },
+                { name: 'Bonkbot', file: 'bonkbot-logo-whitee.webp' },
+                { name: 'Candy AI', file: 'candy-ai-logo-whitee.webp' },
+                { name: 'Pulse', file: 'pulse-logo-whitee.webp' },
+                { name: 'Redwalking', file: 'redwalking-logo-whitee.webp' }
+              ].map((partner, idx) => (
                 <div key={`dup-${idx}`} className="flex items-center gap-12 md:gap-24 px-6 md:px-12">
                   <div className="h-12 w-auto min-w-[120px] md:min-w-[160px] flex items-center justify-center opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                    <span className="text-white text-lg font-semibold">{name}</span>
+                    <img 
+                      src={`/images/${partner.file}`} 
+                      alt={partner.name}
+                      className="h-9 md:h-12 w-auto object-contain"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        const fallback = document.createElement('span');
+                        fallback.className = 'text-white text-lg font-semibold';
+                        fallback.textContent = partner.name;
+                        e.target.parentElement.appendChild(fallback);
+                      }}
+                    />
                   </div>
                 </div>
               ))}
@@ -263,7 +318,16 @@ const Homepage = () => {
             </div>
           </div>
           <div className="relative h-full min-h-[580px] w-full flex items-center justify-center">
-            <div className="w-full h-full bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-2xl flex items-center justify-center">
+            <img 
+              src="/images/redditor2.webp" 
+              alt="Reddit Alien" 
+              className="w-full h-full object-contain"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'flex';
+              }}
+            />
+            <div className="w-full h-full bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-2xl flex items-center justify-center" style={{ display: 'none' }}>
               <div className="text-6xl opacity-30">👽</div>
             </div>
           </div>
@@ -432,7 +496,16 @@ const Homepage = () => {
         </div>
         <div className="relative w-full max-w-5xl mx-auto p-4 md:p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden">
           <div className="relative rounded-2xl overflow-hidden border border-white/5 shadow-2xl bg-[#0F0F11] h-96 flex items-center justify-center">
-            <div className="text-gray-500 text-sm">Traffic Growth Chart</div>
+            <img 
+              src="/images/increase_1.webp" 
+              alt="Traffic growth graph showing consistent increase over time"
+              className="w-full h-auto object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'block';
+              }}
+            />
+            <div className="text-gray-500 text-sm" style={{ display: 'none' }}>Traffic Growth Chart</div>
           </div>
         </div>
       </section>
@@ -442,7 +515,17 @@ const Homepage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="group relative flex flex-col px-5 py-8 md:px-6 md:py-10 bg-[#0A0A0A] hover:bg-[#0f0f0f] transition-colors duration-500 rounded-xl border border-white/5">
             <div className="flex items-center gap-4 mb-8">
-              <div className="relative w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-purple-500 to-blue-500"></div>
+              <div className="relative w-14 h-14 rounded-full overflow-hidden">
+                <img 
+                  src="/images/redwalkingfounder.webp" 
+                  alt="Client"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.background = 'linear-gradient(to bottom right, #8b5cf6, #3b82f6)';
+                    e.target.style.display = 'block';
+                  }}
+                />
+              </div>
               <div className="flex flex-col">
                 <span className="text-lg font-semibold text-white">Client Name</span>
                 <span className="text-sm text-gray-400 font-medium">Founder</span>
@@ -455,7 +538,16 @@ const Homepage = () => {
           </div>
           <div className="group relative flex flex-col px-5 py-8 md:px-6 md:py-10 bg-[#0A0A0A] hover:bg-[#0f0f0f] transition-colors duration-500 rounded-xl border border-white/5">
             <div className="flex items-center gap-4 mb-8">
-              <div className="relative w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-purple-500 to-blue-500"></div>
+              <div className="relative w-14 h-14 rounded-full overflow-hidden">
+                <img 
+                  src="/images/techstarfounder.webp" 
+                  alt="David"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.background = 'linear-gradient(to bottom right, #8b5cf6, #3b82f6)';
+                  }}
+                />
+              </div>
               <div className="flex flex-col">
                 <span className="text-lg font-semibold text-white">David</span>
                 <span className="text-sm text-gray-400 font-medium">Founder</span>
