@@ -39,3 +39,26 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
 }
+
+/* Chart interaction improvements */
+.recharts-tooltip-wrapper {
+  pointer-events: auto !important;
+}
+
+/* Mobile-friendly tooltip positioning */
+@media (max-width: 768px) {
+  .recharts-tooltip-wrapper {
+    transform: translate(-50%, 0) !important;
+  }
+}
+
+/* Smooth chart transitions */
+.recharts-line,
+.recharts-bar {
+  transition: opacity 0.2s ease;
+}
+
+/* Chart hover states */
+.recharts-active-dot {
+  transition: all 0.2s ease;
+}

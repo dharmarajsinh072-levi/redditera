@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, Legend } from 'recharts'
 import '../styles/Homepage.css'
 
@@ -10,6 +10,8 @@ const Homepage = () => {
     message: ''
   })
 
+  const [selectedQuarter, setSelectedQuarter] = useState('Q1')
+
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
@@ -17,8 +19,8 @@ const Homepage = () => {
     })
   }
 
-  // Revenue and Expenses data for line chart - smoother curve
-  const revenueData = [
+  // Original monthly data for aggregation
+  const monthlyData = [
     { month: 'Jan', Revenue: 45000, Expenses: 28000 },
     { month: 'Feb', Revenue: 62000, Expenses: 32000 },
     { month: 'Mar', Revenue: 78000, Expenses: 38000 },
@@ -33,24 +35,119 @@ const Homepage = () => {
     { month: 'Dec', Revenue: 240800, Expenses: 85000 },
   ]
 
-  // Profit data for bar chart
-  const profitData = [
-    { time: '12 AM', value: 40 },
-    { time: '1 AM', value: 60 },
-    { time: '2 AM', value: 45 },
-    { time: '3 AM', value: 90 },
-    { time: '4 AM', value: 75 },
-    { time: '5 AM', value: 50 },
-    { time: '6 AM', value: 65 },
-    { time: '7 AM', value: 80 },
-    { time: '8 AM', value: 95 },
-    { time: '9 AM', value: 45 },
-    { time: '10 AM', value: 70 },
-    { time: '11 AM', value: 85 },
-    { time: '12 PM', value: 55 },
-    { time: '1 PM', value: 60 },
-    { time: '2 PM', value: 50 },
+  // Aggregate into quarters (using end-of-quarter values for line chart)
+  const quarterlyData = [
+    { quarter: 'Q1', Revenue: 78000, Expenses: 38000, TotalRevenue: 185000, TotalExpenses: 98000 },
+    { quarter: 'Q2', Revenue: 125200, Expenses: 52000, TotalRevenue: 325200, TotalExpenses: 142000 },
+    { quarter: 'Q3', Revenue: 175000, Expenses: 68000, TotalRevenue: 475000, TotalExpenses: 188000 },
+    { quarter: 'Q4', Revenue: 240800, Expenses: 85000, TotalRevenue: 648800, TotalExpenses: 235000 },
   ]
+
+  // Get current quarter data
+  const currentQuarterData = useMemo(() => {
+    return quarterlyData.find(q => q.quarter === selectedQuarter) || quarterlyData[0]
+  }, [selectedQuarter])
+
+  // Calculate metrics for selected quarter
+  const quarterMetrics = useMemo(() => {
+    const totalRevenue = currentQuarterData.TotalRevenue
+    const totalExpenses = currentQuarterData.TotalExpenses
+    const profit = totalRevenue - totalExpenses
+    const profitPercentage = ((profit / totalRevenue) * 100).toFixed(1)
+    
+    // Calculate growth vs previous quarter
+    const quarterIndex = quarterlyData.findIndex(q => q.quarter === selectedQuarter)
+    const prevQuarter = quarterIndex > 0 ? quarterlyData[quarterIndex - 1] : null
+    const revenueGrowth = prevQuarter 
+      ? (((totalRevenue - prevQuarter.TotalRevenue) / prevQuarter.TotalRevenue) * 100).toFixed(1)
+      : '0.0'
+    const profitGrowth = prevQuarter
+      ? (((profit - (prevQuarter.TotalRevenue - prevQuarter.TotalExpenses)) / (prevQuarter.TotalRevenue - prevQuarter.TotalExpenses)) * 100).toFixed(1)
+      : '0.0'
+
+    return {
+      totalRevenue,
+      totalExpenses,
+      profit,
+      profitPercentage,
+      revenueGrowth,
+      profitGrowth
+    }
+  }, [selectedQuarter, currentQuarterData])
+
+  // Profit data for bar chart - varies by quarter
+  const profitDataByQuarter = {
+    Q1: [
+      { time: '12 AM', value: 35 },
+      { time: '1 AM', value: 45 },
+      { time: '2 AM', value: 40 },
+      { time: '3 AM', value: 70 },
+      { time: '4 AM', value: 60 },
+      { time: '5 AM', value: 45 },
+      { time: '6 AM', value: 55 },
+      { time: '7 AM', value: 65 },
+      { time: '8 AM', value: 80 },
+      { time: '9 AM', value: 40 },
+      { time: '10 AM', value: 60 },
+      { time: '11 AM', value: 75 },
+      { time: '12 PM', value: 50 },
+      { time: '1 PM', value: 55 },
+      { time: '2 PM', value: 45 },
+    ],
+    Q2: [
+      { time: '12 AM', value: 40 },
+      { time: '1 AM', value: 55 },
+      { time: '2 AM', value: 45 },
+      { time: '3 AM', value: 80 },
+      { time: '4 AM', value: 70 },
+      { time: '5 AM', value: 50 },
+      { time: '6 AM', value: 65 },
+      { time: '7 AM', value: 80 },
+      { time: '8 AM', value: 95 },
+      { time: '9 AM', value: 45 },
+      { time: '10 AM', value: 70 },
+      { time: '11 AM', value: 85 },
+      { time: '12 PM', value: 55 },
+      { time: '1 PM', value: 60 },
+      { time: '2 PM', value: 50 },
+    ],
+    Q3: [
+      { time: '12 AM', value: 45 },
+      { time: '1 AM', value: 65 },
+      { time: '2 AM', value: 50 },
+      { time: '3 AM', value: 90 },
+      { time: '4 AM', value: 80 },
+      { time: '5 AM', value: 55 },
+      { time: '6 AM', value: 75 },
+      { time: '7 AM', value: 90 },
+      { time: '8 AM', value: 100 },
+      { time: '9 AM', value: 50 },
+      { time: '10 AM', value: 80 },
+      { time: '11 AM', value: 95 },
+      { time: '12 PM', value: 60 },
+      { time: '1 PM', value: 70 },
+      { time: '2 PM', value: 55 },
+    ],
+    Q4: [
+      { time: '12 AM', value: 50 },
+      { time: '1 AM', value: 70 },
+      { time: '2 AM', value: 55 },
+      { time: '3 AM', value: 95 },
+      { time: '4 AM', value: 85 },
+      { time: '5 AM', value: 60 },
+      { time: '6 AM', value: 80 },
+      { time: '7 AM', value: 95 },
+      { time: '8 AM', value: 105 },
+      { time: '9 AM', value: 55 },
+      { time: '10 AM', value: 85 },
+      { time: '11 AM', value: 100 },
+      { time: '12 PM', value: 65 },
+      { time: '1 PM', value: 75 },
+      { time: '2 PM', value: 60 },
+    ],
+  }
+
+  const profitData = profitDataByQuarter[selectedQuarter] || profitDataByQuarter.Q1
 
   const barColors = ['#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7']
 
@@ -267,38 +364,79 @@ const Homepage = () => {
                           Total revenue
                         </div>
                         <div className="flex items-center gap-3 mt-1">
-                          <h3 className="text-2xl font-bold text-white">$240.8K</h3>
-                          <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
-                            +24.6%
+                          <h3 className="text-2xl font-bold text-white">
+                            ${(quarterMetrics.totalRevenue / 1000).toFixed(1)}K
+                          </h3>
+                          <span className={`flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md ${
+                            parseFloat(quarterMetrics.revenueGrowth) >= 0 
+                              ? 'bg-[#22C55E]/10 text-[#22C55E]' 
+                              : 'bg-[#EF4444]/10 text-[#EF4444]'
+                          }`}>
+                            {parseFloat(quarterMetrics.revenueGrowth) >= 0 ? '+' : ''}{quarterMetrics.revenueGrowth}%
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={parseFloat(quarterMetrics.revenueGrowth) >= 0 ? "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" : "M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"} />
                             </svg>
                           </span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2 text-xs text-gray-500">
-                        <span>Jan 2025 - Dec 2025</span>
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
+                      {/* Quarter Selector */}
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-gray-500">2025</span>
+                        <div className="flex items-center gap-1 bg-[#0a0a0a] rounded-lg p-1 border border-white/5">
+                          {['Q1', 'Q2', 'Q3', 'Q4'].map((q) => (
+                            <button
+                              key={q}
+                              onClick={() => setSelectedQuarter(q)}
+                              className={`px-3 py-1.5 text-xs font-medium rounded transition-all duration-200 ${
+                                selectedQuarter === q
+                                  ? 'bg-white text-black'
+                                  : 'text-gray-400 hover:text-white'
+                              }`}
+                            >
+                              {q}
+                            </button>
+                          ))}
+                        </div>
                       </div>
                     </div>
                     <div className="flex-1 h-64">
                       <ResponsiveContainer width="100%" height="100%">
-                        <LineChart data={revenueData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
+                        <LineChart data={quarterlyData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
                           <defs>
+                            <filter id="revenueShadow" x="-50%" y="-50%" width="200%" height="200%">
+                              <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+                              <feOffset dx="0" dy="2" result="offsetblur" />
+                              <feComponentTransfer>
+                                <feFuncA type="linear" slope="0.15" />
+                              </feComponentTransfer>
+                              <feMerge>
+                                <feMergeNode />
+                                <feMergeNode in="SourceGraphic" />
+                              </feMerge>
+                            </filter>
+                            <filter id="expensesShadow" x="-50%" y="-50%" width="200%" height="200%">
+                              <feGaussianBlur in="SourceAlpha" stdDeviation="2.5" />
+                              <feOffset dx="0" dy="2" result="offsetblur" />
+                              <feComponentTransfer>
+                                <feFuncA type="linear" slope="0.12" />
+                              </feComponentTransfer>
+                              <feMerge>
+                                <feMergeNode />
+                                <feMergeNode in="SourceGraphic" />
+                              </feMerge>
+                            </filter>
                             <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="0%" stopColor="#A855F7" stopOpacity="0.3" />
+                              <stop offset="0%" stopColor="#A855F7" stopOpacity="0.25" />
                               <stop offset="100%" stopColor="#A855F7" stopOpacity="0" />
                             </linearGradient>
                             <linearGradient id="expensesGradient" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.2" />
+                              <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.18" />
                               <stop offset="100%" stopColor="#0EA5E9" stopOpacity="0" />
                             </linearGradient>
                           </defs>
                           <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
                           <XAxis 
-                            dataKey="month" 
+                            dataKey="quarter" 
                             stroke="#888" 
                             tick={{ fill: '#888', fontSize: 11 }}
                             axisLine={{ stroke: 'rgba(255,255,255,0.1)' }}
@@ -312,21 +450,20 @@ const Homepage = () => {
                           <Tooltip 
                             contentStyle={{ 
                               backgroundColor: '#1a1a1a', 
-                              border: '1px solid rgba(255,255,255,0.1)', 
+                              border: '1px solid rgba(255,255,255,0.15)', 
                               color: '#fff',
                               borderRadius: '8px',
                               padding: '10px 14px',
-                              boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+                              boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+                              backdropFilter: 'blur(8px)'
                             }}
-                            labelStyle={{ color: '#888', fontSize: '11px', marginBottom: '4px' }}
+                            labelStyle={{ color: '#fff', fontSize: '12px', marginBottom: '6px', fontWeight: '600' }}
                             formatter={(value, name) => {
                               const formatted = `$${value.toLocaleString()}`;
-                              const percentage = name === 'Revenue' 
-                                ? ((value / revenueData[revenueData.length - 1].Revenue) * 100).toFixed(1)
-                                : ((value / revenueData[revenueData.length - 1].Expenses) * 100).toFixed(1);
                               return [formatted, name];
                             }}
-                            cursor={{ stroke: '#A855F7', strokeWidth: 1, strokeDasharray: '3 3' }}
+                            cursor={{ stroke: '#A855F7', strokeWidth: 1.5, strokeDasharray: '4 4', opacity: 0.6 }}
+                            animationDuration={200}
                           />
                           <Legend 
                             wrapperStyle={{ fontSize: '12px', paddingTop: '10px' }}
@@ -339,10 +476,13 @@ const Homepage = () => {
                             stroke="#A855F7" 
                             strokeWidth={3}
                             dot={false}
-                            activeDot={{ r: 7, fill: '#A855F7', stroke: '#fff', strokeWidth: 2 }}
+                            activeDot={{ r: 8, fill: '#A855F7', stroke: '#fff', strokeWidth: 2.5, filter: 'drop-shadow(0 2px 4px rgba(168, 85, 247, 0.4))' }}
                             name="Revenue"
-                            animationDuration={1000}
+                            animationDuration={200}
                             animationBegin={0}
+                            filter="url(#revenueShadow)"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           />
                           <Line 
                             type="monotone" 
@@ -350,10 +490,13 @@ const Homepage = () => {
                             stroke="#0EA5E9" 
                             strokeWidth={2.5}
                             dot={false}
-                            activeDot={{ r: 6, fill: '#0EA5E9', stroke: '#fff', strokeWidth: 2 }}
+                            activeDot={{ r: 7, fill: '#0EA5E9', stroke: '#fff', strokeWidth: 2, filter: 'drop-shadow(0 2px 4px rgba(14, 165, 233, 0.4))' }}
                             name="Expenses"
-                            animationDuration={1000}
-                            animationBegin={200}
+                            animationDuration={200}
+                            animationBegin={100}
+                            filter="url(#expensesShadow)"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           />
                         </LineChart>
                       </ResponsiveContainer>
@@ -371,21 +514,40 @@ const Homepage = () => {
                           Total profit
                         </div>
                         <div className="flex items-center gap-3 mt-1">
-                          <h3 className="text-2xl font-bold text-white">$144.6K</h3>
-                          <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
-                            +28.5%
+                          <h3 className="text-2xl font-bold text-white">
+                            ${(quarterMetrics.profit / 1000).toFixed(1)}K
+                          </h3>
+                          <span className={`flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md ${
+                            parseFloat(quarterMetrics.profitGrowth) >= 0 
+                              ? 'bg-[#22C55E]/10 text-[#22C55E]' 
+                              : 'bg-[#EF4444]/10 text-[#EF4444]'
+                          }`}>
+                            {parseFloat(quarterMetrics.profitGrowth) >= 0 ? '+' : ''}{quarterMetrics.profitGrowth}%
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={parseFloat(quarterMetrics.profitGrowth) >= 0 ? "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" : "M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"} />
                             </svg>
                           </span>
                         </div>
                       </div>
-                      <button className="text-xs text-purple-400 hover:text-purple-300 transition-colors">View report</button>
+                      <button className="text-xs text-purple-400 hover:text-purple-300 transition-colors duration-200">View report</button>
                     </div>
                     <div className="flex-1">
                       <div className="h-24 flex items-end justify-between gap-1 mb-2">
                         <ResponsiveContainer width="100%" height="100%">
                           <BarChart data={profitData} margin={{ top: 5, right: 5, left: 5, bottom: 0 }}>
+                            <defs>
+                              <filter id="barShadow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
+                                <feOffset dx="0" dy="1" result="offsetblur" />
+                                <feComponentTransfer>
+                                  <feFuncA type="linear" slope="0.2" />
+                                </feComponentTransfer>
+                                <feMerge>
+                                  <feMergeNode />
+                                  <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                              </filter>
+                            </defs>
                             <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.03)" vertical={false} />
                             <XAxis 
                               dataKey="time" 
@@ -399,32 +561,39 @@ const Homepage = () => {
                             <Tooltip 
                               contentStyle={{ 
                                 backgroundColor: '#1a1a1a', 
-                                border: '1px solid rgba(255,255,255,0.1)', 
+                                border: '1px solid rgba(255,255,255,0.15)', 
                                 color: '#fff',
                                 borderRadius: '6px',
-                                padding: '6px 10px',
-                                boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+                                padding: '8px 12px',
+                                boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+                                backdropFilter: 'blur(8px)'
                               }}
-                              labelStyle={{ color: '#888', fontSize: '10px', marginBottom: '2px' }}
+                              labelStyle={{ color: '#fff', fontSize: '11px', marginBottom: '4px', fontWeight: '600' }}
                               formatter={(value) => [`${value}%`, 'Profit']}
-                              cursor={{ fill: 'rgba(168, 85, 247, 0.1)' }}
+                              cursor={{ fill: 'rgba(168, 85, 247, 0.12)' }}
+                              animationDuration={200}
                             />
                             <Bar 
                               dataKey="value" 
                               radius={[4, 4, 0, 0]}
-                              animationDuration={800}
+                              animationDuration={200}
                               animationBegin={0}
                             >
                               {profitData.map((entry, index) => (
                                 <Cell 
                                   key={`cell-${index}`} 
                                   fill={barColors[index % barColors.length]}
-                                  style={{ transition: 'opacity 0.2s' }}
+                                  style={{ 
+                                    transition: 'opacity 0.2s ease, filter 0.2s ease',
+                                    filter: 'url(#barShadow)'
+                                  }}
                                   onMouseEnter={(e) => {
-                                    e.target.style.opacity = '0.8';
+                                    e.target.style.opacity = '0.85';
+                                    e.target.style.filter = 'url(#barShadow) brightness(1.1)';
                                   }}
                                   onMouseLeave={(e) => {
                                     e.target.style.opacity = '1';
+                                    e.target.style.filter = 'url(#barShadow)';
                                   }}
                                 />
                               ))}
