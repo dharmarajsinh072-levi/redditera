@@ -43,12 +43,18 @@ const Homepage = () => {
     { quarter: 'Q4', Revenue: 240800, Expenses: 85000, TotalRevenue: 648800, TotalExpenses: 235000 },
   ]
 
-  // Get current quarter data
+  // Get current quarter data - SINGLE SOURCE OF TRUTH
   const currentQuarterData = useMemo(() => {
     return quarterlyData.find(q => q.quarter === selectedQuarter) || quarterlyData[0]
   }, [selectedQuarter])
 
-  // Calculate metrics for selected quarter
+  // Filter chart data to show only up to selected quarter
+  const filteredQuarterlyData = useMemo(() => {
+    const quarterIndex = quarterlyData.findIndex(q => q.quarter === selectedQuarter)
+    return quarterlyData.slice(0, quarterIndex + 1)
+  }, [selectedQuarter])
+
+  // Calculate metrics for selected quarter - ALL DERIVED FROM selectedQuarter
   const quarterMetrics = useMemo(() => {
     const totalRevenue = currentQuarterData.TotalRevenue
     const totalExpenses = currentQuarterData.TotalExpenses
@@ -254,9 +260,9 @@ const Homepage = () => {
                 {/* Top Row - 4 Small Metric Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
                   {/* Pageviews */}
-                  <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 hover:border-white/10 transition-colors group">
+                  <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
                     <div className="flex justify-between items-start mb-4">
-                      <div className="flex items-center gap-2 text-sm text-gray-400 font-medium">
+                      <div className="flex items-center gap-2 text-sm text-gray-400 font-medium group-hover:text-gray-300 transition-colors">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -268,8 +274,8 @@ const Homepage = () => {
                       </svg>
                     </div>
                     <div className="flex items-end gap-3">
-                      <span className="text-2xl font-bold text-white">50.8K</span>
-                      <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
+                      <span className="text-2xl font-bold text-white group-hover:text-white">50.8K</span>
+                      <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E] group-hover:bg-[#22C55E]/15">
                         +28.4%
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -279,9 +285,9 @@ const Homepage = () => {
                   </div>
 
                   {/* Monthly users */}
-                  <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 hover:border-white/10 transition-colors group">
+                  <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
                     <div className="flex justify-between items-start mb-4">
-                      <div className="flex items-center gap-2 text-sm text-gray-400 font-medium">
+                      <div className="flex items-center gap-2 text-sm text-gray-400 font-medium group-hover:text-gray-300 transition-colors">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                         </svg>
@@ -292,8 +298,8 @@ const Homepage = () => {
                       </svg>
                     </div>
                     <div className="flex items-end gap-3">
-                      <span className="text-2xl font-bold text-white">23.6K</span>
-                      <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#EF4444]/10 text-[#EF4444]">
+                      <span className="text-2xl font-bold text-white group-hover:text-white">23.6K</span>
+                      <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#EF4444]/10 text-[#EF4444] group-hover:bg-[#EF4444]/15">
                         -12.6%
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
@@ -303,9 +309,9 @@ const Homepage = () => {
                   </div>
 
                   {/* New sign ups */}
-                  <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 hover:border-white/10 transition-colors group">
+                  <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
                     <div className="flex justify-between items-start mb-4">
-                      <div className="flex items-center gap-2 text-sm text-gray-400 font-medium">
+                      <div className="flex items-center gap-2 text-sm text-gray-400 font-medium group-hover:text-gray-300 transition-colors">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                         </svg>
@@ -316,8 +322,8 @@ const Homepage = () => {
                       </svg>
                     </div>
                     <div className="flex items-end gap-3">
-                      <span className="text-2xl font-bold text-white">756</span>
-                      <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
+                      <span className="text-2xl font-bold text-white group-hover:text-white">756</span>
+                      <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E] group-hover:bg-[#22C55E]/15">
                         +3.1%
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -327,9 +333,9 @@ const Homepage = () => {
                   </div>
 
                   {/* Subscriptions */}
-                  <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 hover:border-white/10 transition-colors group">
+                  <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
                     <div className="flex justify-between items-start mb-4">
-                      <div className="flex items-center gap-2 text-sm text-gray-400 font-medium">
+                      <div className="flex items-center gap-2 text-sm text-gray-400 font-medium group-hover:text-gray-300 transition-colors">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -340,8 +346,8 @@ const Homepage = () => {
                       </svg>
                     </div>
                     <div className="flex items-end gap-3">
-                      <span className="text-2xl font-bold text-white">2.3K</span>
-                      <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
+                      <span className="text-2xl font-bold text-white group-hover:text-white">2.3K</span>
+                      <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E] group-hover:bg-[#22C55E]/15">
                         +11.3%
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -379,29 +385,29 @@ const Homepage = () => {
                           </span>
                         </div>
                       </div>
-                      {/* Quarter Selector */}
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs text-gray-500">2025</span>
-                        <div className="flex items-center gap-1 bg-[#0a0a0a] rounded-lg p-1 border border-white/5">
-                          {['Q1', 'Q2', 'Q3', 'Q4'].map((q) => (
-                            <button
-                              key={q}
-                              onClick={() => setSelectedQuarter(q)}
-                              className={`px-3 py-1.5 text-xs font-medium rounded transition-all duration-200 ${
-                                selectedQuarter === q
-                                  ? 'bg-white text-black'
-                                  : 'text-gray-400 hover:text-white'
-                              }`}
-                            >
-                              {q}
-                            </button>
-                          ))}
-                        </div>
+                      {/* Quarter Dropdown - SINGLE SOURCE OF TRUTH */}
+                      <div className="relative">
+                        <select
+                          value={selectedQuarter}
+                          onChange={(e) => setSelectedQuarter(e.target.value)}
+                          className="appearance-none bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-white cursor-pointer hover:border-white/20 focus:outline-none focus:border-white/30 transition-all duration-200 shadow-sm"
+                          style={{
+                            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'right 0.75rem center',
+                            backgroundSize: '12px'
+                          }}
+                        >
+                          <option value="Q1">Q1 2025</option>
+                          <option value="Q2">Q2 2025</option>
+                          <option value="Q3">Q3 2025</option>
+                          <option value="Q4">Q4 2025</option>
+                        </select>
                       </div>
                     </div>
                     <div className="flex-1 h-64">
                       <ResponsiveContainer width="100%" height="100%">
-                        <LineChart data={quarterlyData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
+                        <LineChart data={filteredQuarterlyData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
                           <defs>
                             <filter id="revenueShadow" x="-50%" y="-50%" width="200%" height="200%">
                               <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
@@ -504,23 +510,23 @@ const Homepage = () => {
                   </div>
 
                   {/* Total Profit - Bar Chart */}
-                  <div className="lg:col-span-1 bg-[#0F0F11] border border-white/5 rounded-xl p-6 flex flex-col">
+                  <div className="lg:col-span-1 bg-[#0F0F11] border border-white/5 rounded-xl p-6 flex flex-col transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
                     <div className="flex justify-between items-start mb-6">
                       <div>
-                        <div className="text-gray-400 text-sm font-medium flex items-center gap-2 mb-1">
+                        <div className="text-gray-400 text-sm font-medium flex items-center gap-2 mb-1 group-hover:text-gray-300 transition-colors">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                           </svg>
                           Total profit
                         </div>
                         <div className="flex items-center gap-3 mt-1">
-                          <h3 className="text-2xl font-bold text-white">
+                          <h3 className="text-2xl font-bold text-white group-hover:text-white">
                             ${(quarterMetrics.profit / 1000).toFixed(1)}K
                           </h3>
-                          <span className={`flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md ${
+                          <span className={`flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md transition-colors ${
                             parseFloat(quarterMetrics.profitGrowth) >= 0 
-                              ? 'bg-[#22C55E]/10 text-[#22C55E]' 
-                              : 'bg-[#EF4444]/10 text-[#EF4444]'
+                              ? 'bg-[#22C55E]/10 text-[#22C55E] group-hover:bg-[#22C55E]/15' 
+                              : 'bg-[#EF4444]/10 text-[#EF4444] group-hover:bg-[#EF4444]/15'
                           }`}>
                             {parseFloat(quarterMetrics.profitGrowth) >= 0 ? '+' : ''}{quarterMetrics.profitGrowth}%
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -529,7 +535,7 @@ const Homepage = () => {
                           </span>
                         </div>
                       </div>
-                      <button className="text-xs text-purple-400 hover:text-purple-300 transition-colors duration-200">View report</button>
+                      <button className="text-xs text-purple-400 hover:text-purple-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400/30 rounded px-2 py-1">View report</button>
                     </div>
                     <div className="flex-1">
                       <div className="h-24 flex items-end justify-between gap-1 mb-2">
