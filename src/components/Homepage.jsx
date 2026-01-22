@@ -10,8 +10,6 @@ const Homepage = () => {
     message: ''
   })
 
-  const [selectedQuarter, setSelectedQuarter] = useState('Q1')
-
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
@@ -19,7 +17,7 @@ const Homepage = () => {
     })
   }
 
-  // Original monthly data for aggregation
+  // Monthly data matching the image - Jan to Dec 2025
   const monthlyData = [
     { month: 'Jan', Revenue: 45000, Expenses: 28000 },
     { month: 'Feb', Revenue: 62000, Expenses: 32000 },
@@ -35,125 +33,35 @@ const Homepage = () => {
     { month: 'Dec', Revenue: 240800, Expenses: 85000 },
   ]
 
-  // Aggregate into quarters (using end-of-quarter values for line chart)
-  const quarterlyData = [
-    { quarter: 'Q1', Revenue: 78000, Expenses: 38000, TotalRevenue: 185000, TotalExpenses: 98000 },
-    { quarter: 'Q2', Revenue: 125200, Expenses: 52000, TotalRevenue: 325200, TotalExpenses: 142000 },
-    { quarter: 'Q3', Revenue: 175000, Expenses: 68000, TotalRevenue: 475000, TotalExpenses: 188000 },
-    { quarter: 'Q4', Revenue: 240800, Expenses: 85000, TotalRevenue: 648800, TotalExpenses: 235000 },
-  ]
-
-  // Get current quarter data - SINGLE SOURCE OF TRUTH
-  const currentQuarterData = useMemo(() => {
-    return quarterlyData.find(q => q.quarter === selectedQuarter) || quarterlyData[0]
-  }, [selectedQuarter])
-
-  // Always show all quarters in chart for proper visualization
-  // The selected quarter controls the displayed metrics, not the chart visibility
-  const chartData = useMemo(() => {
-    return quarterlyData
+  // Calculate metrics matching the image exactly
+  const yearMetrics = useMemo(() => {
+    // Image shows: Revenue $240.8K, Profit $144.6K, Growth +24.6% and +28.5%
+    return {
+      totalRevenue: 240800, // $240.8K as shown in image
+      profit: 144600,        // $144.6K as shown in image
+      revenueGrowth: '24.6',
+      profitGrowth: '28.5'
+    }
   }, [])
 
-  // Calculate metrics for selected quarter - ALL DERIVED FROM selectedQuarter
-  const quarterMetrics = useMemo(() => {
-    const totalRevenue = currentQuarterData.TotalRevenue
-    const totalExpenses = currentQuarterData.TotalExpenses
-    const profit = totalRevenue - totalExpenses
-    const profitPercentage = ((profit / totalRevenue) * 100).toFixed(1)
-    
-    // Calculate growth vs previous quarter
-    const quarterIndex = quarterlyData.findIndex(q => q.quarter === selectedQuarter)
-    const prevQuarter = quarterIndex > 0 ? quarterlyData[quarterIndex - 1] : null
-    const revenueGrowth = prevQuarter 
-      ? (((totalRevenue - prevQuarter.TotalRevenue) / prevQuarter.TotalRevenue) * 100).toFixed(1)
-      : '0.0'
-    const profitGrowth = prevQuarter
-      ? (((profit - (prevQuarter.TotalRevenue - prevQuarter.TotalExpenses)) / (prevQuarter.TotalRevenue - prevQuarter.TotalExpenses)) * 100).toFixed(1)
-      : '0.0'
-
-    return {
-      totalRevenue,
-      totalExpenses,
-      profit,
-      profitPercentage,
-      revenueGrowth,
-      profitGrowth
-    }
-  }, [selectedQuarter, currentQuarterData])
-
-  // Profit data for bar chart - varies by quarter
-  const profitDataByQuarter = {
-    Q1: [
-      { time: '12 AM', value: 35 },
-      { time: '1 AM', value: 45 },
-      { time: '2 AM', value: 40 },
-      { time: '3 AM', value: 70 },
-      { time: '4 AM', value: 60 },
-      { time: '5 AM', value: 45 },
-      { time: '6 AM', value: 55 },
-      { time: '7 AM', value: 65 },
-      { time: '8 AM', value: 80 },
-      { time: '9 AM', value: 40 },
-      { time: '10 AM', value: 60 },
-      { time: '11 AM', value: 75 },
-      { time: '12 PM', value: 50 },
-      { time: '1 PM', value: 55 },
-      { time: '2 PM', value: 45 },
-    ],
-    Q2: [
-      { time: '12 AM', value: 40 },
-      { time: '1 AM', value: 55 },
-      { time: '2 AM', value: 45 },
-      { time: '3 AM', value: 80 },
-      { time: '4 AM', value: 70 },
-      { time: '5 AM', value: 50 },
-      { time: '6 AM', value: 65 },
-      { time: '7 AM', value: 80 },
-      { time: '8 AM', value: 95 },
-      { time: '9 AM', value: 45 },
-      { time: '10 AM', value: 70 },
-      { time: '11 AM', value: 85 },
-      { time: '12 PM', value: 55 },
-      { time: '1 PM', value: 60 },
-      { time: '2 PM', value: 50 },
-    ],
-    Q3: [
-      { time: '12 AM', value: 45 },
-      { time: '1 AM', value: 65 },
-      { time: '2 AM', value: 50 },
-      { time: '3 AM', value: 90 },
-      { time: '4 AM', value: 80 },
-      { time: '5 AM', value: 55 },
-      { time: '6 AM', value: 75 },
-      { time: '7 AM', value: 90 },
-      { time: '8 AM', value: 100 },
-      { time: '9 AM', value: 50 },
-      { time: '10 AM', value: 80 },
-      { time: '11 AM', value: 95 },
-      { time: '12 PM', value: 60 },
-      { time: '1 PM', value: 70 },
-      { time: '2 PM', value: 55 },
-    ],
-    Q4: [
-      { time: '12 AM', value: 50 },
-      { time: '1 AM', value: 70 },
-      { time: '2 AM', value: 55 },
-      { time: '3 AM', value: 95 },
-      { time: '4 AM', value: 85 },
-      { time: '5 AM', value: 60 },
-      { time: '6 AM', value: 80 },
-      { time: '7 AM', value: 95 },
-      { time: '8 AM', value: 105 },
-      { time: '9 AM', value: 55 },
-      { time: '10 AM', value: 85 },
-      { time: '11 AM', value: 100 },
-      { time: '12 PM', value: 65 },
-      { time: '1 PM', value: 75 },
-      { time: '2 PM', value: 60 },
-    ],
-  }
-
-  const profitData = profitDataByQuarter[selectedQuarter] || profitDataByQuarter.Q1
+  // Profit data for bar chart - matching image design
+  const profitData = [
+    { time: '12 AM', value: 40 },
+    { time: '1 AM', value: 60 },
+    { time: '2 AM', value: 45 },
+    { time: '3 AM', value: 90 },
+    { time: '4 AM', value: 75 },
+    { time: '5 AM', value: 50 },
+    { time: '6 AM', value: 65 },
+    { time: '7 AM', value: 80 },
+    { time: '8 AM', value: 95 },
+    { time: '9 AM', value: 45 },
+    { time: '10 AM', value: 70 },
+    { time: '11 AM', value: 85 },
+    { time: '12 PM', value: 55 },
+    { time: '1 PM', value: 60 },
+    { time: '2 PM', value: 50 },
+  ]
 
   const barColors = ['#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7']
 
@@ -371,43 +279,27 @@ const Homepage = () => {
                         </div>
                         <div className="flex items-center gap-3 mt-1">
                           <h3 className="text-2xl font-bold text-white">
-                            ${(quarterMetrics.totalRevenue / 1000).toFixed(1)}K
+                            ${(yearMetrics.totalRevenue / 1000).toFixed(1)}K
                           </h3>
-                          <span className={`flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md ${
-                            parseFloat(quarterMetrics.revenueGrowth) >= 0 
-                              ? 'bg-[#22C55E]/10 text-[#22C55E]' 
-                              : 'bg-[#EF4444]/10 text-[#EF4444]'
-                          }`}>
-                            {parseFloat(quarterMetrics.revenueGrowth) >= 0 ? '+' : ''}{quarterMetrics.revenueGrowth}%
+                          <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
+                            +{yearMetrics.revenueGrowth}%
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={parseFloat(quarterMetrics.revenueGrowth) >= 0 ? "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" : "M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"} />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                             </svg>
                           </span>
                         </div>
                       </div>
-                      {/* Quarter Dropdown - SINGLE SOURCE OF TRUTH */}
-                      <div className="relative">
-                        <select
-                          value={selectedQuarter}
-                          onChange={(e) => setSelectedQuarter(e.target.value)}
-                          className="appearance-none bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-white cursor-pointer hover:border-white/20 focus:outline-none focus:border-white/30 transition-all duration-200 shadow-sm"
-                          style={{
-                            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'right 0.75rem center',
-                            backgroundSize: '12px'
-                          }}
-                        >
-                          <option value="Q1">Q1 2025</option>
-                          <option value="Q2">Q2 2025</option>
-                          <option value="Q3">Q3 2025</option>
-                          <option value="Q4">Q4 2025</option>
-                        </select>
+                      {/* Date Range - Matching Image Design */}
+                      <div className="flex items-center gap-2 text-xs text-gray-500">
+                        <span>Jan 2025 - Dec 2025</span>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
                       </div>
                     </div>
                     <div className="flex-1 h-64">
                       <ResponsiveContainer width="100%" height="100%">
-                        <LineChart data={chartData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
+                        <LineChart data={monthlyData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
                           <defs>
                             <filter id="revenueShadow" x="-50%" y="-50%" width="200%" height="200%">
                               <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
@@ -442,7 +334,7 @@ const Homepage = () => {
                           </defs>
                           <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
                           <XAxis 
-                            dataKey="quarter" 
+                            dataKey="month" 
                             stroke="#888" 
                             tick={{ fill: '#888', fontSize: 11 }}
                             axisLine={{ stroke: 'rgba(255,255,255,0.1)' }}
@@ -452,6 +344,8 @@ const Homepage = () => {
                             tick={{ fill: '#888', fontSize: 11 }}
                             axisLine={{ stroke: 'rgba(255,255,255,0.1)' }}
                             tickFormatter={(value) => `${value/1000}K`}
+                            domain={[0, 260000]}
+                            ticks={[0, 50000, 100000, 150000, 200000, 250000]}
                           />
                           <Tooltip 
                             contentStyle={{ 
@@ -521,16 +415,12 @@ const Homepage = () => {
                         </div>
                         <div className="flex items-center gap-3 mt-1">
                           <h3 className="text-2xl font-bold text-white group-hover:text-white">
-                            ${(quarterMetrics.profit / 1000).toFixed(1)}K
+                            ${(yearMetrics.profit / 1000).toFixed(1)}K
                           </h3>
-                          <span className={`flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md transition-colors ${
-                            parseFloat(quarterMetrics.profitGrowth) >= 0 
-                              ? 'bg-[#22C55E]/10 text-[#22C55E] group-hover:bg-[#22C55E]/15' 
-                              : 'bg-[#EF4444]/10 text-[#EF4444] group-hover:bg-[#EF4444]/15'
-                          }`}>
-                            {parseFloat(quarterMetrics.profitGrowth) >= 0 ? '+' : ''}{quarterMetrics.profitGrowth}%
+                          <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md transition-colors bg-[#22C55E]/10 text-[#22C55E] group-hover:bg-[#22C55E]/15">
+                            +{yearMetrics.profitGrowth}%
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={parseFloat(quarterMetrics.profitGrowth) >= 0 ? "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" : "M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"} />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                             </svg>
                           </span>
                         </div>
