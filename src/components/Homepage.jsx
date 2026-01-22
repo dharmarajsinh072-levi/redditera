@@ -48,11 +48,11 @@ const Homepage = () => {
     return quarterlyData.find(q => q.quarter === selectedQuarter) || quarterlyData[0]
   }, [selectedQuarter])
 
-  // Filter chart data to show only up to selected quarter
-  const filteredQuarterlyData = useMemo(() => {
-    const quarterIndex = quarterlyData.findIndex(q => q.quarter === selectedQuarter)
-    return quarterlyData.slice(0, quarterIndex + 1)
-  }, [selectedQuarter])
+  // Always show all quarters in chart for proper visualization
+  // The selected quarter controls the displayed metrics, not the chart visibility
+  const chartData = useMemo(() => {
+    return quarterlyData
+  }, [])
 
   // Calculate metrics for selected quarter - ALL DERIVED FROM selectedQuarter
   const quarterMetrics = useMemo(() => {
@@ -407,7 +407,7 @@ const Homepage = () => {
                     </div>
                     <div className="flex-1 h-64">
                       <ResponsiveContainer width="100%" height="100%">
-                        <LineChart data={filteredQuarterlyData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
+                        <LineChart data={chartData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
                           <defs>
                             <filter id="revenueShadow" x="-50%" y="-50%" width="200%" height="200%">
                               <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
@@ -481,7 +481,7 @@ const Homepage = () => {
                             dataKey="Revenue" 
                             stroke="#A855F7" 
                             strokeWidth={3}
-                            dot={false}
+                            dot={{ r: 4, fill: '#A855F7', stroke: '#fff', strokeWidth: 2 }}
                             activeDot={{ r: 8, fill: '#A855F7', stroke: '#fff', strokeWidth: 2.5, filter: 'drop-shadow(0 2px 4px rgba(168, 85, 247, 0.4))' }}
                             name="Revenue"
                             animationDuration={200}
@@ -495,7 +495,7 @@ const Homepage = () => {
                             dataKey="Expenses" 
                             stroke="#0EA5E9" 
                             strokeWidth={2.5}
-                            dot={false}
+                            dot={{ r: 4, fill: '#0EA5E9', stroke: '#fff', strokeWidth: 2 }}
                             activeDot={{ r: 7, fill: '#0EA5E9', stroke: '#fff', strokeWidth: 2, filter: 'drop-shadow(0 2px 4px rgba(14, 165, 233, 0.4))' }}
                             name="Expenses"
                             animationDuration={200}
