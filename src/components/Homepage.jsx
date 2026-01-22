@@ -17,19 +17,19 @@ const Homepage = () => {
     })
   }
 
-  // Revenue and Expenses data for line chart
+  // Revenue and Expenses data for line chart - smoother curve
   const revenueData = [
-    { month: 'Jan', Revenue: 50000, Expenses: 30000 },
-    { month: 'Feb', Revenue: 65000, Expenses: 35000 },
-    { month: 'Mar', Revenue: 80000, Expenses: 40000 },
-    { month: 'Apr', Revenue: 95000, Expenses: 45000 },
-    { month: 'May', Revenue: 110000, Expenses: 50000 },
-    { month: 'Jun', Revenue: 125000, Expenses: 55000 },
-    { month: 'Jul', Revenue: 140000, Expenses: 60000 },
-    { month: 'Aug', Revenue: 160000, Expenses: 65000 },
-    { month: 'Sep', Revenue: 180000, Expenses: 70000 },
-    { month: 'Oct', Revenue: 200000, Expenses: 75000 },
-    { month: 'Nov', Revenue: 220000, Expenses: 80000 },
+    { month: 'Jan', Revenue: 45000, Expenses: 28000 },
+    { month: 'Feb', Revenue: 62000, Expenses: 32000 },
+    { month: 'Mar', Revenue: 78000, Expenses: 38000 },
+    { month: 'Apr', Revenue: 92000, Expenses: 42000 },
+    { month: 'May', Revenue: 108000, Expenses: 48000 },
+    { month: 'Jun', Revenue: 125200, Expenses: 52000 },
+    { month: 'Jul', Revenue: 142000, Expenses: 58000 },
+    { month: 'Aug', Revenue: 158000, Expenses: 62000 },
+    { month: 'Sep', Revenue: 175000, Expenses: 68000 },
+    { month: 'Oct', Revenue: 192000, Expenses: 72000 },
+    { month: 'Nov', Revenue: 216000, Expenses: 78000 },
     { month: 'Dec', Revenue: 240800, Expenses: 85000 },
   ]
 
@@ -53,17 +53,6 @@ const Homepage = () => {
   ]
 
   const barColors = ['#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7']
-
-  // Sessions data for small line chart
-  const sessionsData = [
-    { day: 'Mon', value: 350 },
-    { day: 'Tue', value: 380 },
-    { day: 'Wed', value: 400 },
-    { day: 'Thu', value: 420 },
-    { day: 'Fri', value: 400 },
-    { day: 'Sat', value: 410 },
-    { day: 'Sun', value: 400 },
-  ]
 
   return (
     <div className="homepage bg-[#0a0a0a] text-white min-h-screen">
@@ -297,6 +286,16 @@ const Homepage = () => {
                     <div className="flex-1 h-64">
                       <ResponsiveContainer width="100%" height="100%">
                         <LineChart data={revenueData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
+                          <defs>
+                            <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="0%" stopColor="#A855F7" stopOpacity="0.3" />
+                              <stop offset="100%" stopColor="#A855F7" stopOpacity="0" />
+                            </linearGradient>
+                            <linearGradient id="expensesGradient" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.2" />
+                              <stop offset="100%" stopColor="#0EA5E9" stopOpacity="0" />
+                            </linearGradient>
+                          </defs>
                           <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
                           <XAxis 
                             dataKey="month" 
@@ -316,14 +315,23 @@ const Homepage = () => {
                               border: '1px solid rgba(255,255,255,0.1)', 
                               color: '#fff',
                               borderRadius: '8px',
-                              padding: '8px 12px'
+                              padding: '10px 14px',
+                              boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
                             }}
-                            labelStyle={{ color: '#888', fontSize: '11px' }}
-                            formatter={(value) => [`$${value.toLocaleString()}`, '']}
+                            labelStyle={{ color: '#888', fontSize: '11px', marginBottom: '4px' }}
+                            formatter={(value, name) => {
+                              const formatted = `$${value.toLocaleString()}`;
+                              const percentage = name === 'Revenue' 
+                                ? ((value / revenueData[revenueData.length - 1].Revenue) * 100).toFixed(1)
+                                : ((value / revenueData[revenueData.length - 1].Expenses) * 100).toFixed(1);
+                              return [formatted, name];
+                            }}
+                            cursor={{ stroke: '#A855F7', strokeWidth: 1, strokeDasharray: '3 3' }}
                           />
                           <Legend 
                             wrapperStyle={{ fontSize: '12px', paddingTop: '10px' }}
                             iconType="circle"
+                            formatter={(value) => <span style={{ color: '#fff', fontSize: '12px' }}>{value}</span>}
                           />
                           <Line 
                             type="monotone" 
@@ -331,8 +339,10 @@ const Homepage = () => {
                             stroke="#A855F7" 
                             strokeWidth={3}
                             dot={false}
-                            activeDot={{ r: 6, fill: '#A855F7' }}
+                            activeDot={{ r: 7, fill: '#A855F7', stroke: '#fff', strokeWidth: 2 }}
                             name="Revenue"
+                            animationDuration={1000}
+                            animationBegin={0}
                           />
                           <Line 
                             type="monotone" 
@@ -340,8 +350,10 @@ const Homepage = () => {
                             stroke="#0EA5E9" 
                             strokeWidth={2.5}
                             dot={false}
-                            activeDot={{ r: 5, fill: '#0EA5E9' }}
+                            activeDot={{ r: 6, fill: '#0EA5E9', stroke: '#fff', strokeWidth: 2 }}
                             name="Expenses"
+                            animationDuration={1000}
+                            animationBegin={200}
                           />
                         </LineChart>
                       </ResponsiveContainer>
@@ -373,10 +385,48 @@ const Homepage = () => {
                     <div className="flex-1">
                       <div className="h-24 flex items-end justify-between gap-1 mb-2">
                         <ResponsiveContainer width="100%" height="100%">
-                          <BarChart data={profitData} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
-                            <Bar dataKey="value" radius={[4, 4, 0, 0]}>
+                          <BarChart data={profitData} margin={{ top: 5, right: 5, left: 5, bottom: 0 }}>
+                            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.03)" vertical={false} />
+                            <XAxis 
+                              dataKey="time" 
+                              stroke="#888" 
+                              tick={{ fill: '#888', fontSize: 9 }}
+                              axisLine={false}
+                              tickLine={false}
+                              hide
+                            />
+                            <YAxis hide />
+                            <Tooltip 
+                              contentStyle={{ 
+                                backgroundColor: '#1a1a1a', 
+                                border: '1px solid rgba(255,255,255,0.1)', 
+                                color: '#fff',
+                                borderRadius: '6px',
+                                padding: '6px 10px',
+                                boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+                              }}
+                              labelStyle={{ color: '#888', fontSize: '10px', marginBottom: '2px' }}
+                              formatter={(value) => [`${value}%`, 'Profit']}
+                              cursor={{ fill: 'rgba(168, 85, 247, 0.1)' }}
+                            />
+                            <Bar 
+                              dataKey="value" 
+                              radius={[4, 4, 0, 0]}
+                              animationDuration={800}
+                              animationBegin={0}
+                            >
                               {profitData.map((entry, index) => (
-                                <Cell key={`cell-${index}`} fill={barColors[index % barColors.length]} />
+                                <Cell 
+                                  key={`cell-${index}`} 
+                                  fill={barColors[index % barColors.length]}
+                                  style={{ transition: 'opacity 0.2s' }}
+                                  onMouseEnter={(e) => {
+                                    e.target.style.opacity = '0.8';
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.target.style.opacity = '1';
+                                  }}
+                                />
                               ))}
                             </Bar>
                           </BarChart>
@@ -391,46 +441,6 @@ const Homepage = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* Bottom Row - Total Sessions */}
-                <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
-                  <div className="flex justify-between items-start mb-6">
-                    <div>
-                      <div className="text-gray-400 text-sm font-medium flex items-center gap-2 mb-1">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        Total sessions
-                      </div>
-                      <div className="flex items-center gap-3 mt-1">
-                        <h3 className="text-2xl font-bold text-white">400</h3>
-                        <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
-                          +16.8%
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                    <svg className="w-4 h-4 text-gray-600 hover:text-white cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                    </svg>
-                  </div>
-                  <div className="h-20">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <LineChart data={sessionsData} margin={{ top: 5, right: 5, left: 0, bottom: 0 }}>
-                        <Line 
-                          type="monotone" 
-                          dataKey="value" 
-                          stroke="#A855F7" 
-                          strokeWidth={2}
-                          dot={false}
-                          activeDot={{ r: 4, fill: '#A855F7' }}
-                        />
-                      </LineChart>
-                    </ResponsiveContainer>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -438,7 +448,7 @@ const Homepage = () => {
       </section>
 
       {/* Trusted Partners Section */}
-      <section className="py-16 relative">
+      <section className="py-16 relative -mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs text-gray-500 font-medium uppercase tracking-widest mb-6 text-center">Trusted Partners</p>
           <div className="w-full max-w-4xl mx-auto relative flex overflow-hidden" style={{
