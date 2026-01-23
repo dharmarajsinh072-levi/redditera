@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/Homepage.css'
 
 const BuildAuthority = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div className="homepage bg-[#0a0a0a] text-white min-h-screen">
       {/* Header */}
