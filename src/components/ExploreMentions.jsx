@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCountUp } from '../hooks/useCountUp'
 import '../styles/Homepage.css'
 
 const ExploreMentions = () => {
@@ -90,18 +91,9 @@ const ExploreMentions = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
-              <div className="text-3xl font-bold text-white mb-2">3.2x</div>
-              <p className="text-gray-400">Higher conversion rate compared to display ads</p>
-            </div>
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
-              <div className="text-3xl font-bold text-white mb-2">68%</div>
-              <p className="text-gray-400">Of Reddit users prefer community recommendations</p>
-            </div>
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
-              <div className="text-3xl font-bold text-white mb-2">5.2x</div>
-              <p className="text-gray-400">Better engagement rate than social media ads</p>
-            </div>
+            <StatCard value={3.2} suffix="x" description="Higher conversion rate compared to display ads" />
+            <StatCard value={68} suffix="%" description="Of Reddit users prefer community recommendations" />
+            <StatCard value={5.2} suffix="x" description="Better engagement rate than social media ads" />
           </div>
         </div>
 
@@ -111,8 +103,8 @@ const ExploreMentions = () => {
             How <span className="font-serif font-normal italic text-gray-300">We Do It</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
-              <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-6">
+            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+              <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-6 transition-transform duration-300 hover:scale-110">
                 <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
@@ -122,8 +114,8 @@ const ExploreMentions = () => {
                 We monitor thousands of subreddits daily, identifying threads where users actively seek solutions your brand provides. We focus on high-intent moments—not random mentions.
               </p>
             </div>
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
-              <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-6">
+            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+              <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-6 transition-transform duration-300 hover:scale-110">
                 <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
@@ -133,8 +125,8 @@ const ExploreMentions = () => {
                 Our expert team writes every mention to provide genuine value first. We answer questions, solve problems, then naturally position your brand as the solution—never as a sales pitch.
               </p>
             </div>
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
-              <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mb-6">
+            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+              <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mb-6 transition-transform duration-300 hover:scale-110">
                 <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
@@ -225,6 +217,31 @@ const ExploreMentions = () => {
           </button>
         </div>
       </section>
+    </div>
+  )
+}
+
+// Stat Card Component with Count-Up Animation
+const StatCard = ({ value, suffix, description }) => {
+  const [count, ref] = useCountUp(value, 2000, true)
+  
+  const formatNumber = (num) => {
+    if (suffix === 'x') {
+      return num.toFixed(1) + suffix
+    }
+    if (suffix === '%') {
+      return Math.floor(num) + suffix
+    }
+    return num.toFixed(1) + suffix
+  }
+
+  return (
+    <div 
+      ref={ref}
+      className="bg-[#0F0F11] border border-white/5 rounded-xl p-6 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+    >
+      <div className="text-3xl font-bold text-white mb-2">{formatNumber(count)}</div>
+      <p className="text-gray-400">{description}</p>
     </div>
   )
 }

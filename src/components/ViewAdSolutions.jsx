@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useCountUp } from '../hooks/useCountUp'
 import '../styles/Homepage.css'
 
 const ViewAdSolutions = () => {
@@ -91,24 +92,9 @@ const ViewAdSolutions = () => {
           </div>
           <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white/5 rounded-xl p-6 border border-white/5 text-center hover:border-white/10 transition-all">
-                <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">ROAS</div>
-                <div className="text-4xl font-bold text-white mb-2">4.2x</div>
-                <p className="text-sm text-gray-400 mb-3">Return on Ad Spend</p>
-                <p className="text-xs text-gray-500">Industry avg: 2.1x</p>
-              </div>
-              <div className="bg-white/5 rounded-xl p-6 border border-white/5 text-center hover:border-white/10 transition-all">
-                <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">CTR</div>
-                <div className="text-4xl font-bold text-white mb-2">3.85%</div>
-                <p className="text-sm text-gray-400 mb-3">Click-Through Rate</p>
-                <p className="text-xs text-gray-500">Industry avg: 0.8%</p>
-              </div>
-              <div className="bg-white/5 rounded-xl p-6 border border-white/5 text-center hover:border-white/10 transition-all">
-                <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">Conv. Rate</div>
-                <div className="text-4xl font-bold text-white mb-2">12%</div>
-                <p className="text-sm text-gray-400 mb-3">Conversion Rate</p>
-                <p className="text-xs text-gray-500">Industry avg: 4.2%</p>
-              </div>
+              <MetricCard label="ROAS" value={4.2} suffix="x" description="Return on Ad Spend" comparison="Industry avg: 2.1x" />
+              <MetricCard label="CTR" value={3.85} suffix="%" description="Click-Through Rate" comparison="Industry avg: 0.8%" />
+              <MetricCard label="Conv. Rate" value={12} suffix="%" description="Conversion Rate" comparison="Industry avg: 4.2%" />
             </div>
           </div>
         </div>
@@ -122,7 +108,7 @@ const ViewAdSolutions = () => {
             Multiple Reddit ad formats, each optimized for different goals. Choose the approach that aligns with your objectives.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
+            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
               <h3 className="text-lg font-bold text-white mb-3">Display Ads</h3>
               <p className="text-sm text-gray-400 mb-4">Traditional banner ads with high visibility</p>
               <ul className="space-y-2 text-xs text-gray-500">
@@ -131,7 +117,7 @@ const ViewAdSolutions = () => {
                 <li>• Broad reach options</li>
               </ul>
             </div>
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
+            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
               <h3 className="text-lg font-bold text-white mb-3">Promoted Posts</h3>
               <p className="text-sm text-gray-400 mb-4">Native content that blends seamlessly</p>
               <ul className="space-y-2 text-xs text-gray-500">
@@ -140,7 +126,7 @@ const ViewAdSolutions = () => {
                 <li>• Discussion-driven results</li>
               </ul>
             </div>
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
+            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
               <h3 className="text-lg font-bold text-white mb-3">Video Ads</h3>
               <p className="text-sm text-gray-400 mb-4">High-impact video content</p>
               <ul className="space-y-2 text-xs text-gray-500">
@@ -161,8 +147,8 @@ const ViewAdSolutions = () => {
             Our methodology combines Reddit's platform expertise with data-driven optimization to ensure every campaign exceeds expectations.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
-              <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mb-6">
+            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+              <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mb-6 transition-transform duration-300 hover:scale-110">
                 <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
@@ -172,8 +158,8 @@ const ViewAdSolutions = () => {
                 We don't set and forget. Every campaign is monitored in real-time with daily optimizations. Bid adjustments, audience refinements, and creative testing happen continuously to maximize ROAS.
               </p>
             </div>
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
-              <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-6">
+            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+              <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-6 transition-transform duration-300 hover:scale-110">
                 <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
@@ -183,8 +169,8 @@ const ViewAdSolutions = () => {
                 Our relationship with Reddit's advertising team gives us early access to new features, beta testing, and direct support. This partnership advantage translates to better campaign performance.
               </p>
             </div>
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
-              <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-6">
+            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+              <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-6 transition-transform duration-300 hover:scale-110">
                 <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
@@ -194,8 +180,8 @@ const ViewAdSolutions = () => {
                 Reddit's unique targeting—subreddit-based, interest-based, and lookalike audiences—lets us reach exactly who matters. We combine multiple strategies to find your highest-value prospects.
               </p>
             </div>
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
-              <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center mb-6">
+            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+              <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center mb-6 transition-transform duration-300 hover:scale-110">
                 <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
@@ -227,6 +213,36 @@ const ViewAdSolutions = () => {
           </button>
         </div>
       </section>
+    </div>
+  )
+}
+
+// Metric Card Component with Count-Up Animation
+const MetricCard = ({ label, value, suffix, description, comparison }) => {
+  const [count, ref] = useCountUp(value, 2000, true)
+  
+  const formatNumber = (num) => {
+    if (suffix === 'x') {
+      return num.toFixed(1) + suffix
+    }
+    if (suffix === '%') {
+      if (value < 10) {
+        return num.toFixed(2) + suffix
+      }
+      return num.toFixed(1) + suffix
+    }
+    return Math.floor(num) + suffix
+  }
+
+  return (
+    <div 
+      ref={ref}
+      className="bg-white/5 rounded-xl p-6 border border-white/5 text-center hover:border-white/20 hover:bg-white/10 hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+    >
+      <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">{label}</div>
+      <div className="text-4xl font-bold text-white mb-2">{formatNumber(count)}</div>
+      <p className="text-sm text-gray-400 mb-3">{description}</p>
+      <p className="text-xs text-gray-500">{comparison}</p>
     </div>
   )
 }
