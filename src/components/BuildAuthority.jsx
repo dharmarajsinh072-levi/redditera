@@ -53,7 +53,7 @@ const BuildAuthority = () => {
               Build <span className="font-serif font-normal italic text-gray-300">Authority</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 max-w-2xl mb-8">
-              Our strategies will improve your reputation on Reddit and build a basis for long-term sustainable growth.
+              Transform your Reddit presence from anonymous to authoritative. We help you become the trusted voice in your industry—the one users turn to when they need expert guidance.
             </p>
           </div>
         </div>
@@ -65,10 +65,13 @@ const BuildAuthority = () => {
         
         {/* Trust Score Display */}
         <div className="mb-24 text-center">
-          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-12">
-            Your <span className="font-serif font-normal italic text-gray-300">Trust Score</span>
+          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-6">
+            Measure Your <span className="font-serif font-normal italic text-gray-300">Reddit Authority</span>
           </h2>
-          <div className="flex justify-center">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
+            Our Trust Score tracks how Reddit communities perceive your brand. Higher scores mean more credibility, better engagement, and increased conversions.
+          </p>
+          <div className="flex justify-center mb-8">
             <div className="relative w-64 h-64">
               <div className="absolute inset-0 rounded-full border-8 border-transparent" style={{
                 background: 'conic-gradient(from 0deg, #22C55E 0deg 316.8deg, rgba(255,255,255,0.1) 316.8deg 360deg)'
@@ -79,13 +82,30 @@ const BuildAuthority = () => {
               </div>
             </div>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
+              <div className="text-2xl font-bold text-white mb-2">70-79</div>
+              <p className="text-sm text-gray-400">Building Trust</p>
+            </div>
+            <div className="bg-[#0F0F11] border border-white/10 rounded-xl p-6 border-green-500/30">
+              <div className="text-2xl font-bold text-white mb-2">80-89</div>
+              <p className="text-sm text-gray-400">Trusted Authority</p>
+            </div>
+            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
+              <div className="text-2xl font-bold text-white mb-2">90-100</div>
+              <p className="text-sm text-gray-400">Industry Leader</p>
+            </div>
+          </div>
         </div>
 
-        {/* Strategy Points */}
+        {/* What You Get */}
         <div className="mb-24">
-          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-12 text-center">
-            Our <span className="font-serif font-normal italic text-gray-300">Strategy</span>
+          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-6 text-center">
+            What <span className="font-serif font-normal italic text-gray-300">You Get</span>
           </h2>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto text-center mb-12">
+            Building authority isn't about quick wins—it's about establishing your brand as the go-to expert in your space. Here's how we make it happen.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
               <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mb-6">
@@ -93,10 +113,24 @@ const BuildAuthority = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Authentic Engagement</h3>
-              <p className="text-gray-400 leading-relaxed">
-                We focus on genuine interactions that build trust and credibility within Reddit communities, not quick wins.
+              <h3 className="text-xl font-bold text-white mb-4">Authentic Community Engagement</h3>
+              <p className="text-gray-400 leading-relaxed mb-4">
+                We don't drop links and disappear. Our team engages authentically—answering questions, providing value, and building genuine relationships. Reddit users can spot inauthenticity instantly, so we never fake it.
               </p>
+              <ul className="space-y-2 text-sm text-gray-500">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-400 mt-1">✓</span>
+                  <span>Regular, valuable contributions to relevant subreddits</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-400 mt-1">✓</span>
+                  <span>Thoughtful responses that demonstrate expertise</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-400 mt-1">✓</span>
+                  <span>Consistent presence that builds recognition</span>
+                </li>
+              </ul>
             </div>
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
               <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-6">
@@ -104,10 +138,24 @@ const BuildAuthority = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Long-Term Growth</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Sustainable reputation building creates lasting value and positions your brand as a trusted authority.
+              <h3 className="text-xl font-bold text-white mb-4">Sustainable Long-Term Growth</h3>
+              <p className="text-gray-400 leading-relaxed mb-4">
+                Unlike paid ads that stop working when you stop paying, authority compounds. Each quality interaction builds on the last, creating a foundation that drives organic growth for years.
               </p>
+              <ul className="space-y-2 text-sm text-gray-500">
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span>Compound reputation growth over time</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span>Organic mentions from community members</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span>Reduced dependency on paid advertising</span>
+                </li>
+              </ul>
             </div>
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
               <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-6">
@@ -115,10 +163,24 @@ const BuildAuthority = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Community Integration</h3>
-              <p className="text-gray-400 leading-relaxed">
-                We help you become a valued member of relevant communities, not just another advertiser.
+              <h3 className="text-xl font-bold text-white mb-4">Deep Community Integration</h3>
+              <p className="text-gray-400 leading-relaxed mb-4">
+                We help you become a recognized, valued member of your target communities. Not a marketer, not an advertiser—a trusted contributor who happens to have a great solution.
               </p>
+              <ul className="space-y-2 text-sm text-gray-500">
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-400 mt-1">✓</span>
+                  <span>Active participation in key subreddits</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-400 mt-1">✓</span>
+                  <span>Moderator relationships and community respect</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-400 mt-1">✓</span>
+                  <span>User-generated recommendations of your brand</span>
+                </li>
+              </ul>
             </div>
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
               <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center mb-6">
@@ -126,10 +188,24 @@ const BuildAuthority = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Measurable Results</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Track your reputation growth with clear metrics and insights into community sentiment.
+              <h3 className="text-xl font-bold text-white mb-4">Data-Driven Authority Building</h3>
+              <p className="text-gray-400 leading-relaxed mb-4">
+                Every interaction is tracked and optimized. We measure sentiment, engagement quality, and trust score progression to ensure your authority grows strategically.
               </p>
+              <ul className="space-y-2 text-sm text-gray-500">
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-400 mt-1">✓</span>
+                  <span>Real-time Trust Score monitoring</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-400 mt-1">✓</span>
+                  <span>Community sentiment analysis</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-400 mt-1">✓</span>
+                  <span>Monthly authority growth reports</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -137,10 +213,10 @@ const BuildAuthority = () => {
         {/* CTA Section */}
         <div className="text-center bg-[#0F0F11] border border-white/5 rounded-3xl p-12">
           <h2 className="text-3xl md:text-4xl font-satoshi font-bold text-white mb-4">
-            Ready to Build Your Authority?
+            Become the Authority in Your Space
           </h2>
           <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-            Let's create a sustainable reputation strategy that drives long-term growth.
+            Stop competing for attention. Start earning trust. Let's build your Reddit authority with a strategy that compounds over time, turning community respect into sustainable business growth.
           </p>
           <Link 
             to="/#contact" 
