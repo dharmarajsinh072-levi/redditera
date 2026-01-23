@@ -369,45 +369,43 @@ const Homepage = () => {
                 {/* Middle Row - 2 Large Chart Widgets */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
                   {/* Total Revenue - Line Chart */}
-                  <div className="lg:col-span-1 bg-[#0F0F11] border border-white/5 rounded-xl p-4 sm:p-6 flex flex-col">
-                    <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4 sm:mb-6">
-                      <div className="flex-1">
-                        <div className="text-gray-400 text-sm font-medium flex items-center gap-2 mb-1">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          Total revenue
-                        </div>
-                        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-1">
-                          <h3 className="text-xl sm:text-2xl font-bold text-white">
-                            ${(quarterMetrics.totalRevenue / 1000).toFixed(1)}K
-                          </h3>
-                          <span className="flex items-center gap-1 text-xs sm:text-sm font-bold px-2 sm:px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
-                            +{quarterMetrics.revenueGrowth}%
-                            <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                            </svg>
-                          </span>
-                        </div>
+                  <div className="lg:col-span-1 bg-[#0F0F11] border border-white/5 rounded-xl p-4 sm:p-6 flex flex-col relative">
+                    {/* Quarter Dropdown - Top Right Corner */}
+                    <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10">
+                      <select
+                        value={selectedQuarter}
+                        onChange={(e) => setSelectedQuarter(e.target.value)}
+                        className="appearance-none bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-white cursor-pointer hover:border-white/20 focus:outline-none focus:border-white/30 transition-all duration-200 shadow-sm"
+                        style={{
+                          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
+                          backgroundRepeat: 'no-repeat',
+                          backgroundPosition: 'right 0.75rem center',
+                          backgroundSize: '12px'
+                        }}
+                      >
+                        <option value="Q1">Q1 2025</option>
+                        <option value="Q2">Q2 2025</option>
+                        <option value="Q3">Q3 2025</option>
+                        <option value="Q4">Q4 2025</option>
+                      </select>
+                    </div>
+                    <div className="flex flex-col gap-2 mb-4 sm:mb-6 pr-24 sm:pr-28">
+                      <div className="text-gray-400 text-sm font-medium flex items-center gap-2">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Total revenue
                       </div>
-                      {/* Quarter Dropdown */}
-                      <div className="relative w-full sm:w-auto">
-                        <select
-                          value={selectedQuarter}
-                          onChange={(e) => setSelectedQuarter(e.target.value)}
-                          className="w-full sm:w-auto appearance-none bg-[#0a0a0a] border border-white/10 rounded-lg px-3 sm:px-4 py-2 pr-8 text-xs sm:text-sm font-medium text-white cursor-pointer hover:border-white/20 focus:outline-none focus:border-white/30 transition-all duration-200 shadow-sm"
-                          style={{
-                            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'right 0.75rem center',
-                            backgroundSize: '12px'
-                          }}
-                        >
-                          <option value="Q1">Q1 2025</option>
-                          <option value="Q2">Q2 2025</option>
-                          <option value="Q3">Q3 2025</option>
-                          <option value="Q4">Q4 2025</option>
-                        </select>
+                      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                        <h3 className="text-xl sm:text-2xl font-bold text-white">
+                          ${(quarterMetrics.totalRevenue / 1000).toFixed(1)}K
+                        </h3>
+                        <span className="flex items-center gap-1 text-xs sm:text-sm font-bold px-2 sm:px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
+                          +{quarterMetrics.revenueGrowth}%
+                          <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                          </svg>
+                        </span>
                       </div>
                     </div>
                     <div className="flex-1 h-48 sm:h-64 min-h-[200px]">
