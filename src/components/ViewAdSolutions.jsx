@@ -1,11 +1,23 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../styles/Homepage.css'
 
 const ViewAdSolutions = () => {
+  const navigate = useNavigate()
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
+  const handleHomepageLink = (hash) => {
+    navigate('/')
+    setTimeout(() => {
+      const element = document.querySelector(hash)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }, 100)
+  }
 
   return (
     <div className="homepage bg-[#0a0a0a] text-white min-h-screen">
@@ -30,15 +42,15 @@ const ViewAdSolutions = () => {
             </Link>
             <div className="hidden md:flex items-center gap-8">
               <Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
-              <Link to="/#about" className="text-gray-300 hover:text-white transition-colors">About</Link>
-              <Link to="/#services" className="text-gray-300 hover:text-white transition-colors">Services</Link>
+              <button onClick={() => handleHomepageLink('#about')} className="text-gray-300 hover:text-white transition-colors">About</button>
+              <button onClick={() => handleHomepageLink('#services')} className="text-gray-300 hover:text-white transition-colors">Services</button>
             </div>
-            <Link 
-              to="/#contact" 
+            <button 
+              onClick={() => handleHomepageLink('#contact')}
               className="px-6 py-2.5 bg-white text-black rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)]"
             >
               Get Started
-            </Link>
+            </button>
           </div>
         </nav>
       </header>
@@ -204,15 +216,15 @@ const ViewAdSolutions = () => {
           <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
             Stop wasting ad spend on underperforming campaigns. Our Reddit advertising expertise delivers 4.2x ROAS—double the industry average. Let's build a campaign that actually moves the needle.
           </p>
-          <Link 
-            to="/#contact" 
+          <button 
+            onClick={() => handleHomepageLink('#contact')}
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-bold text-lg shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-105 transition-all duration-300"
           >
             Get Started
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
             </svg>
-          </Link>
+          </button>
         </div>
       </section>
     </div>
