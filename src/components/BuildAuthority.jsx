@@ -56,7 +56,7 @@ const BuildAuthority = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-32 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a] to-[#0a0a0a]"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] blur-[120px] rounded-full"></div>
         
@@ -69,23 +69,23 @@ const BuildAuthority = () => {
               Build <span className="font-serif font-normal italic text-gray-300">Authority</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 max-w-2xl mb-8">
-              Transform your Reddit presence from anonymous to authoritative. We help you become the trusted voice in your industry—the one users turn to when they need expert guidance.
+              Transform from anonymous to authoritative. Become the trusted voice in your industry—the one Reddit users turn to for expert guidance.
             </p>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10">
+      <section className="w-full max-w-7xl mx-auto px-4 py-16 relative z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/[0.03] blur-[120px] rounded-full pointer-events-none -z-10"></div>
         
         {/* Trust Score Display */}
-        <div className="mb-24 text-center">
+        <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-6">
             Measure Your <span className="font-serif font-normal italic text-gray-300">Reddit Authority</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
-            Our Trust Score tracks how Reddit communities perceive your brand. Higher scores mean more credibility, better engagement, and increased conversions.
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+            Our Trust Score tracks how Reddit communities perceive your brand. Higher scores = more credibility, better engagement, increased conversions.
           </p>
           <div className="flex justify-center mb-8">
             <div className="relative w-64 h-64">
@@ -115,12 +115,12 @@ const BuildAuthority = () => {
         </div>
 
         {/* What You Get */}
-        <div className="mb-24">
-          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-6 text-center">
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4 text-center">
             What <span className="font-serif font-normal italic text-gray-300">You Get</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto text-center mb-12">
-            Building authority isn't about quick wins—it's about establishing your brand as the go-to expert in your space. Here's how we make it happen.
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto text-center mb-8">
+            Building authority isn't about quick wins—it's about becoming the go-to expert in your space. Here's how we make it happen.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
@@ -131,7 +131,7 @@ const BuildAuthority = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Authentic Community Engagement</h3>
               <p className="text-gray-400 leading-relaxed mb-4">
-                We don't drop links and disappear. Our team engages authentically—answering questions, providing value, and building genuine relationships. Reddit users can spot inauthenticity instantly, so we never fake it.
+                We don't drop links and disappear. Our team engages authentically—answering questions, providing value, building relationships. Reddit users spot inauthenticity instantly, so we never fake it.
               </p>
               <ul className="space-y-2 text-sm text-gray-500">
                 <li className="flex items-start gap-2">
@@ -156,7 +156,7 @@ const BuildAuthority = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Sustainable Long-Term Growth</h3>
               <p className="text-gray-400 leading-relaxed mb-4">
-                Unlike paid ads that stop working when you stop paying, authority compounds. Each quality interaction builds on the last, creating a foundation that drives organic growth for years.
+                Unlike paid ads that stop when you stop paying, authority compounds. Each quality interaction builds on the last, creating a foundation that drives organic growth for years.
               </p>
               <ul className="space-y-2 text-sm text-gray-500">
                 <li className="flex items-start gap-2">
@@ -181,7 +181,7 @@ const BuildAuthority = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Deep Community Integration</h3>
               <p className="text-gray-400 leading-relaxed mb-4">
-                We help you become a recognized, valued member of your target communities. Not a marketer, not an advertiser—a trusted contributor who happens to have a great solution.
+                Become a recognized, valued member of your target communities. Not a marketer or advertiser—a trusted contributor who happens to have a great solution.
               </p>
               <ul className="space-y-2 text-sm text-gray-500">
                 <li className="flex items-start gap-2">
@@ -232,7 +232,7 @@ const BuildAuthority = () => {
             Become the Authority in Your Space
           </h2>
           <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-            Stop competing for attention. Start earning trust. Let's build your Reddit authority with a strategy that compounds over time, turning community respect into sustainable business growth.
+            Stop competing for attention. Start earning trust. Build Reddit authority with a strategy that compounds over time—turning community respect into sustainable growth.
           </p>
           <button 
             onClick={() => handleHomepageLink('#contact')}

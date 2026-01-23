@@ -56,7 +56,7 @@ const ViewAdSolutions = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-32 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a] to-[#0a0a0a]"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] blur-[120px] rounded-full"></div>
         
@@ -69,24 +69,24 @@ const ViewAdSolutions = () => {
               High-Impact <span className="font-serif font-normal italic text-gray-300">Ad Solutions</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 max-w-2xl mb-8">
-              We partner directly with Reddit's advertising team to deliver campaigns that outperform industry benchmarks. Every dollar is optimized for maximum return on ad spend.
+              We partner directly with Reddit's advertising team to deliver campaigns that outperform industry benchmarks. Every dollar optimized for maximum ROAS.
             </p>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10">
+      <section className="w-full max-w-7xl mx-auto px-4 py-16 relative z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/[0.03] blur-[120px] rounded-full pointer-events-none -z-10"></div>
         
         {/* Performance Metrics */}
-        <div className="mb-24">
-          <div className="text-center mb-12">
+        <div className="mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4">
               Results That <span className="font-serif font-normal italic text-gray-300">Speak for Themselves</span>
             </h2>
             <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-              Our campaigns consistently outperform industry averages. Here's what our clients achieve with our Reddit advertising expertise.
+              Our campaigns consistently outperform industry averages. Here's what clients achieve with our Reddit advertising expertise.
             </p>
           </div>
           <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8">
@@ -114,14 +114,14 @@ const ViewAdSolutions = () => {
         </div>
 
         {/* Campaign Types */}
-        <div className="mb-24">
-          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-6 text-center">
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4 text-center">
             Campaign <span className="font-serif font-normal italic text-gray-300">Types</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto text-center mb-12">
-            We offer multiple Reddit ad formats, each optimized for different goals. Choose the approach that aligns with your objectives.
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto text-center mb-8">
+            Multiple Reddit ad formats, each optimized for different goals. Choose the approach that aligns with your objectives.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
               <h3 className="text-lg font-bold text-white mb-3">Display Ads</h3>
               <p className="text-sm text-gray-400 mb-4">Traditional banner ads with high visibility</p>
@@ -153,11 +153,11 @@ const ViewAdSolutions = () => {
         </div>
 
         {/* Our Approach */}
-        <div className="mb-24">
-          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-6 text-center">
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4 text-center">
             How We <span className="font-serif font-normal italic text-gray-300">Deliver Results</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto text-center mb-12">
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto text-center mb-8">
             Our methodology combines Reddit's platform expertise with data-driven optimization to ensure every campaign exceeds expectations.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -169,7 +169,7 @@ const ViewAdSolutions = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Continuous Data Optimization</h3>
               <p className="text-gray-400 leading-relaxed">
-                We don't set and forget. Every campaign is monitored in real-time, with daily optimizations based on performance data. Bid adjustments, audience refinements, and creative testing happen continuously to maximize ROAS.
+                We don't set and forget. Every campaign is monitored in real-time with daily optimizations. Bid adjustments, audience refinements, and creative testing happen continuously to maximize ROAS.
               </p>
             </div>
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
@@ -180,7 +180,7 @@ const ViewAdSolutions = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Direct Reddit Partnership</h3>
               <p className="text-gray-400 leading-relaxed">
-                Our relationship with Reddit's advertising team gives us early access to new features, beta testing opportunities, and direct support. This partnership advantage translates to better performance for your campaigns.
+                Our relationship with Reddit's advertising team gives us early access to new features, beta testing, and direct support. This partnership advantage translates to better campaign performance.
               </p>
             </div>
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
@@ -191,7 +191,7 @@ const ViewAdSolutions = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Precision Audience Targeting</h3>
               <p className="text-gray-400 leading-relaxed">
-                Reddit's unique targeting options—subreddit-based, interest-based, and lookalike audiences—allow us to reach exactly who matters. We combine multiple targeting strategies to find your highest-value prospects.
+                Reddit's unique targeting—subreddit-based, interest-based, and lookalike audiences—lets us reach exactly who matters. We combine multiple strategies to find your highest-value prospects.
               </p>
             </div>
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
@@ -202,7 +202,7 @@ const ViewAdSolutions = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">ROAS-First Campaign Structure</h3>
               <p className="text-gray-400 leading-relaxed">
-                Every decision—from creative selection to budget allocation—is made with return on ad spend as the primary metric. We structure campaigns to maximize revenue, not just impressions or clicks.
+                Every decision—from creative selection to budget allocation—prioritizes ROAS. We structure campaigns to maximize revenue, not just impressions or clicks.
               </p>
             </div>
           </div>
@@ -214,7 +214,7 @@ const ViewAdSolutions = () => {
             Ready to 2x Your Reddit ROAS?
           </h2>
           <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-            Stop wasting ad spend on underperforming campaigns. Our Reddit advertising expertise delivers 4.2x ROAS—double the industry average. Let's build a campaign that actually moves the needle.
+            Stop wasting ad spend on underperforming campaigns. Our expertise delivers 4.2x ROAS—double the industry average. Let's build a campaign that moves the needle.
           </p>
           <button 
             onClick={() => handleHomepageLink('#contact')}

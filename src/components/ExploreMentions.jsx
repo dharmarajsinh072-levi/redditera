@@ -56,7 +56,7 @@ const ExploreMentions = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-32 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a] to-[#0a0a0a]"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] blur-[120px] rounded-full"></div>
         
@@ -69,24 +69,24 @@ const ExploreMentions = () => {
               Strategic <span className="font-serif font-normal italic text-gray-300">Brand Mentions</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 max-w-2xl mb-8">
-              Position your brand as the solution when your audience is actively seeking answers. We place authentic, value-driven mentions in high-intent conversations that convert browsers into customers.
+              Get mentioned in the right conversations at the right time. We place your brand in high-intent Reddit discussions where users are actively seeking solutions—turning browsers into customers.
             </p>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10">
+      <section className="w-full max-w-7xl mx-auto px-4 py-16 relative z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/[0.03] blur-[120px] rounded-full pointer-events-none -z-10"></div>
         
         {/* Why It Matters */}
-        <div className="mb-24">
+        <div className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4">
               Why <span className="font-serif font-normal italic text-gray-300">Brand Mentions Work</span>
             </h2>
             <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-              Reddit users trust recommendations from their community more than traditional ads. When your brand appears as a genuine solution in active discussions, you're not interrupting—you're helping.
+              Reddit users trust community recommendations 3x more than ads. When your brand appears naturally in active discussions, you're not interrupting—you're helping.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -106,8 +106,8 @@ const ExploreMentions = () => {
         </div>
 
         {/* How It Works */}
-        <div className="mb-24">
-          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-12 text-center">
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-8 text-center">
             How <span className="font-serif font-normal italic text-gray-300">We Do It</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -119,7 +119,7 @@ const ExploreMentions = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">1. Discover High-Intent Conversations</h3>
               <p className="text-gray-400 leading-relaxed">
-                Our team monitors thousands of subreddits daily, identifying threads where users are actively seeking solutions your brand provides. We focus on high-intent moments, not just any mention.
+                We monitor thousands of subreddits daily, identifying threads where users actively seek solutions your brand provides. We focus on high-intent moments—not random mentions.
               </p>
             </div>
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
@@ -128,9 +128,9 @@ const ExploreMentions = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">2. Craft Contextual, Value-First Responses</h3>
+              <h3 className="text-xl font-bold text-white mb-4">2. Craft Value-First Responses</h3>
               <p className="text-gray-400 leading-relaxed">
-                Every mention is written by our expert team to provide genuine value first. We answer the question, solve the problem, then naturally position your brand as the solution—never as a sales pitch.
+                Our expert team writes every mention to provide genuine value first. We answer questions, solve problems, then naturally position your brand as the solution—never as a sales pitch.
               </p>
             </div>
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/10 transition-all duration-200">
@@ -139,22 +139,22 @@ const ExploreMentions = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">3. Measure & Optimize Performance</h3>
+              <h3 className="text-xl font-bold text-white mb-4">3. Measure & Optimize</h3>
               <p className="text-gray-400 leading-relaxed">
-                We track every mention's performance—engagement, clicks, conversions—and continuously refine our strategy to maximize your ROI from Reddit's engaged communities.
+                We track every mention's performance—engagement, clicks, conversions—and continuously refine our strategy to maximize ROI from Reddit's engaged communities.
               </p>
             </div>
           </div>
         </div>
 
         {/* Example */}
-        <div className="mb-24">
-          <div className="text-center mb-12">
+        <div className="mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4">
               See It <span className="font-serif font-normal italic text-gray-300">In Action</span>
             </h2>
             <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-              Here's how a strategic brand mention looks in a real Reddit conversation. Notice how the response provides value first, then naturally introduces the solution.
+              See how a strategic brand mention works in a real Reddit conversation. Value first, solution second—never a sales pitch.
             </p>
           </div>
           <div className="relative w-full max-w-4xl mx-auto">
@@ -209,10 +209,10 @@ const ExploreMentions = () => {
         {/* CTA Section */}
         <div className="text-center bg-[#0F0F11] border border-white/5 rounded-3xl p-12">
           <h2 className="text-3xl md:text-4xl font-satoshi font-bold text-white mb-4">
-            Start Converting Reddit Conversations Into Customers
+            Turn Reddit Conversations Into Customers
           </h2>
           <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-            Join brands that are already seeing 3x higher conversion rates from strategic Reddit mentions. Let's identify your high-intent opportunities and craft mentions that convert.
+            Join brands seeing 3x higher conversion rates from strategic Reddit mentions. Let's identify your high-intent opportunities and craft mentions that convert.
           </p>
           <button 
             onClick={() => handleHomepageLink('#contact')}
