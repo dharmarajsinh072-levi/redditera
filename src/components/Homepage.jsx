@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, Legend } from 'recharts'
 import '../styles/Homepage.css'
 
@@ -139,7 +140,7 @@ const Homepage = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <a href="#" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <img 
                 src="/images/cropped-redditera-logo-2.webp" 
                 alt="Redditera Logo" 
@@ -153,7 +154,7 @@ const Homepage = () => {
                 <span className="text-white font-bold text-sm">R</span>
               </div>
               <span className="text-xl font-bold text-white">Redditera</span>
-            </a>
+            </Link>
             <div className="hidden md:flex items-center gap-8">
               <a href="#home" className="text-gray-300 hover:text-white transition-colors">Home</a>
               <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
@@ -743,12 +744,12 @@ const Homepage = () => {
               <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
                 We will suggest your brand as the best solution, right where your audience is looking for answers.
               </p>
-              <button className="group flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-100 text-black font-medium rounded-full transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
+              <Link to="/explore-mentions" className="group inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-100 text-black font-medium rounded-full transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
                 Explore Mentions
                 <svg className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h10v10M7 17L17 7" />
                 </svg>
-              </button>
+              </Link>
             </div>
             <div className="flex-1 w-full relative group">
               <div className="relative w-full aspect-[16/13] bg-[#0B0D0E] border border-white/10 rounded-xl overflow-hidden shadow-xl flex flex-col">
@@ -790,12 +791,12 @@ const Homepage = () => {
               <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
                 Our strategies will improve your reputation on Reddit and build a basis for long-term sustainable growth.
               </p>
-              <button className="group flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-100 text-black font-medium rounded-full transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
+              <Link to="/build-authority" className="group inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-100 text-black font-medium rounded-full transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
                 Build Authority
                 <svg className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h10v10M7 17L17 7" />
                 </svg>
-              </button>
+              </Link>
             </div>
             <div className="flex-1 w-full relative">
               <div className="relative w-full aspect-square bg-[#0B0D0E] border border-white/10 rounded-xl overflow-hidden shadow-xl flex items-center justify-center">
@@ -821,12 +822,12 @@ const Homepage = () => {
               <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
                 We will collaborate with Reddit ads team to run the most effective ads on the platform maximized for ROAS.
               </p>
-              <button className="group flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-100 text-black font-medium rounded-full transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
+              <Link to="/view-ad-solutions" className="group inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-100 text-black font-medium rounded-full transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
                 View Ad Solutions
                 <svg className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h10v10M7 17L17 7" />
                 </svg>
-              </button>
+              </Link>
             </div>
             <div className="flex-1 w-full relative">
               <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
