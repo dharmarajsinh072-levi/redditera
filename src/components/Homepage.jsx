@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, Legend } from 'recharts'
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, Legend, ReferenceLine } from 'recharts'
 import '../styles/Homepage.css'
 
 const Homepage = () => {
@@ -20,36 +20,36 @@ const Homepage = () => {
     })
   }
 
-  // Monthly data for each quarter
+  // Monthly data for each quarter - showing dramatic growth after hiring us in Q2
   const monthlyDataByQuarter = {
     Q1: [
-      { month: 'Jan', Revenue: 45000, Expenses: 28000 },
-      { month: 'Feb', Revenue: 62000, Expenses: 32000 },
-      { month: 'Mar', Revenue: 78000, Expenses: 38000 },
+      { month: 'Jan', Revenue: 32000, Expenses: 25000 },
+      { month: 'Feb', Revenue: 38000, Expenses: 28000 },
+      { month: 'Mar', Revenue: 42000, Expenses: 30000 },
     ],
     Q2: [
-      { month: 'Apr', Revenue: 92000, Expenses: 42000 },
-      { month: 'May', Revenue: 108000, Expenses: 48000 },
-      { month: 'Jun', Revenue: 125200, Expenses: 52000 },
+      { month: 'Apr', Revenue: 125000, Expenses: 45000 }, // Explosive growth after hiring us mid-April
+      { month: 'May', Revenue: 185000, Expenses: 52000 },
+      { month: 'Jun', Revenue: 245000, Expenses: 58000 },
     ],
     Q3: [
-      { month: 'Jul', Revenue: 142000, Expenses: 58000 },
-      { month: 'Aug', Revenue: 158000, Expenses: 62000 },
-      { month: 'Sep', Revenue: 175000, Expenses: 68000 },
+      { month: 'Jul', Revenue: 310000, Expenses: 65000 },
+      { month: 'Aug', Revenue: 375000, Expenses: 72000 },
+      { month: 'Sep', Revenue: 440000, Expenses: 78000 },
     ],
     Q4: [
-      { month: 'Oct', Revenue: 192000, Expenses: 72000 },
-      { month: 'Nov', Revenue: 216000, Expenses: 78000 },
-      { month: 'Dec', Revenue: 240800, Expenses: 85000 },
+      { month: 'Oct', Revenue: 510000, Expenses: 85000 },
+      { month: 'Nov', Revenue: 585000, Expenses: 92000 },
+      { month: 'Dec', Revenue: 660000, Expenses: 98000 },
     ],
   }
 
-  // Quarterly totals for metrics
+  // Quarterly totals for metrics - recalculated
   const quarterlyTotals = {
-    Q1: { TotalRevenue: 185000, TotalExpenses: 98000 },
-    Q2: { TotalRevenue: 325200, TotalExpenses: 142000 },
-    Q3: { TotalRevenue: 475000, TotalExpenses: 188000 },
-    Q4: { TotalRevenue: 648800, TotalExpenses: 235000 },
+    Q1: { TotalRevenue: 112000, TotalExpenses: 83000 },
+    Q2: { TotalRevenue: 555000, TotalExpenses: 155000 },
+    Q3: { TotalRevenue: 1125000, TotalExpenses: 215000 },
+    Q4: { TotalRevenue: 1755000, TotalExpenses: 275000 },
   }
 
   // Get current quarter monthly data
@@ -474,8 +474,10 @@ const Homepage = () => {
                               const formatted = `$${value.toLocaleString()}`;
                               return [formatted, name];
                             }}
-                            cursor={{ stroke: '#A855F7', strokeWidth: 1.5, strokeDasharray: '4 4', opacity: 0.6 }}
+                            cursor={{ stroke: '#A855F7', strokeWidth: 2, strokeDasharray: '0', opacity: 0.8 }}
                             animationDuration={200}
+                            allowEscapeViewBox={{ x: false, y: false }}
+                            shared={true}
                           />
                           <Legend 
                             wrapperStyle={{ fontSize: '11px', paddingTop: '10px' }}
@@ -487,29 +489,41 @@ const Homepage = () => {
                             dataKey="Revenue" 
                             stroke="#A855F7" 
                             strokeWidth={3}
-                            dot={{ r: 4, fill: '#A855F7', stroke: '#fff', strokeWidth: 2 }}
-                            activeDot={{ r: 8, fill: '#A855F7', stroke: '#fff', strokeWidth: 2.5, filter: 'drop-shadow(0 2px 4px rgba(168, 85, 247, 0.4))' }}
+                            dot={false}
+                            activeDot={{ r: 10, fill: '#A855F7', stroke: '#fff', strokeWidth: 3, filter: 'drop-shadow(0 4px 8px rgba(168, 85, 247, 0.6))', cursor: 'pointer' }}
                             name="Revenue"
                             animationDuration={200}
                             animationBegin={0}
                             filter="url(#revenueShadow)"
                             strokeLinecap="round"
                             strokeLinejoin="round"
+                            isAnimationActive={true}
                           />
                           <Line 
                             type="monotone" 
                             dataKey="Expenses" 
                             stroke="#0EA5E9" 
                             strokeWidth={2.5}
-                            dot={{ r: 4, fill: '#0EA5E9', stroke: '#fff', strokeWidth: 2 }}
-                            activeDot={{ r: 7, fill: '#0EA5E9', stroke: '#fff', strokeWidth: 2, filter: 'drop-shadow(0 2px 4px rgba(14, 165, 233, 0.4))' }}
+                            dot={false}
+                            activeDot={{ r: 9, fill: '#0EA5E9', stroke: '#fff', strokeWidth: 2.5, filter: 'drop-shadow(0 4px 8px rgba(14, 165, 233, 0.6))', cursor: 'pointer' }}
                             name="Expenses"
                             animationDuration={200}
                             animationBegin={100}
                             filter="url(#expensesShadow)"
                             strokeLinecap="round"
                             strokeLinejoin="round"
+                            isAnimationActive={true}
                           />
+                          {/* Reference line to highlight when they hired us - shows in Q2 */}
+                          {selectedQuarter === 'Q2' && (
+                            <ReferenceLine 
+                              x="Apr" 
+                              stroke="#22C55E" 
+                              strokeWidth={2} 
+                              strokeDasharray="5 5" 
+                              label={{ value: "Hired Us", position: "top", fill: "#22C55E", fontSize: 11, fontWeight: 'bold' }}
+                            />
+                          )}
                         </LineChart>
                       </ResponsiveContainer>
                     </div>
