@@ -11,13 +11,20 @@ const ViewAdSolutions = () => {
   }, [])
 
   const handleHomepageLink = (hash) => {
-    navigate('/')
-    setTimeout(() => {
+    if (window.location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        const element = document.querySelector(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 300)
+    } else {
       const element = document.querySelector(hash)
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' })
       }
-    }, 100)
+    }
   }
 
   return (
