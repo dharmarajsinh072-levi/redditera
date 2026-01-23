@@ -20,28 +20,60 @@ const Homepage = () => {
     })
   }
 
-  // Quarterly data matching the image exactly - Q1 shows $185.0K revenue, $87.0K profit
-  const quarterlyData = [
-    { quarter: 'Q1', Revenue: 78000, Expenses: 38000, TotalRevenue: 185000, TotalExpenses: 98000 },
-    { quarter: 'Q2', Revenue: 125200, Expenses: 52000, TotalRevenue: 325200, TotalExpenses: 142000 },
-    { quarter: 'Q3', Revenue: 175000, Expenses: 68000, TotalRevenue: 475000, TotalExpenses: 188000 },
-    { quarter: 'Q4', Revenue: 240800, Expenses: 85000, TotalRevenue: 648800, TotalExpenses: 235000 },
-  ]
+  // Monthly data for each quarter
+  const monthlyDataByQuarter = {
+    Q1: [
+      { month: 'Jan', Revenue: 45000, Expenses: 28000 },
+      { month: 'Feb', Revenue: 62000, Expenses: 32000 },
+      { month: 'Mar', Revenue: 78000, Expenses: 38000 },
+    ],
+    Q2: [
+      { month: 'Apr', Revenue: 92000, Expenses: 42000 },
+      { month: 'May', Revenue: 108000, Expenses: 48000 },
+      { month: 'Jun', Revenue: 125200, Expenses: 52000 },
+    ],
+    Q3: [
+      { month: 'Jul', Revenue: 142000, Expenses: 58000 },
+      { month: 'Aug', Revenue: 158000, Expenses: 62000 },
+      { month: 'Sep', Revenue: 175000, Expenses: 68000 },
+    ],
+    Q4: [
+      { month: 'Oct', Revenue: 192000, Expenses: 72000 },
+      { month: 'Nov', Revenue: 216000, Expenses: 78000 },
+      { month: 'Dec', Revenue: 240800, Expenses: 85000 },
+    ],
+  }
 
-  // Get current quarter data - SINGLE SOURCE OF TRUTH
-  const currentQuarterData = useMemo(() => {
-    return quarterlyData.find(q => q.quarter === selectedQuarter) || quarterlyData[0]
+  // Quarterly totals for metrics
+  const quarterlyTotals = {
+    Q1: { TotalRevenue: 185000, TotalExpenses: 98000 },
+    Q2: { TotalRevenue: 325200, TotalExpenses: 142000 },
+    Q3: { TotalRevenue: 475000, TotalExpenses: 188000 },
+    Q4: { TotalRevenue: 648800, TotalExpenses: 235000 },
+  }
+
+  // Get current quarter monthly data
+  const currentMonthData = useMemo(() => {
+    return monthlyDataByQuarter[selectedQuarter] || monthlyDataByQuarter.Q1
   }, [selectedQuarter])
 
-  // Calculate metrics for selected quarter - matching image exactly
+  // Get current quarter totals
+  const currentQuarterData = useMemo(() => {
+    return quarterlyTotals[selectedQuarter] || quarterlyTotals.Q1
+  }, [selectedQuarter])
+
+  // Calculate metrics for selected quarter
   const quarterMetrics = useMemo(() => {
     const totalRevenue = currentQuarterData.TotalRevenue
     const totalExpenses = currentQuarterData.TotalExpenses
     const profit = totalRevenue - totalExpenses
     
-    // Calculate growth vs previous quarter (Q1 shows +0.0% as there's no previous)
-    const quarterIndex = quarterlyData.findIndex(q => q.quarter === selectedQuarter)
-    const prevQuarter = quarterIndex > 0 ? quarterlyData[quarterIndex - 1] : null
+    // Calculate growth vs previous quarter
+    const quarters = ['Q1', 'Q2', 'Q3', 'Q4']
+    const quarterIndex = quarters.indexOf(selectedQuarter)
+    const prevQuarterKey = quarterIndex > 0 ? quarters[quarterIndex - 1] : null
+    const prevQuarter = prevQuarterKey ? quarterlyTotals[prevQuarterKey] : null
+    
     const revenueGrowth = prevQuarter 
       ? (((totalRevenue - prevQuarter.TotalRevenue) / prevQuarter.TotalRevenue) * 100).toFixed(1)
       : '0.0'
@@ -337,33 +369,33 @@ const Homepage = () => {
                 {/* Middle Row - 2 Large Chart Widgets */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
                   {/* Total Revenue - Line Chart */}
-                  <div className="lg:col-span-1 bg-[#0F0F11] border border-white/5 rounded-xl p-6 flex flex-col">
-                    <div className="flex justify-between items-start mb-6">
-                      <div>
+                  <div className="lg:col-span-1 bg-[#0F0F11] border border-white/5 rounded-xl p-4 sm:p-6 flex flex-col">
+                    <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4 sm:mb-6">
+                      <div className="flex-1">
                         <div className="text-gray-400 text-sm font-medium flex items-center gap-2 mb-1">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                           Total revenue
                         </div>
-                        <div className="flex items-center gap-3 mt-1">
-                          <h3 className="text-2xl font-bold text-white">
+                        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-1">
+                          <h3 className="text-xl sm:text-2xl font-bold text-white">
                             ${(quarterMetrics.totalRevenue / 1000).toFixed(1)}K
                           </h3>
-                          <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
+                          <span className="flex items-center gap-1 text-xs sm:text-sm font-bold px-2 sm:px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
                             +{quarterMetrics.revenueGrowth}%
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                             </svg>
                           </span>
                         </div>
                       </div>
-                      {/* Quarter Dropdown - Matching Image Design */}
-                      <div className="relative">
+                      {/* Quarter Dropdown */}
+                      <div className="relative w-full sm:w-auto">
                         <select
                           value={selectedQuarter}
                           onChange={(e) => setSelectedQuarter(e.target.value)}
-                          className="appearance-none bg-[#0a0a0a] border border-white/10 rounded-lg px-4 py-2 pr-8 text-sm font-medium text-white cursor-pointer hover:border-white/20 focus:outline-none focus:border-white/30 transition-all duration-200 shadow-sm"
+                          className="w-full sm:w-auto appearance-none bg-[#0a0a0a] border border-white/10 rounded-lg px-3 sm:px-4 py-2 pr-8 text-xs sm:text-sm font-medium text-white cursor-pointer hover:border-white/20 focus:outline-none focus:border-white/30 transition-all duration-200 shadow-sm"
                           style={{
                             backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
                             backgroundRepeat: 'no-repeat',
@@ -378,9 +410,9 @@ const Homepage = () => {
                         </select>
                       </div>
                     </div>
-                    <div className="flex-1 h-64">
+                    <div className="flex-1 h-48 sm:h-64 min-h-[200px]">
                       <ResponsiveContainer width="100%" height="100%">
-                        <LineChart data={quarterlyData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
+                        <LineChart data={currentMonthData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
                           <defs>
                             <filter id="revenueShadow" x="-50%" y="-50%" width="200%" height="200%">
                               <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
@@ -415,18 +447,17 @@ const Homepage = () => {
                           </defs>
                           <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
                           <XAxis 
-                            dataKey="quarter" 
+                            dataKey="month" 
                             stroke="#888" 
-                            tick={{ fill: '#888', fontSize: 11 }}
+                            tick={{ fill: '#888', fontSize: 10 }}
                             axisLine={{ stroke: 'rgba(255,255,255,0.1)' }}
                           />
                           <YAxis 
                             stroke="#888" 
-                            tick={{ fill: '#888', fontSize: 11 }}
+                            tick={{ fill: '#888', fontSize: 10 }}
                             axisLine={{ stroke: 'rgba(255,255,255,0.1)' }}
                             tickFormatter={(value) => `${value/1000}K`}
-                            domain={[0, 260000]}
-                            ticks={[0, 65000, 130000, 195000, 260000]}
+                            domain={['dataMin', 'dataMax']}
                           />
                           <Tooltip 
                             contentStyle={{ 
@@ -447,9 +478,9 @@ const Homepage = () => {
                             animationDuration={200}
                           />
                           <Legend 
-                            wrapperStyle={{ fontSize: '12px', paddingTop: '10px' }}
+                            wrapperStyle={{ fontSize: '11px', paddingTop: '10px' }}
                             iconType="circle"
-                            formatter={(value) => <span style={{ color: '#fff', fontSize: '12px' }}>{value}</span>}
+                            formatter={(value) => <span style={{ color: '#fff', fontSize: '11px' }}>{value}</span>}
                           />
                           <Line 
                             type="monotone" 
@@ -485,22 +516,22 @@ const Homepage = () => {
                   </div>
 
                   {/* Total Profit - Bar Chart */}
-                  <div className="lg:col-span-1 bg-[#0F0F11] border border-white/5 rounded-xl p-6 flex flex-col transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
-                    <div className="flex justify-between items-start mb-6">
-                      <div>
+                  <div className="lg:col-span-1 bg-[#0F0F11] border border-white/5 rounded-xl p-4 sm:p-6 flex flex-col transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
+                    <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4 sm:mb-6">
+                      <div className="flex-1">
                         <div className="text-gray-400 text-sm font-medium flex items-center gap-2 mb-1 group-hover:text-gray-300 transition-colors">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                           </svg>
                           Total profit
                         </div>
-                        <div className="flex items-center gap-3 mt-1">
-                          <h3 className="text-2xl font-bold text-white group-hover:text-white">
+                        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-1">
+                          <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-white">
                             ${(quarterMetrics.profit / 1000).toFixed(1)}K
                           </h3>
-                          <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md transition-colors bg-[#22C55E]/10 text-[#22C55E] group-hover:bg-[#22C55E]/15">
+                          <span className="flex items-center gap-1 text-xs sm:text-sm font-bold px-2 sm:px-2.5 py-1 rounded-md transition-colors bg-[#22C55E]/10 text-[#22C55E] group-hover:bg-[#22C55E]/15">
                             +{quarterMetrics.profitGrowth}%
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                             </svg>
                           </span>
@@ -509,7 +540,7 @@ const Homepage = () => {
                       <button className="text-xs text-purple-400 hover:text-purple-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400/30 rounded px-2 py-1">View report</button>
                     </div>
                     <div className="flex-1">
-                      <div className="h-24 flex items-end justify-between gap-1 mb-2">
+                      <div className="h-20 sm:h-24 flex items-end justify-between gap-1 mb-2">
                         <ResponsiveContainer width="100%" height="100%">
                           <BarChart data={profitData} margin={{ top: 5, right: 5, left: 5, bottom: 0 }}>
                             <defs>
@@ -578,12 +609,12 @@ const Homepage = () => {
                           </BarChart>
                         </ResponsiveContainer>
                       </div>
-                      <div className="flex justify-between text-[10px] text-gray-500 mt-2 font-medium uppercase tracking-wider">
-                        <span>12 AM</span>
-                        <span>8 AM</span>
-                        <span>4 PM</span>
-                        <span>11 PM</span>
-                      </div>
+                          <div className="flex justify-between text-[9px] sm:text-[10px] text-gray-500 mt-2 font-medium uppercase tracking-wider">
+                            <span>12 AM</span>
+                            <span>8 AM</span>
+                            <span>4 PM</span>
+                            <span>11 PM</span>
+                          </div>
                     </div>
                   </div>
                 </div>
