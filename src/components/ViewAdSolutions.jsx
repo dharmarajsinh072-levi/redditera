@@ -83,6 +83,42 @@ const ViewAdSolutions = () => {
         </div>
       </section>
 
+      {/* Service Image */}
+      <section className="w-full max-w-7xl mx-auto px-4 py-16 relative z-10 bg-black">
+        <div className="relative w-full max-w-4xl mx-auto">
+          <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
+            <div className="grid grid-cols-12 gap-6">
+              <div className="col-span-4 space-y-4">
+                <div className="bg-white/5 rounded-xl p-4 border border-white/5">
+                  <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">ROAS</div>
+                  <div className="text-2xl font-bold text-white">4.2x</div>
+                </div>
+                <div className="bg-white/5 rounded-xl p-4 border border-white/5">
+                  <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">CTR</div>
+                  <div className="text-2xl font-bold text-white">3.85%</div>
+                </div>
+                <div className="bg-white/5 rounded-xl p-4 border border-white/5">
+                  <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">Conv. Rate</div>
+                  <div className="text-2xl font-bold text-white">12%</div>
+                </div>
+              </div>
+              <div className="col-span-8 bg-[#0a0a0a]/50 rounded-xl border border-white/5 relative overflow-hidden h-48">
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="adGradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#22C55E" stopOpacity="0.2" />
+                      <stop offset="100%" stopColor="#22C55E" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,80 C15,75 25,60 40,65 C55,70 65,30 80,40 C90,45 95,20 100,30" fill="none" stroke="#22C55E" strokeWidth="2" />
+                  <path d="M0,80 C15,75 25,60 40,65 C55,70 65,30 80,40 C90,45 95,20 100,30 V100 H0 Z" fill="url(#adGradient)" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Main Content */}
       <section className="w-full max-w-7xl mx-auto px-4 py-16 relative z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/[0.03] blur-[120px] rounded-full pointer-events-none -z-10"></div>

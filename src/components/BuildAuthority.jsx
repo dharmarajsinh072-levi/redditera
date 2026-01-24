@@ -83,6 +83,23 @@ const BuildAuthority = () => {
         </div>
       </section>
 
+      {/* Service Image */}
+      <section className="w-full max-w-7xl mx-auto px-4 py-16 relative z-10 bg-black">
+        <div className="relative w-full max-w-2xl mx-auto">
+          <div className="relative w-full aspect-square bg-[#0B0D0E] border border-white/10 rounded-xl overflow-hidden shadow-xl flex items-center justify-center">
+            <div className="relative w-48 h-48">
+              <div className="absolute inset-0 rounded-full border-8 border-transparent" style={{
+                background: 'conic-gradient(from 0deg, #22C55E 0deg 316.8deg, rgba(255,255,255,0.1) 316.8deg 360deg)'
+              }}></div>
+              <div className="absolute inset-8 rounded-full bg-[#0a0a0a] flex flex-col items-center justify-center">
+                <span className="text-3xl font-bold text-white">88/100</span>
+                <span className="text-xs text-gray-500 uppercase tracking-wider mt-1">Trust Score</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Main Content */}
       <section className="w-full max-w-7xl mx-auto px-4 py-16 relative z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/[0.03] blur-[120px] rounded-full pointer-events-none -z-10"></div>

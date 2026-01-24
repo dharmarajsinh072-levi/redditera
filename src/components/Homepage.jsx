@@ -765,8 +765,8 @@ const Homepage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Service 1: Strategic Brand Mentions */}
-          <div className="border border-white/20 bg-black p-8 hover:border-white/30 transition-all duration-300">
-            <div className="w-12 h-12 border border-white/20 flex items-center justify-center mb-6">
+          <div className="border border-white/20 bg-black p-8 hover:border-white/30 transition-all duration-300 flex flex-col">
+            <div className="w-12 h-12 border border-white/20 flex items-center justify-center mb-6 flex-shrink-0">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
@@ -774,17 +774,17 @@ const Homepage = () => {
             <h4 className="text-xl md:text-2xl font-bold text-white mb-4">
               STRATEGIC BRAND MENTIONS
             </h4>
-            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+            <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-grow">
               Inserting your narrative into <span className="italic">high-value threads with surgical precision</span>. Organic feel, calculated impact.
             </p>
-            <Link to="/explore-mentions" className="group inline-flex items-center gap-2 font-mono text-xs text-white hover:text-[#FF4500] transition-colors">
+            <Link to="/explore-mentions" className="group inline-flex items-center gap-2 font-mono text-xs text-white hover:text-[#FF4500] transition-colors mt-auto">
               EXPLORE →
             </Link>
           </div>
 
           {/* Service 2: Sustainable Reputation */}
-          <div className="border border-white/20 bg-black p-8 hover:border-white/30 transition-all duration-300">
-            <div className="w-12 h-12 border border-white/20 flex items-center justify-center mb-6">
+          <div className="border border-white/20 bg-black p-8 hover:border-white/30 transition-all duration-300 flex flex-col">
+            <div className="w-12 h-12 border border-white/20 flex items-center justify-center mb-6 flex-shrink-0">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
@@ -792,17 +792,17 @@ const Homepage = () => {
             <h4 className="text-xl md:text-2xl font-bold text-white mb-4">
               SUSTAINABLE REPUTATION
             </h4>
-            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+            <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-grow">
               Building an <span className="italic">unshakable fortress of trust</span>. Long-term karma accumulation and community defense systems.
             </p>
-            <Link to="/build-authority" className="group inline-flex items-center gap-2 font-mono text-xs text-white hover:text-[#FF4500] transition-colors">
+            <Link to="/build-authority" className="group inline-flex items-center gap-2 font-mono text-xs text-white hover:text-[#FF4500] transition-colors mt-auto">
               EXPLORE →
             </Link>
           </div>
 
           {/* Service 3: High-Impact Advertising */}
-          <div className="border border-white/20 bg-black p-8 hover:border-white/30 transition-all duration-300">
-            <div className="w-12 h-12 border border-white/20 flex items-center justify-center mb-6">
+          <div className="border border-white/20 bg-black p-8 hover:border-white/30 transition-all duration-300 flex flex-col">
+            <div className="w-12 h-12 border border-white/20 flex items-center justify-center mb-6 flex-shrink-0">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
@@ -810,10 +810,10 @@ const Homepage = () => {
             <h4 className="text-xl md:text-2xl font-bold text-white mb-4">
               HIGH IMPACT ADVERTISING
             </h4>
-            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+            <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-grow">
               Amplifying reach through <span className="italic">aggressive algorithmic placement</span>. Rocket-fuel for your ROI metrics.
             </p>
-            <Link to="/view-ad-solutions" className="group inline-flex items-center gap-2 font-mono text-xs text-white hover:text-[#FF4500] transition-colors">
+            <Link to="/view-ad-solutions" className="group inline-flex items-center gap-2 font-mono text-xs text-white hover:text-[#FF4500] transition-colors mt-auto">
               EXPLORE →
             </Link>
           </div>
