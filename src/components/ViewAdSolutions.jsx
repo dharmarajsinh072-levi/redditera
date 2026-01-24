@@ -70,13 +70,13 @@ const ViewAdSolutions = () => {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex flex-col items-center text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-medium uppercase tracking-wider mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-medium uppercase tracking-wider mb-3">
               High-Impact Advertising
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif font-semibold tracking-tight text-white mb-6 text-balance-center">
+            <h1 className="text-5xl md:text-7xl font-serif font-semibold tracking-tight text-white mb-3 text-balance-center">
               High-Impact <span className="italic text-gray-300">Ad Solutions</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-8">
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-3">
               We partner directly with Reddit's advertising team to deliver campaigns that outperform industry benchmarks. Every dollar optimized for maximum ROAS.
             </p>
           </div>
@@ -88,13 +88,13 @@ const ViewAdSolutions = () => {
         <div className="relative w-full max-w-5xl mx-auto">
           <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
             <div className="grid grid-cols-12 gap-6">
-              <div className="col-span-4 space-y-4">
+              <div className="col-span-4 space-y-3">
                 <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                  <div className="text-xs uppercase font-bold text-gray-500 mb-2">ROAS</div>
+                  <div className="text-xs uppercase font-bold text-gray-500 mb-3">ROAS</div>
                   <div className="text-3xl font-bold text-white">4.2x</div>
                 </div>
                 <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                  <div className="text-xs uppercase font-bold text-gray-500 mb-2">CTR</div>
+                  <div className="text-xs uppercase font-bold text-gray-500 mb-3">CTR</div>
                   <div className="text-3xl font-bold text-white">3.85%</div>
                 </div>
               </div>
@@ -120,9 +120,9 @@ const ViewAdSolutions = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/[0.03] blur-[120px] rounded-full pointer-events-none -z-10"></div>
         
         {/* Performance Metrics */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4">
+        <div className="mb-3">
+          <div className="text-center mb-3">
+            <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-3">
               Results That <span className="font-serif font-normal italic text-gray-300">Speak for Themselves</span>
             </h2>
             <p className="text-lg text-gray-400 max-w-3xl mx-auto">
@@ -139,18 +139,18 @@ const ViewAdSolutions = () => {
         </div>
 
         {/* Campaign Types */}
-        <div className="mb-12">
-          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4 text-center">
+        <div className="mb-3">
+          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-3 text-center">
             Campaign <span className="font-serif font-normal italic text-gray-300">Types</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto text-center mb-8">
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto text-center mb-3">
             Multiple Reddit ad formats, each optimized for different goals. Choose the approach that aligns with your objectives.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
               <h3 className="text-lg font-bold text-white mb-3">Display Ads</h3>
-              <p className="text-sm text-gray-400 mb-4">Traditional banner ads with high visibility</p>
-              <ul className="space-y-2 text-xs text-gray-500">
+              <p className="text-sm text-gray-400 mb-3">Traditional banner ads with high visibility</p>
+              <ul className="space-y-3 text-xs text-gray-500">
                 <li>• Brand awareness campaigns</li>
                 <li>• Top-of-funnel targeting</li>
                 <li>• Broad reach options</li>
@@ -158,8 +158,8 @@ const ViewAdSolutions = () => {
             </div>
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
               <h3 className="text-lg font-bold text-white mb-3">Promoted Posts</h3>
-              <p className="text-sm text-gray-400 mb-4">Native content that blends seamlessly</p>
-              <ul className="space-y-2 text-xs text-gray-500">
+              <p className="text-sm text-gray-400 mb-3">Native content that blends seamlessly</p>
+              <ul className="space-y-3 text-xs text-gray-500">
                 <li>• Higher engagement rates</li>
                 <li>• Community-friendly format</li>
                 <li>• Discussion-driven results</li>
@@ -167,8 +167,8 @@ const ViewAdSolutions = () => {
             </div>
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
               <h3 className="text-lg font-bold text-white mb-3">Video Ads</h3>
-              <p className="text-sm text-gray-400 mb-4">High-impact video content</p>
-              <ul className="space-y-2 text-xs text-gray-500">
+              <p className="text-sm text-gray-400 mb-3">High-impact video content</p>
+              <ul className="space-y-3 text-xs text-gray-500">
                 <li>• Maximum engagement</li>
                 <li>• Storytelling opportunities</li>
                 <li>• Premium placement options</li>
@@ -178,54 +178,54 @@ const ViewAdSolutions = () => {
         </div>
 
         {/* Our Approach */}
-        <div className="mb-12">
-          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4 text-center">
+        <div className="mb-3">
+          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-3 text-center">
             How We <span className="font-serif font-normal italic text-gray-300">Deliver Results</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto text-center mb-8">
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto text-center mb-3">
             Our methodology combines Reddit's platform expertise with data-driven optimization to ensure every campaign exceeds expectations.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-              <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mb-6 transition-transform duration-300 hover:scale-110">
+              <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mb-3 transition-transform duration-300 hover:scale-110">
                 <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Continuous Data Optimization</h3>
+              <h3 className="text-xl font-bold text-white mb-3">Continuous Data Optimization</h3>
               <p className="text-gray-400 leading-relaxed">
                 We don't set and forget. Every campaign is monitored in real-time with daily optimizations. Bid adjustments, audience refinements, and creative testing happen continuously to maximize ROAS.
               </p>
             </div>
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-              <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-6 transition-transform duration-300 hover:scale-110">
+              <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-3 transition-transform duration-300 hover:scale-110">
                 <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Direct Reddit Partnership</h3>
+              <h3 className="text-xl font-bold text-white mb-3">Direct Reddit Partnership</h3>
               <p className="text-gray-400 leading-relaxed">
                 Our relationship with Reddit's advertising team gives us early access to new features, beta testing, and direct support. This partnership advantage translates to better campaign performance.
               </p>
             </div>
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-              <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-6 transition-transform duration-300 hover:scale-110">
+              <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-3 transition-transform duration-300 hover:scale-110">
                 <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Precision Audience Targeting</h3>
+              <h3 className="text-xl font-bold text-white mb-3">Precision Audience Targeting</h3>
               <p className="text-gray-400 leading-relaxed">
                 Reddit's unique targeting—subreddit-based, interest-based, and lookalike audiences—lets us reach exactly who matters. We combine multiple strategies to find your highest-value prospects.
               </p>
             </div>
             <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-              <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center mb-6 transition-transform duration-300 hover:scale-110">
+              <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center mb-3 transition-transform duration-300 hover:scale-110">
                 <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">ROAS-First Campaign Structure</h3>
+              <h3 className="text-xl font-bold text-white mb-3">ROAS-First Campaign Structure</h3>
               <p className="text-gray-400 leading-relaxed">
                 Every decision—from creative selection to budget allocation—prioritizes ROAS. We structure campaigns to maximize revenue, not just impressions or clicks.
               </p>
@@ -235,10 +235,10 @@ const ViewAdSolutions = () => {
 
         {/* CTA Section */}
         <div className="text-center bg-[#0F0F11] border border-white/5 rounded-3xl p-12">
-          <h2 className="text-3xl md:text-4xl font-satoshi font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-satoshi font-bold text-white mb-3">
             Ready to 2x Your Reddit ROAS?
           </h2>
-          <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-gray-400 text-lg mb-3 max-w-2xl mx-auto">
             Stop wasting ad spend on underperforming campaigns. Our expertise delivers 4.2x ROAS—double the industry average. Let's build a campaign that moves the needle.
           </p>
           <button 
@@ -278,8 +278,8 @@ const MetricCard = ({ label, value, suffix, description, comparison }) => {
       ref={ref}
       className="bg-white/5 rounded-xl p-6 border border-white/5 text-center hover:border-white/20 hover:bg-white/10 hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
     >
-      <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">{label}</div>
-      <div className="text-4xl font-bold text-white mb-2">{formatNumber(count)}</div>
+      <div className="text-[10px] uppercase font-bold text-gray-500 mb-3">{label}</div>
+      <div className="text-4xl font-bold text-white mb-3">{formatNumber(count)}</div>
       <p className="text-sm text-gray-400 mb-3">{description}</p>
       <p className="text-xs text-gray-500">{comparison}</p>
     </div>

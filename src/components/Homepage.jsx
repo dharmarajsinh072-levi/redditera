@@ -248,10 +248,10 @@ const Homepage = () => {
               </div>
               <div className="relative border border-white/20 bg-black px-6 py-[1.125rem] mb-[1.6rem]">
                 {/* Top Row - 4 Small Metric Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-3">
                   {/* Attributed Revenue */}
                   <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
-                    <div className="flex justify-between items-start mb-4">
+                    <div className="flex justify-between items-start mb-3">
                       <div className="flex items-center gap-2 text-sm text-gray-400 font-medium group-hover:text-gray-300 transition-colors">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -275,7 +275,7 @@ const Homepage = () => {
 
                   {/* Organic Reddit Impressions */}
                   <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
-                    <div className="flex justify-between items-start mb-4">
+                    <div className="flex justify-between items-start mb-3">
                       <div className="flex items-center gap-2 text-sm text-gray-400 font-medium group-hover:text-gray-300 transition-colors">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -300,7 +300,7 @@ const Homepage = () => {
 
                   {/* Comment-to-Click Engagement */}
                   <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
-                    <div className="flex justify-between items-start mb-4">
+                    <div className="flex justify-between items-start mb-3">
                       <div className="flex items-center gap-2 text-sm text-gray-400 font-medium group-hover:text-gray-300 transition-colors">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -324,7 +324,7 @@ const Homepage = () => {
 
                   {/* Subscriptions */}
                   <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
-                    <div className="flex justify-between items-start mb-4">
+                    <div className="flex justify-between items-start mb-3">
                       <div className="flex items-center gap-2 text-sm text-gray-400 font-medium group-hover:text-gray-300 transition-colors">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -348,7 +348,7 @@ const Homepage = () => {
                 </div>
 
                 {/* Middle Row - 2 Large Chart Widgets */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-3">
                   {/* Total Revenue - Line Chart */}
                   <div className="lg:col-span-1 bg-[#0F0F11] border border-white/5 rounded-xl p-4 sm:p-6 flex flex-col relative">
                     {/* Quarter Dropdown - Top Right Corner */}
@@ -370,8 +370,8 @@ const Homepage = () => {
                         <option value="Q4">Q4 2025</option>
                       </select>
                     </div>
-                    <div className="flex flex-col gap-2 mb-4 sm:mb-6 pr-24 sm:pr-28">
-                      <div className="font-mono text-xs text-gray-400 mb-1">TOTAL REVENUE</div>
+                    <div className="flex flex-col gap-3 mb-3 sm:mb-3 pr-24 sm:pr-28">
+                      <div className="font-mono text-xs text-gray-400 mb-3">TOTAL REVENUE</div>
                       <div className="flex flex-wrap items-center gap-4">
                         <h3 className="text-2xl sm:text-3xl font-bold text-white">
                           ${(quarterMetrics.totalRevenue / 1000).toFixed(1)}K
@@ -504,10 +504,10 @@ const Homepage = () => {
 
                   {/* Net Income / Total Profit - Bar Chart */}
                   <div className="lg:col-span-1 border border-white/20 bg-black p-4 sm:p-6 flex flex-col">
-                    <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4 sm:mb-6">
+                    <div className="flex flex-col sm:flex-row justify-between items-start gap-3 mb-3 sm:mb-3">
                       <div className="flex-1">
-                        <div className="font-mono text-xs text-gray-400 mb-1">NET INCOME</div>
-                        <div className="flex flex-wrap items-center gap-4 mt-1">
+                        <div className="font-mono text-xs text-gray-400 mb-3">NET INCOME</div>
+                        <div className="flex flex-wrap items-center gap-4 mt-3">
                           <h3 className="text-2xl sm:text-3xl font-bold text-white">
                             ${(quarterMetrics.profit / 1000).toFixed(1)}K
                           </h3>
@@ -518,7 +518,7 @@ const Homepage = () => {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <div className="h-20 sm:h-24 flex items-end justify-between gap-1 mb-2">
+                      <div className="h-20 sm:h-24 flex items-end justify-between gap-1 mb-3">
                         <ResponsiveContainer width="100%" height="100%">
                           <BarChart data={profitData} margin={{ top: 5, right: 5, left: 5, bottom: 0 }}>
                             <defs>
@@ -580,13 +580,13 @@ const Homepage = () => {
                           </BarChart>
                         </ResponsiveContainer>
                       </div>
-                          <div className="flex justify-between text-[9px] sm:text-[10px] text-gray-500 mt-2 font-mono uppercase tracking-wider">
+                          <div className="flex justify-between text-[9px] sm:text-[10px] text-gray-500 mt-3 font-mono uppercase tracking-wider">
                             <span>12 AM</span>
                             <span>8 AM</span>
                             <span>4 PM</span>
                             <span>11 PM</span>
                           </div>
-                          <p className="font-mono text-[9px] text-gray-500 mt-2 text-center">PROFIT PROJECTION // HOLOGRAPHIC RENDER</p>
+                          <p className="font-mono text-[9px] text-gray-500 mt-3 text-center">PROFIT PROJECTION // HOLOGRAPHIC RENDER</p>
                         </div>
                       </div>
                     </div>
@@ -693,7 +693,7 @@ const Homepage = () => {
               <p className="font-elegant text-sm text-gray-300 leading-relaxed mb-[0.8rem]">
                 Authority on Reddit is cumulative. It is built through visible contribution, accurate framing, and consistency over time. We design participation strategies that position your brand as a credible voice long before a buying decision is made.
               </p>
-              <div className="font-elegant text-sm text-gray-300 leading-relaxed space-y-[0.3rem]">
+              <div className="font-elegant text-sm text-gray-300 leading-relaxed space-y-3">
                 <p>Comment-level expertise in relevant threads</p>
                 <p>Post participation that adds signal, not noise</p>
                 <p>Historical credibility that compounds across subreddits</p>
@@ -747,8 +747,8 @@ const Homepage = () => {
 
         <div className="flex flex-col gap-[3rem]">
           {/* Service 1: Strategic Brand Mentions */}
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            <div className="flex-1 text-left space-y-8">
+          <div className="flex flex-col lg:flex-row items-center gap-3 lg:gap-3">
+            <div className="flex-1 text-left space-y-3">
               <h4 className="text-3xl md:text-5xl font-serif font-semibold text-white">
                 Strategic Brand Mentions
               </h4>
@@ -776,11 +776,11 @@ const Homepage = () => {
                   </div>
                 </div>
                 <div className="flex-1 p-6 bg-[#0a0a0a]">
-                  <div className="mb-4">
+                  <div className="mb-3">
                     <h5 className="text-base font-semibold text-white mb-3">How do you guys get customers with a low-priced SaaS product?</h5>
                   </div>
                   <div className="border-l-4 border-purple-500 pl-4 bg-[#0F0F11] p-4 rounded">
-                    <div className="flex items-center gap-2 mb-2">
+                    <div className="flex items-center gap-2 mb-3">
                       <span className="text-sm font-bold text-blue-400">u/Ape_in_a_Suit</span>
                       <span className="text-xs text-gray-500">147 points</span>
                     </div>
@@ -794,8 +794,8 @@ const Homepage = () => {
           </div>
 
           {/* Service 2: Sustainable Reputation */}
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-16">
-            <div className="flex-1 text-left space-y-8">
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-3 lg:gap-3">
+            <div className="flex-1 text-left space-y-3">
               <h4 className="text-3xl md:text-5xl font-serif font-semibold text-white">
                 Sustainable reputation building
               </h4>
@@ -817,7 +817,7 @@ const Homepage = () => {
                   }}></div>
                   <div className="absolute inset-8 rounded-full bg-[#0a0a0a] flex flex-col items-center justify-center">
                     <span className="text-3xl font-bold text-white">88/100</span>
-                    <span className="text-xs text-gray-500 uppercase tracking-wider mt-1">Trust Score</span>
+                    <span className="text-xs text-gray-500 uppercase tracking-wider mt-3">Trust Score</span>
                   </div>
                 </div>
               </div>
@@ -825,8 +825,8 @@ const Homepage = () => {
           </div>
 
           {/* Service 3: High-Impact Advertising */}
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            <div className="flex-1 text-left space-y-8">
+          <div className="flex flex-col lg:flex-row items-center gap-3 lg:gap-3">
+            <div className="flex-1 text-left space-y-3">
               <h4 className="text-3xl md:text-5xl font-serif font-semibold text-white">
                 High-impact advertising (when appropriate)
               </h4>
@@ -843,17 +843,17 @@ const Homepage = () => {
             <div className="flex-1 w-full relative">
               <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
                 <div className="grid grid-cols-12 gap-6">
-                  <div className="col-span-4 space-y-4">
+                  <div className="col-span-4 space-y-3">
                     <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">ROAS</div>
+                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-3">ROAS</div>
                       <div className="text-2xl font-bold text-white">4.2x</div>
                     </div>
                     <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">CTR</div>
+                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-3">CTR</div>
                       <div className="text-2xl font-bold text-white">3.85%</div>
                     </div>
                     <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">Conv. Rate</div>
+                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-3">Conv. Rate</div>
                       <div className="text-2xl font-bold text-white">12%</div>
                     </div>
                   </div>
@@ -882,7 +882,7 @@ const Homepage = () => {
           <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-[1.6rem]">
             Where buyers pressure-test decisions before acting
           </h2>
-          <div className="font-elegant text-lg text-gray-300 leading-relaxed space-y-[1.2rem]">
+          <div className="font-elegant text-lg text-gray-300 leading-relaxed space-y-3">
             <p>
               Reddit is not a discovery platform.
             </p>
@@ -902,21 +902,21 @@ const Homepage = () => {
           <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-[1.2rem]">
             What clients typically experience
           </h2>
-          <ul className="text-left max-w-2xl space-y-[0.6rem] font-elegant text-lg text-gray-300 mb-[1.2rem]">
+          <ul className="text-left max-w-2xl space-y-3 font-elegant text-lg text-gray-300 mb-[1.2rem]">
             <li className="flex items-start gap-3">
-              <span className="text-white mt-1">•</span>
+              <span className="text-white mt-3">•</span>
               <span>Clear positioning within relevant communities</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-white mt-1">•</span>
+              <span className="text-white mt-3">•</span>
               <span>Gradual but defensible momentum</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-white mt-1">•</span>
+              <span className="text-white mt-3">•</span>
               <span>Fewer spikes, stronger signal quality</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-white mt-1">•</span>
+              <span className="text-white mt-3">•</span>
               <span>Insights that compound beyond Reddit</span>
             </li>
           </ul>
@@ -949,7 +949,7 @@ const Homepage = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="border border-white/10 rounded-3xl p-8 bg-[#0b0b0b] flex flex-col gap-4">
+          <div className="border border-white/10 rounded-3xl p-8 bg-[#0b0b0b] flex flex-col gap-3">
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-full bg-[#d01717] flex items-center justify-center text-white font-bold text-lg">
                 r
@@ -963,7 +963,7 @@ const Homepage = () => {
               Working with Redditera has been an exceptional experience. They fully understand our needs, tailor strategies to reach our goals, and consistently explore new approaches to drive results. Their proactive communication and commitment make this collaboration highly effective.
             </p>
           </div>
-          <div className="border border-white/10 rounded-3xl p-8 bg-[#0b0b0b] flex flex-col gap-4">
+          <div className="border border-white/10 rounded-3xl p-8 bg-[#0b0b0b] flex flex-col gap-3">
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-full bg-[#d8c1ed] flex items-center justify-center text-[#4b2ea9] font-bold text-lg">
                 C
@@ -977,7 +977,7 @@ const Homepage = () => {
               Working with Redditera is a pleasure. They have been one of our most reliable partners, delivering work that has a sizable impact and building a relationship we truly value. Their guidance opens new opportunities for successful ventures.
             </p>
           </div>
-          <div className="border border-white/10 rounded-3xl p-8 bg-[#0b0b0b] flex flex-col gap-4">
+          <div className="border border-white/10 rounded-3xl p-8 bg-[#0b0b0b] flex flex-col gap-3">
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-full bg-[#222] flex items-center justify-center text-white font-bold text-lg">
                 D
@@ -1004,9 +1004,9 @@ const Homepage = () => {
             A practical assessment based on audience behavior, competitive presence, and risk tolerance.
           </p>
           
-          <form className="space-y-[1.2rem]">
+          <form className="space-y-3">
             <div>
-              <label className="block font-mono text-xs text-gray-400 mb-2 uppercase tracking-wider">Your Name</label>
+              <label className="block font-mono text-xs text-gray-400 mb-3 uppercase tracking-wider">Your Name</label>
               <input
                 type="text"
                 name="name"
@@ -1017,7 +1017,7 @@ const Homepage = () => {
               />
             </div>
             <div>
-              <label className="block font-mono text-xs text-gray-400 mb-2 uppercase tracking-wider">Your Email</label>
+              <label className="block font-mono text-xs text-gray-400 mb-3 uppercase tracking-wider">Your Email</label>
               <input
                 type="email"
                 name="email"
@@ -1028,7 +1028,7 @@ const Homepage = () => {
               />
             </div>
             <div>
-              <label className="block font-mono text-xs text-gray-400 mb-2 uppercase tracking-wider">Your Inquiry</label>
+              <label className="block font-mono text-xs text-gray-400 mb-3 uppercase tracking-wider">Your Inquiry</label>
               <select
                 name="inquiry"
                 value={formData.inquiry}
@@ -1042,7 +1042,7 @@ const Homepage = () => {
               </select>
             </div>
             <div>
-              <label className="block font-mono text-xs text-gray-400 mb-2 uppercase tracking-wider">Your Message</label>
+              <label className="block font-mono text-xs text-gray-400 mb-3 uppercase tracking-wider">Your Message</label>
               <textarea
                 name="message"
                 value={formData.message}
