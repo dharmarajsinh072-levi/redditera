@@ -167,93 +167,56 @@ const Homepage = () => {
   const barColors = ['#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7']
 
   return (
-    <div className="homepage bg-[#0a0a0a] text-white min-h-screen">
+    <div className="homepage bg-black text-white min-h-screen">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
-              <img 
-                src="/images/cropped-redditera-logo-2.webp" 
-                alt="Redditera Logo" 
-                className="h-8 w-auto"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'flex';
-                }}
-              />
-              <div className="w-8 h-8 bg-reddit-orange rounded-full flex items-center justify-center" style={{ display: 'none' }}>
-                <span className="text-white font-bold text-sm">R</span>
+              <div className="w-6 h-6 grid grid-cols-2 gap-0.5">
+                <div className="w-full h-full bg-white"></div>
+                <div className="w-full h-full bg-white"></div>
+                <div className="w-full h-full bg-white"></div>
+                <div className="w-full h-full bg-white"></div>
               </div>
-              <span className="text-xl font-bold text-white">Redditera</span>
+              <span className="text-xl font-bold text-white tracking-tight">REDDITERA</span>
             </Link>
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#home" className="text-gray-300 hover:text-white transition-colors">Home</a>
-              <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
-              <a href="#services" className="text-gray-300 hover:text-white transition-colors">Services</a>
-            </div>
             <a 
               href="#contact" 
-              className="px-6 py-2.5 bg-white text-black rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+              className="px-6 py-2 border border-white text-white font-mono text-sm hover:bg-white hover:text-black transition-all"
             >
-              Get Started
+              LOGIN
             </a>
           </div>
         </nav>
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 pb-32 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a] to-[#0a0a0a]"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] blur-[120px] rounded-full"></div>
-        
+      <section id="home" className="relative min-h-screen flex items-center justify-center pt-32 pb-16 overflow-hidden bg-black">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex flex-col items-center text-center">
-            {/* Testimonial Badge */}
-            <div className="flex items-center gap-3 mb-6 animate-fade-in">
-              <div className="flex -space-x-3">
-                {[
-                  'p3mZac3vHFT3FNOc4xkI8i552KM.webp',
-                  'PDcdMPnZtRPJ7Yi5rwCCfsbK4.webp',
-                  '360_F_636708884_seTHzKWBbeBGi8G2KHqZJjYPwp9k9Lvv.webp'
-                ].map((img, i) => (
-                  <img 
-                    key={i}
-                    src={`/images/${img}`}
-                    alt={`Client ${i + 1}`}
-                    className="w-12 h-12 rounded-full border-2 border-[#0a0a0a] object-cover"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                ))}
-              </div>
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <svg key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24">
-                    <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>
-                  </svg>
-                ))}
-              </div>
-              <p className="text-base text-gray-300 font-medium">70+ happy clients</p>
+            {/* Data Stream Status */}
+            <div className="flex items-center gap-2 px-4 py-1.5 bg-black border border-white/20 rounded-full mb-8 font-mono text-xs text-white">
+              <div className="w-2 h-2 bg-[#FF4500] rounded-full animate-pulse"></div>
+              <span>DATA STREAM ONLINE</span>
             </div>
 
             {/* Main Title */}
-            <h1 className="text-5xl md:text-7xl font-satoshi font-medium tracking-tight text-white mb-6 text-balance-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Reddit marketing for brands that need trust — not traffic spikes
+            <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight leading-none">
+              <span className="block">Reddit marketing</span>
+              <span className="block text-gray-400">for brands that need <span className="italic text-white">trust</span> — not traffic spikes</span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mb-8 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              We help SaaS, consumer, and founder-led brands turn Reddit into a durable acquisition and reputation channel — without bans, backlash, or short-term hacks.
+            {/* Subtitle - Monospace style */}
+            <p className="font-mono text-sm md:text-base text-gray-300 max-w-3xl mb-12 tracking-wider">
+              We help <span className="italic">SaaS, consumer, and founder-led brands</span> turn Reddit into a <span className="italic">durable acquisition and reputation channel</span> — without bans, backlash, or short-term hacks.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 mb-12 animate-fade-in" style={{ animationDelay: '0.35s' }}>
+            <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
               <a 
                 href="#contact" 
-                className="group relative flex items-center gap-2 px-8 py-3.5 bg-white text-black rounded-full font-bold text-lg shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-105 transition-all duration-300"
+                className="group relative flex items-center gap-2 px-8 py-3.5 bg-white text-black font-bold text-lg hover:bg-gray-100 transition-all duration-300"
               >
                 Book a Strategy Call
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -262,7 +225,7 @@ const Homepage = () => {
               </a>
               <a 
                 href="#services" 
-                className="group relative flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white rounded-full font-semibold text-lg hover:bg-white/10 transition-all duration-300"
+                className="group relative flex items-center gap-2 px-8 py-3.5 border border-white text-white font-semibold text-lg hover:bg-white hover:text-black transition-all duration-300"
               >
                 See How It Works
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -271,21 +234,21 @@ const Homepage = () => {
               </a>
             </div>
 
-            {/* Interactive Metrics Dashboard */}
-            <div className="w-full max-w-6xl mx-auto mt-12 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              {/* Section Header */}
-              <div className="text-center mb-6">
-                <h2 className="text-2xl md:text-3xl font-satoshi font-bold text-white mb-2">
+            {/* Financial Overview Section */}
+            <div className="w-full max-w-6xl mx-auto mt-8">
+              <div className="text-center mb-8">
+                <p className="font-mono text-xs text-gray-400 mb-2 tracking-wider">FINANCIAL OVERVIEW</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
                   Proven Reddit-led outcomes
                 </h2>
-                <p className="text-sm md:text-base text-gray-400 mb-2">
+                <p className="font-mono text-xs text-gray-400 mb-1">
                   Recent results from managed Reddit campaigns
                 </p>
-                <p className="text-xs md:text-sm text-[#22C55E] font-medium">
+                <p className="font-mono text-xs text-[#22C55E]">
                   Zero bans. Zero shadowbans.
                 </p>
               </div>
-              <div className="relative rounded-3xl border border-white/10 bg-[#09090a] p-6">
+              <div className="relative border border-white/20 bg-black p-6 mb-8">
                 {/* Top Row - 4 Small Metric Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
                   {/* Attributed Revenue */}
@@ -410,22 +373,15 @@ const Homepage = () => {
                       </select>
                     </div>
                     <div className="flex flex-col gap-2 mb-4 sm:mb-6 pr-24 sm:pr-28">
-                      <div className="text-gray-400 text-sm font-medium flex items-center gap-2">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        Total revenue
-                      </div>
-                      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                        <h3 className="text-xl sm:text-2xl font-bold text-white">
+                      <div className="font-mono text-xs text-gray-400 mb-1">TOTAL REVENUE</div>
+                      <div className="flex flex-wrap items-center gap-4">
+                        <h3 className="text-2xl sm:text-3xl font-bold text-white">
                           ${(quarterMetrics.totalRevenue / 1000).toFixed(1)}K
                         </h3>
-                        <span className="flex items-center gap-1 text-xs sm:text-sm font-bold px-2 sm:px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
-                          +{quarterMetrics.revenueGrowth}%
-                          <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                          </svg>
-                        </span>
+                        <div className="flex flex-col">
+                          <span className="text-[#FF4500] font-bold text-lg">+{quarterMetrics.revenueGrowth}%</span>
+                          <span className="font-mono text-xs text-gray-400">YOY GROWTH</span>
+                        </div>
                       </div>
                     </div>
                     <div className="flex-1 h-48 sm:h-64 min-h-[200px]">
@@ -455,8 +411,8 @@ const Homepage = () => {
                               </feMerge>
                             </filter>
                             <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="0%" stopColor="#A855F7" stopOpacity="0.25" />
-                              <stop offset="100%" stopColor="#A855F7" stopOpacity="0" />
+                              <stop offset="0%" stopColor="#FF4500" stopOpacity="0.3" />
+                              <stop offset="100%" stopColor="#FF4500" stopOpacity="0" />
                             </linearGradient>
                             <linearGradient id="expensesGradient" x1="0" y1="0" x2="0" y2="1">
                               <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.18" />
@@ -498,17 +454,17 @@ const Homepage = () => {
                             shared={true}
                           />
                           <Legend 
-                            wrapperStyle={{ fontSize: '11px', paddingTop: '10px' }}
-                            iconType="circle"
-                            formatter={(value) => <span style={{ color: '#fff', fontSize: '11px' }}>{value}</span>}
+                            wrapperStyle={{ fontSize: '10px', paddingTop: '10px', fontFamily: 'JetBrains Mono, monospace' }}
+                            iconType="line"
+                            formatter={(value) => <span style={{ color: '#fff', fontSize: '10px', fontFamily: 'JetBrains Mono, monospace' }}>— {value.toUpperCase()}</span>}
                           />
                           <Line 
                             type="monotone" 
                             dataKey="Revenue" 
-                            stroke="#A855F7" 
-                            strokeWidth={3}
+                            stroke="#FF4500" 
+                            strokeWidth={4}
                             dot={false}
-                            activeDot={{ r: 10, fill: '#A855F7', stroke: '#fff', strokeWidth: 3, filter: 'drop-shadow(0 4px 8px rgba(168, 85, 247, 0.6))', cursor: 'pointer' }}
+                            activeDot={{ r: 12, fill: '#FF4500', stroke: '#fff', strokeWidth: 3, filter: 'drop-shadow(0 0 12px rgba(255, 69, 0, 1))', cursor: 'pointer' }}
                             name="Revenue"
                             animationDuration={200}
                             animationBegin={0}
@@ -516,6 +472,7 @@ const Homepage = () => {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             isAnimationActive={true}
+                            style={{ filter: 'drop-shadow(0 0 8px rgba(255, 69, 0, 0.8))' }}
                           />
                           <Line 
                             type="monotone" 
@@ -547,29 +504,20 @@ const Homepage = () => {
                     </div>
                   </div>
 
-                  {/* Total Profit - Bar Chart */}
-                  <div className="lg:col-span-1 bg-[#0F0F11] border border-white/5 rounded-xl p-4 sm:p-6 flex flex-col transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
+                  {/* Net Income / Total Profit - Bar Chart */}
+                  <div className="lg:col-span-1 border border-white/20 bg-black p-4 sm:p-6 flex flex-col">
                     <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4 sm:mb-6">
                       <div className="flex-1">
-                        <div className="text-gray-400 text-sm font-medium flex items-center gap-2 mb-1 group-hover:text-gray-300 transition-colors">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                          </svg>
-                          Total profit
-                        </div>
-                        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-1">
-                          <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-white">
+                        <div className="font-mono text-xs text-gray-400 mb-1">NET INCOME</div>
+                        <div className="flex flex-wrap items-center gap-4 mt-1">
+                          <h3 className="text-2xl sm:text-3xl font-bold text-white">
                             ${(quarterMetrics.profit / 1000).toFixed(1)}K
                           </h3>
-                          <span className="flex items-center gap-1 text-xs sm:text-sm font-bold px-2 sm:px-2.5 py-1 rounded-md transition-colors bg-[#22C55E]/10 text-[#22C55E] group-hover:bg-[#22C55E]/15">
-                            +{quarterMetrics.profitGrowth}%
-                            <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                            </svg>
-                          </span>
+                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                          </svg>
                         </div>
                       </div>
-                      <button className="text-xs text-purple-400 hover:text-purple-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-400/30 rounded px-2 py-1">View report</button>
                     </div>
                     <div className="flex-1">
                       <div className="h-20 sm:h-24 flex items-end justify-between gap-1 mb-2">
@@ -622,18 +570,11 @@ const Homepage = () => {
                               {profitData.map((entry, index) => (
                                 <Cell 
                                   key={`cell-${index}`} 
-                                  fill={barColors[index % barColors.length]}
+                                  fill="rgba(255, 255, 255, 0.2)"
                                   style={{ 
-                                    transition: 'opacity 0.2s ease, filter 0.2s ease',
-                                    filter: 'url(#barShadow)'
-                                  }}
-                                  onMouseEnter={(e) => {
-                                    e.target.style.opacity = '0.85';
-                                    e.target.style.filter = 'url(#barShadow) brightness(1.1)';
-                                  }}
-                                  onMouseLeave={(e) => {
-                                    e.target.style.opacity = '1';
-                                    e.target.style.filter = 'url(#barShadow)';
+                                    transition: 'opacity 0.2s ease',
+                                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%)',
+                                    backdropFilter: 'blur(10px)'
                                   }}
                                 />
                               ))}
@@ -641,25 +582,26 @@ const Homepage = () => {
                           </BarChart>
                         </ResponsiveContainer>
                       </div>
-                          <div className="flex justify-between text-[9px] sm:text-[10px] text-gray-500 mt-2 font-medium uppercase tracking-wider">
+                          <div className="flex justify-between text-[9px] sm:text-[10px] text-gray-500 mt-2 font-mono uppercase tracking-wider">
                             <span>12 AM</span>
                             <span>8 AM</span>
                             <span>4 PM</span>
                             <span>11 PM</span>
                           </div>
+                          <p className="font-mono text-[9px] text-gray-500 mt-2 text-center">PROFIT PROJECTION // HOLOGRAPHIC RENDER</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
       {/* Trusted Partners Section */}
-      <section className="py-16 relative -mt-8">
+      <section className="py-16 relative -mt-8 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs text-gray-500 font-medium uppercase tracking-widest mb-6 text-center">Trusted Partners</p>
+          <p className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-6 text-center">TRUSTED PARTNERS</p>
           <div className="w-full max-w-4xl mx-auto relative flex overflow-hidden" style={{
             maskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
             WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)'
@@ -718,11 +660,27 @@ const Homepage = () => {
         </div>
       </section>
 
+      {/* Our Mission Section */}
+      <section id="about" className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10 bg-black">
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+          <div className="flex items-center gap-4 mb-8 w-full justify-center">
+            <div className="h-px bg-white/20 flex-1 max-w-[100px]"></div>
+            <p className="font-mono text-xs text-gray-400 tracking-wider">OUR MISSION</p>
+            <div className="h-px bg-white/20 flex-1 max-w-[100px]"></div>
+          </div>
+          <blockquote className="font-serif text-3xl md:text-5xl text-white mb-8 italic leading-relaxed">
+            "We decrypt the chaos of the internet to provide clarity in a noisy world."
+          </blockquote>
+          <p className="text-gray-400 text-lg leading-relaxed max-w-2xl">
+            Redditera leverages <span className="italic">data-driven insights</span> to navigate the complex ecosystems of online communities. We don't just participate; <span className="italic">we engineer the conversation through precision and authenticity</span>.
+          </p>
+        </div>
+      </section>
+
       {/* About Section */}
-      <section id="about" className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/[0.03] blur-[120px] rounded-full pointer-events-none -z-10"></div>
+      <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10 bg-black">
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-satoshi font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
             An award-winning Reddit marketing team
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl leading-relaxed mb-8">
@@ -754,14 +712,14 @@ const Homepage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">
-              <h3 className="text-3xl md:text-4xl font-satoshi font-bold text-white">
+              <h3 className="text-3xl md:text-4xl font-bold text-white">
                 Our mandate
               </h3>
               <p className="text-gray-400 leading-relaxed text-lg">
-                Help brands earn attention in the places where audiences are most skeptical — and most honest.
+                Help brands earn attention in the places where audiences are <span className="italic">most skeptical — and most honest</span>.
               </p>
               <p className="text-gray-400 leading-relaxed text-lg">
-                We turn Reddit into a sustainable growth channel by respecting the platform, its communities, and its power structures.
+                We turn Reddit into a <span className="italic">sustainable growth channel</span> by respecting the platform, its communities, and its power structures.
               </p>
             </div>
           </div>
@@ -782,227 +740,139 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="w-full max-w-7xl mx-auto px-4 py-32 relative z-10">
-        <div className="text-center mb-32 max-w-3xl mx-auto">
-          <h3 className="text-4xl md:text-6xl font-satoshi font-medium text-white mb-6">
+      {/* Services Protocol Section */}
+      <section id="services" className="w-full max-w-7xl mx-auto px-4 py-32 relative z-10 bg-black">
+        <div className="flex flex-col items-center text-center mb-16">
+          <div className="flex items-center gap-4 mb-8 w-full justify-center">
+            <div className="h-px bg-white/20 flex-1 max-w-[100px]"></div>
+            <p className="font-mono text-xs text-gray-400 tracking-wider">SERVICES PROTOCOL</p>
+            <div className="h-px bg-white/20 flex-1 max-w-[100px]"></div>
+          </div>
+          <h3 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Turn Reddit attention into loyal customers
           </h3>
-          <p className="text-gray-400 text-lg leading-relaxed">
+          <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">
             Reddit users don't respond to promotion.<br />
-            They respond to relevance, credibility, and contribution.
+            They respond to <span className="italic">relevance, credibility, and contribution</span>.
           </p>
-          <p className="text-gray-400 text-lg leading-relaxed mt-4">
-            We design campaigns that integrate naturally into existing conversations — so interest feels discovered, not pushed.
+          <p className="text-gray-400 text-lg leading-relaxed mt-4 max-w-3xl">
+            We design campaigns that integrate naturally into existing conversations — so interest feels <span className="italic">discovered, not pushed</span>.
           </p>
         </div>
 
-        <div className="flex flex-col gap-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Service 1: Strategic Brand Mentions */}
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-            <div className="flex-1 text-left space-y-8">
-              <h4 className="text-3xl md:text-5xl font-satoshi font-bold text-white">
-                Strategic Brand Mentions
-              </h4>
-              <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
-                We suggest your brand as the best solution, right where your audience is looking for answers.
-              </p>
-              <Link to="/explore-mentions" className="group inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-100 text-black font-medium rounded-full transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
-                Explore Mentions
-                <svg className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h10v10M7 17L17 7" />
-                </svg>
-              </Link>
+          <div className="border border-white/20 bg-black p-8 hover:border-white/30 transition-all duration-300">
+            <div className="w-12 h-12 border border-white/20 flex items-center justify-center mb-6">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
             </div>
-            <div className="flex-1 w-full relative group">
-              <div className="relative w-full aspect-[16/13] bg-[#0B0D0E] border border-white/10 rounded-xl overflow-hidden shadow-xl flex flex-col">
-                <div className="h-14 bg-[#0F0F11] border-b border-white/5 flex items-center px-6 justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-[#FF4500] flex items-center justify-center shadow-[0_0_15px_rgba(255,69,0,0.3)]">
-                      <span className="text-white text-xs font-bold">R</span>
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-bold text-gray-200">r/Marketing</span>
-                      <span className="text-xs text-gray-500">u/MarketingGuru</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex-1 p-6 bg-[#0a0a0a]">
-                  <div className="mb-4">
-                    <h5 className="text-base font-semibold text-white mb-3">How do you guys get customers with a low-priced SaaS product?</h5>
-                  </div>
-                  <div className="border-l-4 border-purple-500 pl-4 bg-[#0F0F11] p-4 rounded">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-sm font-bold text-blue-400">u/Ape_in_a_Suit</span>
-                      <span className="text-xs text-gray-500">147 points</span>
-                    </div>
-                    <p className="text-sm text-gray-300 leading-relaxed">
-                      We've had great success with Reddit ads and engaging in relevant subreddits. Our sign-ups increased by 20% after implementing a Reddit-focused strategy.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h4 className="text-xl md:text-2xl font-bold text-white font-mono tracking-wider mb-4">
+              STRATEGIC BRAND MENTIONS
+            </h4>
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+              Inserting your narrative into <span className="italic">high-value threads with surgical precision</span>. Organic feel, calculated impact.
+            </p>
+            <Link to="/explore-mentions" className="group inline-flex items-center gap-2 font-mono text-xs text-white hover:text-[#FF4500] transition-colors">
+              EXPLORE →
+            </Link>
           </div>
 
           {/* Service 2: Sustainable Reputation */}
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24">
-            <div className="flex-1 text-left space-y-8">
-              <h4 className="text-3xl md:text-5xl font-satoshi font-bold text-white">
-                Sustainable reputation building
-              </h4>
-              <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
-                Reddit rewards consistency and punishes shortcuts.
-              </p>
-              <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
-                We focus on:
-              </p>
-              <ul className="text-gray-400 text-lg leading-relaxed max-w-lg space-y-2">
-                <li>• Long-term account health</li>
-                <li>• Community alignment</li>
-                <li>• Brand credibility that persists after campaigns end</li>
-              </ul>
-              <p className="text-gray-400 text-lg leading-relaxed max-w-lg mt-4">
-                This is how Reddit becomes an asset — not a liability.
-              </p>
-              <Link to="/build-authority" className="group inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-100 text-black font-medium rounded-full transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
-                Build Authority
-                <svg className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h10v10M7 17L17 7" />
-                </svg>
-              </Link>
+          <div className="border border-white/20 bg-black p-8 hover:border-white/30 transition-all duration-300">
+            <div className="w-12 h-12 border border-white/20 flex items-center justify-center mb-6">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
             </div>
-            <div className="flex-1 w-full relative">
-              <div className="relative w-full aspect-square bg-[#0B0D0E] border border-white/10 rounded-xl overflow-hidden shadow-xl flex items-center justify-center">
-                <div className="relative w-48 h-48">
-                  <div className="absolute inset-0 rounded-full border-8 border-transparent" style={{
-                    background: 'conic-gradient(from 0deg, #22C55E 0deg 316.8deg, rgba(255,255,255,0.1) 316.8deg 360deg)'
-                  }}></div>
-                  <div className="absolute inset-8 rounded-full bg-[#0a0a0a] flex flex-col items-center justify-center">
-                    <span className="text-3xl font-bold text-white">88/100</span>
-                    <span className="text-xs text-gray-500 uppercase tracking-wider mt-1">Trust Score</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h4 className="text-xl md:text-2xl font-bold text-white font-mono tracking-wider mb-4">
+              SUSTAINABLE REPUTATION
+            </h4>
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+              Building an <span className="italic">unshakable fortress of trust</span>. Long-term karma accumulation and community defense systems.
+            </p>
+            <Link to="/build-authority" className="group inline-flex items-center gap-2 font-mono text-xs text-white hover:text-[#FF4500] transition-colors">
+              EXPLORE →
+            </Link>
           </div>
 
           {/* Service 3: High-Impact Advertising */}
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-            <div className="flex-1 text-left space-y-8">
-              <h4 className="text-3xl md:text-5xl font-satoshi font-bold text-white">
-                High-impact advertising (when appropriate)
-              </h4>
-              <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
-                Ads amplify momentum. They don't create it.
-              </p>
-              <p className="text-gray-400 text-lg leading-relaxed max-w-lg mt-4">
-                We deploy paid Reddit placements only where:
-              </p>
-              <ul className="text-gray-400 text-lg leading-relaxed max-w-lg space-y-2">
-                <li>• Organic engagement already exists</li>
-                <li>• Audience intent is validated</li>
-                <li>• The message matches community expectations</li>
-              </ul>
-              <Link to="/view-ad-solutions" className="group inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-100 text-black font-medium rounded-full transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
-                View Ad Solutions
-                <svg className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h10v10M7 17L17 7" />
-                </svg>
-              </Link>
+          <div className="border border-white/20 bg-black p-8 hover:border-white/30 transition-all duration-300">
+            <div className="w-12 h-12 border border-white/20 flex items-center justify-center mb-6">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
             </div>
-            <div className="flex-1 w-full relative">
-              <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
-                <div className="grid grid-cols-12 gap-6">
-                  <div className="col-span-4 space-y-4">
-                    <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">ROAS</div>
-                      <div className="text-2xl font-bold text-white">4.2x</div>
-                    </div>
-                    <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">CTR</div>
-                      <div className="text-2xl font-bold text-white">3.85%</div>
-                    </div>
-                    <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">Conv. Rate</div>
-                      <div className="text-2xl font-bold text-white">12%</div>
-                    </div>
-                  </div>
-                  <div className="col-span-8 bg-[#0a0a0a]/50 rounded-xl border border-white/5 relative overflow-hidden h-48">
-                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                      <defs>
-                        <linearGradient id="adGradient" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#22C55E" stopOpacity="0.2" />
-                          <stop offset="100%" stopColor="#22C55E" stopOpacity="0" />
-                        </linearGradient>
-                      </defs>
-                      <path d="M0,80 C15,75 25,60 40,65 C55,70 65,30 80,40 C90,45 95,20 100,30" fill="none" stroke="#22C55E" strokeWidth="2" />
-                      <path d="M0,80 C15,75 25,60 40,65 C55,70 65,30 80,40 C90,45 95,20 100,30 V100 H0 Z" fill="url(#adGradient)" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h4 className="text-xl md:text-2xl font-bold text-white font-mono tracking-wider mb-4">
+              HIGH IMPACT ADVERTISING
+            </h4>
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+              Amplifying reach through <span className="italic">aggressive algorithmic placement</span>. Rocket-fuel for your ROI metrics.
+            </p>
+            <Link to="/view-ad-solutions" className="group inline-flex items-center gap-2 font-mono text-xs text-white hover:text-[#FF4500] transition-colors">
+              EXPLORE →
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Why Reddit Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10">
+      <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10 bg-black">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-satoshi font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Reddit is not a traffic channel
           </h2>
           <div className="text-lg text-gray-400 leading-relaxed space-y-4">
             <p>
-              It's where buyers go when ads stop working and reviews feel staged.
+              It's where buyers go when <span className="italic">ads stop working and reviews feel staged</span>.
             </p>
             <p>
-              If your brand is absent — or shows up the wrong way — the conversation still happens. You just don't control it.
+              If your brand is absent — or shows up the wrong way — the conversation still happens. <span className="italic">You just don't control it</span>.
             </p>
             <p className="mt-6">
               We don't treat Reddit like another social feed.<br />
-              We treat it as a decision layer.
+              We treat it as a <span className="italic">decision layer</span>.
             </p>
           </div>
         </div>
       </section>
 
       {/* Strategy Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10">
+      <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10 bg-black">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-satoshi font-bold text-white mb-12 text-center">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-12 text-center">
             Our Reddit strategy, end to end
           </h2>
           <div className="space-y-8">
             <div className="border-l-4 border-purple-500 pl-6">
               <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Step 1 — Audience & Subreddit Intelligence</h3>
               <p className="text-gray-400 text-lg leading-relaxed">
-                We map where your buyers already talk — not where marketers post.
+                We map where your <span className="italic">buyers already talk</span> — not where marketers post.
               </p>
             </div>
             <div className="border-l-4 border-blue-500 pl-6">
               <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Step 2 — Account & Reputation Engineering</h3>
               <p className="text-gray-400 text-lg leading-relaxed">
-                Credible posting history, tone calibration, and trust signals before visibility.
+                <span className="italic">Credible posting history, tone calibration, and trust signals</span> before visibility.
               </p>
             </div>
             <div className="border-l-4 border-green-500 pl-6">
               <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Step 3 — Narrative Seeding</h3>
               <p className="text-gray-400 text-lg leading-relaxed">
-                Non-promotional threads that surface real problems, use cases, and objections.
+                <span className="italic">Non-promotional threads</span> that surface real problems, use cases, and objections.
               </p>
             </div>
             <div className="border-l-4 border-yellow-500 pl-6">
               <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Step 4 — Strategic Promotion</h3>
               <p className="text-gray-400 text-lg leading-relaxed">
-                Paid amplification only when organic traction already exists.
+                Paid amplification only when <span className="italic">organic traction already exists</span>.
               </p>
             </div>
             <div className="border-l-4 border-red-500 pl-6">
               <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Step 5 — Monitoring & Defense</h3>
               <p className="text-gray-400 text-lg leading-relaxed">
-                Sentiment tracking, comment control, and moderator-safe execution.
+                <span className="italic">Sentiment tracking, comment control, and moderator-safe execution</span>.
               </p>
             </div>
           </div>
@@ -1010,32 +880,31 @@ const Homepage = () => {
       </section>
 
       {/* Results Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-24 relative flex flex-col items-center">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-indigo-500/10 rounded-full blur-[100px] -z-10"></div>
+      <section className="w-full max-w-7xl mx-auto px-4 py-24 relative flex flex-col items-center bg-black">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-8">
-          <h2 className="text-4xl md:text-6xl font-satoshi font-medium text-white mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
             What clients typically see
           </h2>
-          <ul className="text-left max-w-2xl space-y-3 text-lg text-gray-400 mb-6">
+          <ul className="text-left max-w-2xl space-y-3 text-lg text-gray-300 mb-6">
             <li className="flex items-start gap-3">
               <span className="text-white mt-1">•</span>
-              <span>Increased branded search</span>
+              <span>Increased <span className="italic">branded search</span></span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-white mt-1">•</span>
-              <span>Higher demo-quality traffic</span>
+              <span>Higher <span className="italic">demo-quality traffic</span></span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-white mt-1">•</span>
-              <span>Organic mentions outside our own posts</span>
+              <span><span className="italic">Organic mentions</span> outside our own posts</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-white mt-1">•</span>
-              <span>Improved perception inside niche communities</span>
+              <span>Improved perception inside <span className="italic">niche communities</span></span>
             </li>
           </ul>
-          <p className="text-sm text-gray-500 italic">
-            Results vary by category and timing. Signal quality always improves.
+          <p className="font-mono text-xs text-gray-500">
+            Results vary by category and timing. <span className="italic">Signal quality always improves</span>.
           </p>
         </div>
         <div className="relative w-full max-w-5xl mx-auto p-4 md:p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden">
@@ -1055,21 +924,21 @@ const Homepage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-24">
+      <section className="w-full max-w-7xl mx-auto px-4 py-24 bg-black">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <div className="group relative flex flex-col px-5 py-8 md:px-6 md:py-10 bg-[#0A0A0A] hover:bg-[#0f0f0f] transition-colors duration-500 rounded-xl border border-white/5">
-            <p className="text-lg text-white group-hover:text-white transition-colors leading-relaxed mb-4">
+          <div className="group relative flex flex-col px-5 py-8 md:px-6 md:py-10 border border-white/20 bg-black hover:border-white/30 transition-colors duration-500">
+            <p className="text-lg text-white leading-relaxed mb-4">
               "We stopped getting roasted and started getting DMs."
             </p>
-            <p className="text-sm text-gray-400">
+            <p className="font-mono text-xs text-gray-400">
               — Founder, B2B SaaS
             </p>
           </div>
-          <div className="group relative flex flex-col px-5 py-8 md:px-6 md:py-10 bg-[#0A0A0A] hover:bg-[#0f0f0f] transition-colors duration-500 rounded-xl border border-white/5">
-            <p className="text-lg text-white group-hover:text-white transition-colors leading-relaxed mb-4">
-              "Reddit became our highest-converting non-paid channel."
+          <div className="group relative flex flex-col px-5 py-8 md:px-6 md:py-10 border border-white/20 bg-black hover:border-white/30 transition-colors duration-500">
+            <p className="text-lg text-white leading-relaxed mb-4">
+              "Reddit became our <span className="italic">highest-converting non-paid channel</span>."
             </p>
-            <p className="text-sm text-gray-400">
+            <p className="font-mono text-xs text-gray-400">
               — Head of Growth, Consumer Brand
             </p>
           </div>
@@ -1077,45 +946,45 @@ const Homepage = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="w-full max-w-7xl mx-auto px-4 py-24">
+      <section id="contact" className="w-full max-w-7xl mx-auto px-4 py-24 bg-black">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
             Let's see if Reddit makes sense for your brand
           </h2>
           <p className="text-lg text-gray-400 text-center mb-8 max-w-xl mx-auto">
-            We'll assess fit, risks, and realistic opportunity.<br />
-            No pitch if it's not right.
+            We'll assess <span className="italic">fit, risks, and realistic opportunity</span>.<br />
+            <span className="italic">No pitch if it's not right</span>.
           </p>
           <form className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
+              <label className="block font-mono text-xs text-gray-400 mb-2 uppercase tracking-wider">Your Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-[#0F0F11] border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-white/20 transition-colors"
+                className="w-full px-4 py-3 bg-black border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:border-white/40 transition-colors font-mono text-sm"
                 placeholder="John Doe"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
+              <label className="block font-mono text-xs text-gray-400 mb-2 uppercase tracking-wider">Your Email</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-[#0F0F11] border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-white/20 transition-colors"
+                className="w-full px-4 py-3 bg-black border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:border-white/40 transition-colors font-mono text-sm"
                 placeholder="john@example.com"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Your Inquiry</label>
+              <label className="block font-mono text-xs text-gray-400 mb-2 uppercase tracking-wider">Your Inquiry</label>
               <select
                 name="inquiry"
                 value={formData.inquiry}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-[#0F0F11] border border-white/10 rounded-lg text-white focus:outline-none focus:border-white/20 transition-colors"
+                className="w-full px-4 py-3 bg-black border border-white/20 text-white focus:outline-none focus:border-white/40 transition-colors font-mono text-sm"
               >
                 <option value="reddit marketing services">Reddit Marketing Services</option>
                 <option value="brand mentions">Brand Mentions</option>
@@ -1124,19 +993,19 @@ const Homepage = () => {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Your Message</label>
+              <label className="block font-mono text-xs text-gray-400 mb-2 uppercase tracking-wider">Your Message</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
                 rows={6}
-                className="w-full px-4 py-3 bg-[#0F0F11] border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-white/20 transition-colors resize-none"
+                className="w-full px-4 py-3 bg-black border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:border-white/40 transition-colors resize-none font-mono text-sm"
                 placeholder="Tell us about your project..."
               ></textarea>
             </div>
             <button
               type="submit"
-              className="w-full px-8 py-4 bg-white text-black rounded-full font-bold text-lg shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-105 transition-all duration-300"
+              className="w-full px-8 py-4 bg-white text-black font-bold text-lg hover:bg-gray-100 transition-all duration-300"
             >
               Book a Strategy Call
             </button>
@@ -1145,61 +1014,24 @@ const Homepage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/5 bg-[#0a0a0a]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-reddit-orange rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">R</span>
-                </div>
-                <span className="text-xl font-bold text-white">Redditera</span>
+      <footer className="border-t border-white/10 bg-black py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center gap-6">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 grid grid-cols-2 gap-0.5">
+                <div className="w-full h-full bg-white"></div>
+                <div className="w-full h-full bg-white"></div>
+                <div className="w-full h-full bg-white"></div>
+                <div className="w-full h-full bg-white"></div>
               </div>
-              <p className="text-sm text-gray-400 mb-4">
-                Helping brands build authentic communities and drive sustainable growth through strategic Reddit marketing.
-              </p>
-              <div className="flex gap-4">
-                {['Twitter', 'LinkedIn', 'Instagram', 'Facebook'].map((social) => (
-                  <a key={social} href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <span className="sr-only">{social}</span>
-                    <div className="w-6 h-6 border border-white/20 rounded"></div>
-                  </a>
-                ))}
-              </div>
+              <span className="text-lg font-bold text-white tracking-tight">REDDITERA</span>
             </div>
-            <div>
-              <h4 className="text-white font-medium text-sm mb-4">Product</h4>
-              <ul className="flex flex-col gap-3">
-                {['Services', 'Features', 'Pricing', 'Case Studies'].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">{item}</a>
-                  </li>
-                ))}
-              </ul>
+            <div className="flex items-center gap-6 font-mono text-xs text-white">
+              <a href="#" className="hover:text-[#FF4500] transition-colors">LEGAL</a>
+              <a href="#" className="hover:text-[#FF4500] transition-colors">PRIVACY</a>
+              <a href="#contact" className="hover:text-[#FF4500] transition-colors">CONTACT</a>
             </div>
-            <div>
-              <h4 className="text-white font-medium text-sm mb-4">Company</h4>
-              <ul className="flex flex-col gap-3">
-                {['About Us', 'Careers', 'Blog', 'Contact'].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">{item}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-medium text-sm mb-4">Legal</h4>
-              <ul className="flex flex-col gap-3">
-                {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">{item}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-gray-500">© 2026 Redditera. All rights reserved.</p>
+            <p className="font-mono text-xs text-gray-500">© 2025 ALL RIGHTS RESERVED</p>
           </div>
         </div>
       </footer>
