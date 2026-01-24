@@ -677,14 +677,32 @@ const Homepage = () => {
 
       {/* About / Authority Section */}
       <section className="w-full max-w-7xl mx-auto px-4 py-[4.5rem] relative z-10 bg-black">
-        <div className="flex flex-col items-center text-center mb-[3.2rem]">
+        <div className="flex flex-col items-center text-center mb-[2.56rem]">
           <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-[1.6rem]">
             This is not social media marketing. It is platform-specific execution.
           </h2>
-          <p className="font-elegant text-lg text-gray-300 max-w-3xl leading-relaxed mb-[1.6rem]">
+          <p className="font-elegant text-lg text-gray-300 max-w-3xl leading-relaxed mb-[1.28rem]">
             Reddit requires an understanding of subculture, moderation dynamics, and user intent. What works elsewhere often fails here. Our work is designed around how Reddit actually functions — not how marketers wish it did.
           </p>
-          <div className="text-left max-w-3xl"></div>
+          <div className="w-full max-w-3xl">
+            <div className="bg-[#0F0F11] border border-white/5 rounded-xl px-6 py-[1.2rem] text-left">
+              <p className="font-mono text-xs text-gray-500 mb-[0.5rem]">Authority building on Reddit</p>
+              <h3 className="text-xl md:text-2xl font-semibold text-white mb-[0.6rem]">
+                Earn recognition before you ever promote
+              </h3>
+              <p className="font-elegant text-sm text-gray-300 leading-relaxed mb-[0.8rem]">
+                Authority on Reddit is cumulative. It is built through visible contribution, accurate framing, and consistency over time. We design participation strategies that position your brand as a credible voice long before a buying decision is made.
+              </p>
+              <div className="font-elegant text-sm text-gray-300 leading-relaxed space-y-[0.3rem]">
+                <p>Comment-level expertise in relevant threads</p>
+                <p>Post participation that adds signal, not noise</p>
+                <p>Historical credibility that compounds across subreddits</p>
+              </div>
+              <p className="font-mono text-xs text-gray-400 mt-[0.8rem]">
+                View authority-building approach →
+              </p>
+            </div>
+          </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="flex flex-col gap-[1.6rem]"></div>
