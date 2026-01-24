@@ -684,33 +684,10 @@ const Homepage = () => {
           <p className="font-elegant text-lg text-gray-300 max-w-3xl leading-relaxed mb-[1.6rem]">
             Reddit requires an understanding of subculture, moderation dynamics, and user intent. What works elsewhere often fails here. Our work is designed around how Reddit actually functions — not how marketers wish it did.
           </p>
-          <div className="text-left max-w-3xl">
-            <p className="font-elegant text-lg text-gray-300 leading-relaxed mb-[1.2rem]"></p>
-            <ul className="space-y-[0.8rem] font-elegant text-lg text-gray-300">
-              <li className="flex items-start gap-3">
-                <span className="text-white mt-1"></span>
-                <span></span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-white mt-1"></span>
-                <span></span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-white mt-1"></span>
-                <span></span>
-              </li>
-            </ul>
-            <p className="font-elegant text-lg text-gray-300 leading-relaxed mt-[1.6rem]"></p>
-          </div>
+          <div className="text-left max-w-3xl"></div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div className="flex flex-col gap-[1.6rem]">
-            <div className="flex flex-col gap-[0.8rem]">
-              <h3 className="text-3xl md:text-4xl font-serif font-semibold text-white"></h3>
-              <p className="font-elegant text-lg text-gray-300 leading-relaxed"></p>
-              <p className="font-elegant text-lg text-gray-300 leading-relaxed"></p>
-            </div>
-          </div>
+          <div className="flex flex-col gap-[1.6rem]"></div>
           <div className="relative h-full min-h-[580px] w-full flex items-center justify-center">
             <img 
               src="/images/redditor2.webp" 
@@ -897,7 +874,6 @@ const Homepage = () => {
             <p>
               Brands that withstand this scrutiny earn disproportionate influence downstream.
             </p>
-            <p className="mt-[1.6rem] text-white"></p>
           </div>
         </div>
       </section>
@@ -926,7 +902,7 @@ const Homepage = () => {
               <span>Insights that compound beyond Reddit</span>
             </li>
           </ul>
-          <p className="font-elegant text-sm text-gray-400"></p>
+          
         </div>
         <div className="relative w-full max-w-5xl mx-auto px-4 py-3 md:px-6 md:py-[1.125rem] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden">
           <div className="relative rounded-2xl overflow-hidden border border-white/5 shadow-2xl bg-[#0F0F11] h-96 flex items-center justify-center">
@@ -1009,12 +985,7 @@ const Homepage = () => {
           <p className="font-elegant text-lg text-gray-300 text-center mb-[1.2rem] max-w-2xl mx-auto">
             A practical assessment based on audience behavior, competitive presence, and risk tolerance.
           </p>
-          <p className="font-elegant text-base text-gray-400 text-center mb-[1.6rem] max-w-2xl mx-auto"></p>
-          <ul className="font-elegant text-base text-gray-300 text-center mb-[1.6rem] max-w-2xl mx-auto space-y-[0.4rem]">
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
+          
           <form className="space-y-[1.2rem]">
             <div>
               <label className="block font-mono text-xs text-gray-400 mb-2 uppercase tracking-wider">Your Name</label>
@@ -1069,7 +1040,7 @@ const Homepage = () => {
             >
               Request an assessment
             </button>
-            <p className="font-mono text-xs text-gray-400 text-center mt-[0.4rem]"></p>
+            
           </form>
         </div>
       </section>
