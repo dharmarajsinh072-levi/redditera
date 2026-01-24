@@ -202,7 +202,7 @@ const Homepage = () => {
             </div>
 
             {/* Main Title */}
-            <h1 className="text-5xl md:text-7xl font-serif font-medium text-white mb-6 tracking-tight leading-tight">
+            <h1 className="text-5xl md:text-7xl font-serif font-semibold text-white mb-6 tracking-tight leading-tight">
               Reddit marketing for brands that can't afford to lose trust
             </h1>
 
@@ -238,7 +238,7 @@ const Homepage = () => {
             <div className="w-full max-w-6xl mx-auto mt-8">
               <div className="text-center mb-8">
                 <p className="font-mono text-xs text-gray-400 mb-2 tracking-wider">FINANCIAL OVERVIEW</p>
-                <h2 className="text-3xl md:text-4xl font-serif font-medium text-white mb-2">
+                <h2 className="text-3xl md:text-4xl font-serif font-semibold text-white mb-2">
                   Measured results from Reddit-led growth
                 </h2>
                 <p className="font-mono text-xs text-gray-400 mb-1">
@@ -680,7 +680,7 @@ const Homepage = () => {
       {/* About / Authority Section */}
       <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10 bg-black">
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-serif font-medium text-white mb-8">
+          <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-8">
             Reddit specialists — not generalist marketers
           </h2>
           <p className="font-elegant text-lg text-gray-300 max-w-3xl leading-relaxed mb-8">
@@ -712,7 +712,7 @@ const Homepage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">
-              <h3 className="text-3xl md:text-4xl font-serif font-medium text-white">
+              <h3 className="text-3xl md:text-4xl font-serif font-semibold text-white">
                 Our mandate
               </h3>
               <p className="font-elegant text-lg text-gray-300 leading-relaxed">
@@ -748,7 +748,7 @@ const Homepage = () => {
             <p className="font-mono text-xs text-gray-400 tracking-wider">SERVICES PROTOCOL</p>
             <div className="h-px bg-white/20 flex-1 max-w-[100px]"></div>
           </div>
-          <h3 className="text-4xl md:text-6xl font-serif font-medium text-white mb-6">
+          <h3 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-6">
             From attention to trust — and trust to revenue
           </h3>
           <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-3xl">
@@ -763,77 +763,145 @@ const Homepage = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex flex-col gap-24">
           {/* Service 1: Strategic Brand Mentions */}
-          <div className="border border-white/20 bg-black p-8 hover:border-white/30 transition-all duration-300">
-            <div className="w-12 h-12 border border-white/20 flex items-center justify-center mb-6">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+            <div className="flex-1 text-left space-y-8">
+              <h4 className="text-3xl md:text-5xl font-serif font-medium text-white">
+                Strategic Brand Mentions
+              </h4>
+              <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-lg">
+                Inserting your narrative into <span className="italic">high-value threads with surgical precision</span>. Organic feel, calculated impact.
+              </p>
+              <Link to="/explore-mentions" className="group inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-black font-semibold text-base transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:scale-105">
+                Explore Mentions
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
+                </svg>
+              </Link>
             </div>
-            <h4 className="text-xl md:text-2xl font-bold text-white font-mono tracking-wider mb-4">
-              STRATEGIC BRAND MENTIONS
-            </h4>
-            <p className="text-gray-300 text-sm leading-relaxed mb-6">
-              Inserting your narrative into <span className="italic">high-value threads with surgical precision</span>. Organic feel, calculated impact.
-            </p>
-            <Link to="/explore-mentions" className="group inline-flex items-center gap-2 font-mono text-xs text-white hover:text-[#FF4500] transition-colors">
-              EXPLORE →
-            </Link>
+            <div className="flex-1 w-full relative group">
+              <div className="relative w-full aspect-[16/13] bg-[#0B0D0E] border border-white/10 rounded-xl overflow-hidden shadow-xl flex flex-col">
+                <div className="h-14 bg-[#0F0F11] border-b border-white/5 flex items-center px-6 justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-[#FF4500] flex items-center justify-center shadow-[0_0_15px_rgba(255,69,0,0.3)]">
+                      <span className="text-white text-xs font-bold">R</span>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-sm font-bold text-gray-200">r/Marketing</span>
+                      <span className="text-xs text-gray-500">u/MarketingGuru</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex-1 p-6 bg-[#0a0a0a]">
+                  <div className="mb-4">
+                    <h5 className="text-base font-semibold text-white mb-3">How do you guys get customers with a low-priced SaaS product?</h5>
+                  </div>
+                  <div className="border-l-4 border-purple-500 pl-4 bg-[#0F0F11] p-4 rounded">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-sm font-bold text-blue-400">u/Ape_in_a_Suit</span>
+                      <span className="text-xs text-gray-500">147 points</span>
+                    </div>
+                    <p className="text-sm text-gray-300 leading-relaxed">
+                      We've had great success with Reddit ads and engaging in relevant subreddits. Our sign-ups increased by 20% after implementing a Reddit-focused strategy.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Service 2: Sustainable Reputation */}
-          <div className="border border-white/20 bg-black p-8 hover:border-white/30 transition-all duration-300">
-            <div className="w-12 h-12 border border-white/20 flex items-center justify-center mb-6">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24">
+            <div className="flex-1 text-left space-y-8">
+              <h4 className="text-3xl md:text-5xl font-serif font-medium text-white">
+                Sustainable reputation building
+              </h4>
+              <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-lg">
+                Reputation that <span className="italic">compounds instead of decays</span>.
+              </p>
+              <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-lg">
+                Shortcuts get exposed on Reddit — quickly. Our work prioritizes: <span className="italic">long-term account health, consistent community alignment, brand credibility that holds up under scrutiny</span>.
+              </p>
+              <p className="font-elegant text-lg text-white leading-relaxed max-w-lg">
+                This is how Reddit becomes a <span className="italic">defensible asset, not a recurring risk</span>.
+              </p>
+              <Link to="/build-authority" className="group inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-black font-semibold text-base transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:scale-105">
+                Build Authority
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
+                </svg>
+              </Link>
             </div>
-            <h4 className="text-xl md:text-2xl font-bold text-white font-mono tracking-wider mb-4">
-              SUSTAINABLE REPUTATION
-            </h4>
-            <p className="font-elegant text-sm leading-relaxed mb-6 text-gray-300">
-              Reputation that <span className="italic">compounds instead of decays</span>.
-            </p>
-            <p className="font-elegant text-sm leading-relaxed mb-4 text-gray-300">
-              Shortcuts get exposed on Reddit — quickly.
-            </p>
-            <p className="font-elegant text-sm leading-relaxed mb-6 text-gray-300">
-              Our work prioritizes: <span className="italic">long-term account health, consistent community alignment, brand credibility that holds up under scrutiny</span>.
-            </p>
-            <p className="font-elegant text-sm leading-relaxed text-white">
-              This is how Reddit becomes a <span className="italic">defensible asset, not a recurring risk</span>.
-            </p>
-            <Link to="/build-authority" className="group inline-flex items-center gap-2 font-mono text-xs text-white hover:text-[#FF4500] transition-colors">
-              EXPLORE →
-            </Link>
+            <div className="flex-1 w-full relative">
+              <div className="relative w-full aspect-square bg-[#0B0D0E] border border-white/10 rounded-xl overflow-hidden shadow-xl flex items-center justify-center">
+                <div className="relative w-48 h-48">
+                  <div className="absolute inset-0 rounded-full border-8 border-transparent" style={{
+                    background: 'conic-gradient(from 0deg, #22C55E 0deg 316.8deg, rgba(255,255,255,0.1) 316.8deg 360deg)'
+                  }}></div>
+                  <div className="absolute inset-8 rounded-full bg-[#0a0a0a] flex flex-col items-center justify-center">
+                    <span className="text-3xl font-bold text-white">88/100</span>
+                    <span className="text-xs text-gray-500 uppercase tracking-wider mt-1">Trust Score</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Service 3: High-Impact Advertising */}
-          <div className="border border-white/20 bg-black p-8 hover:border-white/30 transition-all duration-300">
-            <div className="w-12 h-12 border border-white/20 flex items-center justify-center mb-6">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+            <div className="flex-1 text-left space-y-8">
+              <h4 className="text-3xl md:text-5xl font-serif font-medium text-white">
+                High-impact advertising (when appropriate)
+              </h4>
+              <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-lg">
+                Paid Reddit — <span className="italic">used with restraint</span>.
+              </p>
+              <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-lg">
+                Ads don't create trust on Reddit. <span className="italic">They amplify it</span>. We use paid placements only when: <span className="italic">organic engagement already validates interest, audience intent is clear, the message aligns with subreddit norms</span>.
+              </p>
+              <p className="font-elegant text-lg text-white leading-relaxed max-w-lg">
+                Anything else is <span className="italic">wasted spend — or reputational damage</span>.
+              </p>
+              <Link to="/view-ad-solutions" className="group inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-black font-semibold text-base transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:scale-105">
+                View Ad Solutions
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
+                </svg>
+              </Link>
             </div>
-            <h4 className="text-xl md:text-2xl font-bold text-white font-mono tracking-wider mb-4">
-              HIGH IMPACT ADVERTISING
-            </h4>
-            <p className="font-elegant text-sm leading-relaxed mb-4 text-gray-300">
-              Paid Reddit — <span className="italic">used with restraint</span>.
-            </p>
-            <p className="font-elegant text-sm leading-relaxed mb-4 text-gray-300">
-              Ads don't create trust on Reddit. <span className="italic">They amplify it</span>.
-            </p>
-            <p className="font-elegant text-sm leading-relaxed mb-6 text-gray-300">
-              We use paid placements only when: <span className="italic">organic engagement already validates interest, audience intent is clear, the message aligns with subreddit norms</span>.
-            </p>
-            <p className="font-elegant text-sm leading-relaxed text-white">
-              Anything else is <span className="italic">wasted spend — or reputational damage</span>.
-            </p>
-            <Link to="/view-ad-solutions" className="group inline-flex items-center gap-2 font-mono text-xs text-white hover:text-[#FF4500] transition-colors">
-              EXPLORE →
-            </Link>
+            <div className="flex-1 w-full relative">
+              <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
+                <div className="grid grid-cols-12 gap-6">
+                  <div className="col-span-4 space-y-4">
+                    <div className="bg-white/5 rounded-xl p-4 border border-white/5">
+                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">ROAS</div>
+                      <div className="text-2xl font-bold text-white">4.2x</div>
+                    </div>
+                    <div className="bg-white/5 rounded-xl p-4 border border-white/5">
+                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">CTR</div>
+                      <div className="text-2xl font-bold text-white">3.85%</div>
+                    </div>
+                    <div className="bg-white/5 rounded-xl p-4 border border-white/5">
+                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">Conv. Rate</div>
+                      <div className="text-2xl font-bold text-white">12%</div>
+                    </div>
+                  </div>
+                  <div className="col-span-8 bg-[#0a0a0a]/50 rounded-xl border border-white/5 relative overflow-hidden h-48">
+                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                      <defs>
+                        <linearGradient id="adGradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="#22C55E" stopOpacity="0.2" />
+                          <stop offset="100%" stopColor="#22C55E" stopOpacity="0" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M0,80 C15,75 25,60 40,65 C55,70 65,30 80,40 C90,45 95,20 100,30" fill="none" stroke="#22C55E" strokeWidth="2" />
+                      <path d="M0,80 C15,75 25,60 40,65 C55,70 65,30 80,40 C90,45 95,20 100,30 V100 H0 Z" fill="url(#adGradient)" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -841,7 +909,7 @@ const Homepage = () => {
       {/* Why Reddit Section */}
       <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10 bg-black">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-serif font-medium text-white mb-8">
+          <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-8">
             Reddit is where buying decisions get validated
           </h2>
           <div className="font-elegant text-lg text-gray-300 leading-relaxed space-y-6">
@@ -865,7 +933,7 @@ const Homepage = () => {
       {/* Results Section */}
       <section className="w-full max-w-7xl mx-auto px-4 py-24 relative flex flex-col items-center bg-black">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-8">
-          <h2 className="text-4xl md:text-6xl font-serif font-medium text-white mb-6">
+          <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-6">
             What clients typically experience
           </h2>
           <ul className="text-left max-w-2xl space-y-3 font-elegant text-lg text-gray-300 mb-6">
@@ -931,7 +999,7 @@ const Homepage = () => {
       {/* Contact Section */}
       <section id="contact" className="w-full max-w-7xl mx-auto px-4 py-24 bg-black">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-serif font-medium text-white mb-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-serif font-semibold text-white mb-4 text-center">
             Find out if Reddit is a leverage channel for your brand
           </h2>
           <p className="font-elegant text-lg text-gray-300 text-center mb-6 max-w-2xl mx-auto">
