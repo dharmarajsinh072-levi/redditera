@@ -145,7 +145,7 @@ const ViewAdSolutions = () => {
       </nav>
 
       {/* Hero */}
-      <header className="relative pt-52 md:pt-64 pb-44 md:pb-52 px-6 overflow-hidden">
+      <header className="relative pt-44 md:pt-56 pb-32 md:pb-40 px-6 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1400px] h-[1400px] hero-halo-green -z-10 opacity-80" />
 
         <div className="max-w-7xl mx-auto text-center relative">
@@ -153,32 +153,32 @@ const ViewAdSolutions = () => {
             High Impact Performance
           </span>
 
-          <h1 className="text-7xl md:text-[10rem] font-bold tracking-tighter leading-[0.85] mb-16 px-4">
+          <h1 className="text-7xl md:text-9xl font-bold tracking-tighter leading-[0.9] mb-12 px-4">
             Strategic <br /> <span className="font-serif italic text-white/90">Ad Solutions</span>
           </h1>
 
-          <p className="max-w-2xl mx-auto text-xl md:text-2xl text-gray-400 leading-relaxed font-light mb-28 md:mb-32">
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-400 leading-relaxed font-light mb-20 md:mb-28">
             Engineered for scale. We build high-performance visual funnels that convert Reddit&apos;s most valuable communities.
           </p>
 
           {/* Growth card */}
           <div className="max-w-5xl mx-auto relative group">
             <div className="absolute -inset-2 bg-[#00D166]/10 rounded-[3rem] blur-3xl opacity-30 group-hover:opacity-50 transition duration-1000" />
-            <div className="glass-panel-heavy p-10 md:p-16 rounded-[3rem] relative overflow-hidden flex flex-col items-center gap-16 border border-white/20">
+            <div className="glass-panel-heavy p-8 md:p-12 rounded-[3rem] relative overflow-hidden flex flex-col items-center gap-12 border border-white/20">
               <div className="flex items-center justify-between w-full">
                 <div className="text-left">
                   <span className="text-xs font-bold tracking-widest text-[#00D166] uppercase mb-2 block">Enterprise Metrics</span>
-                  <h4 className="text-4xl font-bold tracking-tight">Growth Velocity</h4>
+                  <h4 className="text-3xl md:text-4xl font-bold tracking-tight">Growth Velocity</h4>
                 </div>
                 <div className="flex gap-3">
                   <div className="flex flex-col items-end">
                     <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Active Scale</span>
-                    <span className="text-xl font-bold text-white">24/7 Monitoring</span>
+                    <span className="text-lg md:text-xl font-bold text-white">24/7 Monitoring</span>
                   </div>
                 </div>
               </div>
 
-              <div className="relative w-full h-[260px] md:h-[300px] flex items-center justify-center">
+              <div className="relative w-full h-[220px] md:h-[260px] flex items-center justify-center">
                 <svg className="w-full h-full overflow-visible chart-glow" preserveAspectRatio="none" viewBox="0 0 400 120">
                   <defs>
                     <linearGradient id="chart-grad-main" x1="0" x2="0" y1="0" y2="1">
@@ -208,7 +208,7 @@ const ViewAdSolutions = () => {
                 </svg>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-12 w-full pt-12 border-t border-white/10">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 w-full pt-10 md:pt-12 border-t border-white/10">
                 <Stat label="Campaign ROI" value={2.5} suffix="x" />
                 <div>
                   <p className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-2">CPA Efficiency</p>
@@ -226,19 +226,19 @@ const ViewAdSolutions = () => {
       </header>
 
       {/* Campaign Types */}
-      <section className="py-40 px-6 relative border-y border-white/5 bg-white/[0.01]">
+      <section className="py-32 md:py-40 px-6 relative border-y border-white/5 bg-white/[0.01]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-32">
-            <h2 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 leading-tight">
+          <div className="text-center mb-20 md:mb-24">
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 md:mb-8 leading-tight">
               Targeted <span className="font-serif italic text-white/90">Campaign Types</span>
             </h2>
-            <p className="text-gray-400 text-xl max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light">
               Precision-engineered funnels designed for the specific nuances of Reddit&apos;s community structure.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-            <div className="glass-panel-heavy neon-glow-card-green p-12 rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
+            <div className="glass-panel-heavy neon-glow-card-green p-10 md:p-12 rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
               <div className="absolute -right-8 -top-8 text-8xl md:text-9xl font-bold step-number opacity-10 group-hover:opacity-20 transition-opacity">
                 01
               </div>
@@ -257,7 +257,7 @@ const ViewAdSolutions = () => {
               </div>
             </div>
 
-            <div className="glass-panel-heavy neon-glow-card-blue p-12 rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
+            <div className="glass-panel-heavy neon-glow-card-blue p-10 md:p-12 rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
               <div className="absolute -right-8 -top-8 text-8xl md:text-9xl font-bold step-number opacity-10 group-hover:opacity-20 transition-opacity">
                 02
               </div>
@@ -276,7 +276,7 @@ const ViewAdSolutions = () => {
               </div>
             </div>
 
-            <div className="glass-panel-heavy neon-glow-card-purple p-12 rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
+            <div className="glass-panel-heavy neon-glow-card-purple p-10 md:p-12 rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
               <div className="absolute -right-8 -top-8 text-8xl md:text-9xl font-bold step-number opacity-10 group-hover:opacity-20 transition-opacity">
                 03
               </div>
@@ -299,25 +299,25 @@ const ViewAdSolutions = () => {
       </section>
 
       {/* How we deliver */}
-      <section className="py-48 px-6">
+      <section className="py-40 md:py-48 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-32">
-            <h2 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 leading-tight">
+          <div className="text-center mb-20 md:mb-24">
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 md:mb-8 leading-tight">
               How We <span className="font-serif italic text-white/90">Deliver Results</span>
             </h2>
-            <p className="text-gray-400 text-xl max-w-3xl mx-auto font-light">
+            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto font-light">
               A systematic approach to Reddit advertising that eliminates guesswork and focuses on sustainable growth.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            <div className="glass-panel-heavy p-12 rounded-[3rem] border border-white/5 flex flex-col group hover:border-[#00D166]/40 transition-all duration-500 relative overflow-hidden">
+            <div className="glass-panel-heavy p-10 md:p-12 rounded-[3rem] border border-white/5 flex flex-col group hover:border-[#00D166]/40 transition-all duration-500 relative overflow-hidden">
               <div className="w-24 h-24 rounded-2xl flex items-center justify-center relative mb-12 text-[#00D166]">
                 <div className="absolute inset-0 icon-glow text-[#00D166]" />
                 <Target className="w-12 h-12 relative z-10 group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Precision Targeting</h3>
-              <p className="text-gray-400 text-lg leading-relaxed mb-10 flex-grow">
+              <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 flex-grow">
                 We leverage deep-level subreddit alignment and proprietary interest segments to place your brand exactly where conversations matter.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -328,13 +328,13 @@ const ViewAdSolutions = () => {
               </div>
             </div>
 
-            <div className="glass-panel-heavy p-12 rounded-[3rem] border border-white/5 flex flex-col group hover:border-blue-400/40 transition-all duration-500 relative overflow-hidden">
+            <div className="glass-panel-heavy p-10 md:p-12 rounded-[3rem] border border-white/5 flex flex-col group hover:border-blue-400/40 transition-all duration-500 relative overflow-hidden">
               <div className="w-24 h-24 rounded-2xl flex items-center justify-center relative mb-12 text-blue-400">
                 <div className="absolute inset-0 icon-glow text-blue-400" />
                 <Monitor className="w-12 h-12 relative z-10 group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Continuous Optimization</h3>
-              <p className="text-gray-400 text-lg leading-relaxed mb-10 flex-grow">
+              <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 flex-grow">
                 Maintain performance through constant bid adjustments, creative refreshes, and granular placement auditing to combat ad fatigue.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -343,13 +343,13 @@ const ViewAdSolutions = () => {
               </div>
             </div>
 
-            <div className="glass-panel-heavy p-12 rounded-[3rem] border border-white/5 flex flex-col group hover:border-purple-400/40 transition-all duration-500 relative overflow-hidden">
+            <div className="glass-panel-heavy p-10 md:p-12 rounded-[3rem] border border-white/5 flex flex-col group hover:border-purple-400/40 transition-all duration-500 relative overflow-hidden">
               <div className="w-24 h-24 rounded-2xl flex items-center justify-center relative mb-12 text-purple-400">
                 <div className="absolute inset-0 icon-glow text-purple-400" />
                 <Brush className="w-12 h-12 relative z-10 group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Native Creative</h3>
-              <p className="text-gray-400 text-lg leading-relaxed mb-10 flex-grow">
+              <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 flex-grow">
                 Creative designed for Reddit&apos;s “dark mode” culture. We speak the language of the community using native-feel formats and copy.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -360,13 +360,13 @@ const ViewAdSolutions = () => {
               </div>
             </div>
 
-            <div className="glass-panel-heavy p-12 rounded-[3rem] border border-white/5 flex flex-col group hover:border-yellow-400/40 transition-all duration-500 relative overflow-hidden">
+            <div className="glass-panel-heavy p-10 md:p-12 rounded-[3rem] border border-white/5 flex flex-col group hover:border-yellow-400/40 transition-all duration-500 relative overflow-hidden">
               <div className="w-24 h-24 rounded-2xl flex items-center justify-center relative mb-12 text-yellow-400">
                 <div className="absolute inset-0 icon-glow text-yellow-400" />
                 <Insights className="w-12 h-12 relative z-10 group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Advanced Insights</h3>
-              <p className="text-gray-400 text-lg leading-relaxed mb-10 flex-grow">
+              <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 flex-grow">
                 Go beyond the basic dashboard. We provide sentiment analysis and attribution modeling to prove true business impact.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -381,22 +381,22 @@ const ViewAdSolutions = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-60 px-6 relative overflow-hidden">
+      <section className="py-48 md:py-60 px-6 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] hero-halo-green -z-10 opacity-60" />
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-7xl md:text-[9rem] font-bold tracking-tighter mb-14 leading-[0.85]">
+          <h2 className="text-6xl md:text-8xl font-bold tracking-tighter mb-10 md:mb-12 leading-[0.9]">
             Scale Your Brand with <br /> <span className="font-serif italic text-white/90">Reddit Ads</span>
           </h2>
-          <p className="text-2xl text-gray-400 mb-20 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-gray-400 mb-14 md:mb-16 max-w-3xl mx-auto leading-relaxed font-light">
             Don&apos;t just run ads. Deploy a performance engine built for modern communities. Our team handles the complexity; you reap the scale.
           </p>
           <div className="flex justify-center">
             <button
-              className="group bg-white text-black px-14 py-5 rounded-full font-semibold text-base font-mono hover:bg-gray-200 transition-all flex items-center justify-center gap-3 shadow-2xl shadow-white/10 active:scale-95"
+              className="group bg-white text-black px-14 py-5 rounded-full font-semibold text-xl font-mono hover:bg-gray-200 transition-all flex items-center justify-center gap-3 shadow-2xl shadow-white/10 active:scale-95"
               onClick={() => handleHomepageLink('#contact')}
             >
               Scale Now
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         </div>
