@@ -64,7 +64,7 @@ const ViewAdSolutions = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center justify-center pt-16 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a] to-[#0a0a0a]"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] blur-[120px] rounded-full"></div>
         
@@ -84,7 +84,7 @@ const ViewAdSolutions = () => {
       </section>
 
       {/* Service Image */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-12 relative z-10 bg-black">
+      <section className="w-full max-w-7xl mx-auto px-4 py-8 relative z-10 bg-black">
         <div className="relative w-full max-w-5xl mx-auto">
           <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
             <div className="grid grid-cols-12 gap-6">
@@ -116,11 +116,11 @@ const ViewAdSolutions = () => {
       </section>
 
       {/* Main Content */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-16 relative z-10">
+      <section className="w-full max-w-7xl mx-auto px-4 py-12 relative z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/[0.03] blur-[120px] rounded-full pointer-events-none -z-10"></div>
         
         {/* Performance Metrics */}
-        <div className="mb-16">
+        <div className="mb-12">
           <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4">
               Results That <span className="font-serif font-normal italic text-gray-300">Speak for Themselves</span>
@@ -139,7 +139,7 @@ const ViewAdSolutions = () => {
         </div>
 
         {/* Campaign Types */}
-        <div className="mb-16">
+        <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4 text-center">
             Campaign <span className="font-serif font-normal italic text-gray-300">Types</span>
           </h2>
@@ -178,7 +178,7 @@ const ViewAdSolutions = () => {
         </div>
 
         {/* Our Approach */}
-        <div className="mb-16">
+        <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4 text-center">
             How We <span className="font-serif font-normal italic text-gray-300">Deliver Results</span>
           </h2>

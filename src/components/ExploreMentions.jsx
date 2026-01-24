@@ -64,7 +64,7 @@ const ExploreMentions = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center justify-center pt-16 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a] to-[#0a0a0a]"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] blur-[120px] rounded-full"></div>
         
@@ -121,7 +121,7 @@ const ExploreMentions = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/[0.03] blur-[120px] rounded-full pointer-events-none -z-10"></div>
         
         {/* Why It Matters */}
-        <div className="mb-16">
+        <div className="mb-12">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4">
               Why <span className="font-serif font-normal italic text-gray-300">Brand Mentions Work</span>
@@ -138,7 +138,7 @@ const ExploreMentions = () => {
         </div>
 
         {/* How It Works */}
-        <div className="mb-16">
+        <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-8 text-center">
             How <span className="font-serif font-normal italic text-gray-300">We Do It</span>
           </h2>
@@ -180,7 +180,7 @@ const ExploreMentions = () => {
         </div>
 
         {/* Example */}
-        <div className="mb-16">
+        <div className="mb-12">
           <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4">
               See It <span className="font-serif font-normal italic text-gray-300">In Action</span>

@@ -64,7 +64,7 @@ const BuildAuthority = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center justify-center pt-16 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a] to-[#0a0a0a]"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] blur-[120px] rounded-full"></div>
         
@@ -84,7 +84,7 @@ const BuildAuthority = () => {
       </section>
 
       {/* Service Image */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-8 relative z-10 bg-black">
+      <section className="w-full max-w-7xl mx-auto px-4 py-6 relative z-10 bg-black">
         <div className="relative w-full max-w-xl mx-auto">
           <div className="relative w-full aspect-square bg-[#0B0D0E] border border-white/10 rounded-xl overflow-hidden shadow-xl flex items-center justify-center">
             <div className="relative w-36 h-36">
@@ -105,7 +105,7 @@ const BuildAuthority = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/[0.03] blur-[120px] rounded-full pointer-events-none -z-10"></div>
         
         {/* Trust Score Display */}
-        <div className="mb-16 text-center">
+        <div className="mb-12 text-center">
           <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-6">
             Measure Your <span className="font-serif font-normal italic text-gray-300">Reddit Authority</span>
           </h2>
@@ -140,7 +140,7 @@ const BuildAuthority = () => {
         </div>
 
         {/* What You Get */}
-        <div className="mb-16">
+        <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-4 text-center">
             What <span className="font-serif font-normal italic text-gray-300">You Get</span>
           </h2>

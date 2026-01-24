@@ -192,7 +192,7 @@ const Homepage = () => {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-black">
+      <section id="home" className="relative min-h-[85vh] flex items-center justify-center pt-24 pb-12 overflow-hidden bg-black">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex flex-col items-center text-center">
             {/* Data Stream Status */}
@@ -706,7 +706,7 @@ const Homepage = () => {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="flex flex-col gap-[1.6rem]"></div>
-          <div className="relative h-full min-h-[580px] w-full flex items-center justify-center">
+          <div className="relative h-full min-h-[420px] w-full flex items-center justify-center">
             <img 
               src="/images/redditor2.webp" 
               alt="Reddit Alien" 
@@ -745,9 +745,9 @@ const Homepage = () => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-[4.2rem]">
+        <div className="flex flex-col gap-[3rem]">
           {/* Service 1: Strategic Brand Mentions */}
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             <div className="flex-1 text-left space-y-8">
               <h4 className="text-3xl md:text-5xl font-serif font-semibold text-white">
                 Strategic Brand Mentions
@@ -794,7 +794,7 @@ const Homepage = () => {
           </div>
 
           {/* Service 2: Sustainable Reputation */}
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24">
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-16">
             <div className="flex-1 text-left space-y-8">
               <h4 className="text-3xl md:text-5xl font-serif font-semibold text-white">
                 Sustainable reputation building
@@ -825,7 +825,7 @@ const Homepage = () => {
           </div>
 
           {/* Service 3: High-Impact Advertising */}
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             <div className="flex-1 text-left space-y-8">
               <h4 className="text-3xl md:text-5xl font-serif font-semibold text-white">
                 High-impact advertising (when appropriate)
@@ -923,7 +923,7 @@ const Homepage = () => {
           
         </div>
         <div className="relative w-full max-w-5xl mx-auto px-4 py-3 md:px-6 md:py-[1.125rem] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden">
-          <div className="relative rounded-2xl overflow-hidden border border-white/5 shadow-2xl bg-[#0F0F11] h-96 flex items-center justify-center">
+          <div className="relative rounded-2xl overflow-hidden border border-white/5 shadow-2xl bg-[#0F0F11] h-80 flex items-center justify-center">
             <img 
               src="/images/increase_1.webp" 
               alt="Traffic growth graph showing consistent increase over time"
