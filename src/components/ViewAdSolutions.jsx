@@ -73,10 +73,10 @@ const ViewAdSolutions = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-medium uppercase tracking-wider mb-6">
               High-Impact Advertising
             </div>
-            <h1 className="text-5xl md:text-7xl font-satoshi font-medium tracking-tight text-white mb-6 text-balance-center">
-              High-Impact <span className="font-serif font-normal italic text-gray-300">Ad Solutions</span>
+            <h1 className="text-5xl md:text-7xl font-serif font-semibold tracking-tight text-white mb-6 text-balance-center">
+              High-Impact <span className="italic text-gray-300">Ad Solutions</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mb-8">
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-8">
               We partner directly with Reddit's advertising team to deliver campaigns that outperform industry benchmarks. Every dollar optimized for maximum ROAS.
             </p>
           </div>
@@ -84,34 +84,30 @@ const ViewAdSolutions = () => {
       </section>
 
       {/* Service Image */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-8 relative z-10 bg-black">
-        <div className="relative w-full max-w-3xl mx-auto">
-          <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-4">
-            <div className="grid grid-cols-12 gap-4">
-              <div className="col-span-4 space-y-3">
-                <div className="bg-white/5 rounded-lg p-3 border border-white/5">
-                  <div className="text-[9px] uppercase font-bold text-gray-500 mb-1">ROAS</div>
-                  <div className="text-xl font-bold text-white">4.2x</div>
+      <section className="w-full max-w-7xl mx-auto px-4 py-12 relative z-10 bg-black">
+        <div className="relative w-full max-w-5xl mx-auto">
+          <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
+            <div className="grid grid-cols-12 gap-6">
+              <div className="col-span-4 space-y-4">
+                <div className="bg-white/5 rounded-xl p-4 border border-white/5">
+                  <div className="text-xs uppercase font-bold text-gray-500 mb-2">ROAS</div>
+                  <div className="text-3xl font-bold text-white">4.2x</div>
                 </div>
-                <div className="bg-white/5 rounded-lg p-3 border border-white/5">
-                  <div className="text-[9px] uppercase font-bold text-gray-500 mb-1">CTR</div>
-                  <div className="text-xl font-bold text-white">3.85%</div>
-                </div>
-                <div className="bg-white/5 rounded-lg p-3 border border-white/5">
-                  <div className="text-[9px] uppercase font-bold text-gray-500 mb-1">Conv. Rate</div>
-                  <div className="text-xl font-bold text-white">12%</div>
+                <div className="bg-white/5 rounded-xl p-4 border border-white/5">
+                  <div className="text-xs uppercase font-bold text-gray-500 mb-2">CTR</div>
+                  <div className="text-3xl font-bold text-white">3.85%</div>
                 </div>
               </div>
-              <div className="col-span-8 bg-[#0a0a0a]/50 rounded-lg border border-white/5 relative overflow-hidden h-36">
+              <div className="col-span-8 bg-[#0a0a0a]/50 rounded-xl border border-white/5 relative overflow-hidden h-64">
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                   <defs>
-                    <linearGradient id="adGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#22C55E" stopOpacity="0.2" />
+                    <linearGradient id="adGradientService" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#22C55E" stopOpacity="0.3" />
                       <stop offset="100%" stopColor="#22C55E" stopOpacity="0" />
                     </linearGradient>
                   </defs>
-                  <path d="M0,80 C15,75 25,60 40,65 C55,70 65,30 80,40 C90,45 95,20 100,30" fill="none" stroke="#22C55E" strokeWidth="2" />
-                  <path d="M0,80 C15,75 25,60 40,65 C55,70 65,30 80,40 C90,45 95,20 100,30 V100 H0 Z" fill="url(#adGradient)" />
+                  <path d="M0,85 C15,80 25,70 40,75 C55,80 65,40 80,50 C90,55 95,25 100,35" fill="none" stroke="#22C55E" strokeWidth="2.5" />
+                  <path d="M0,85 C15,80 25,70 40,75 C55,80 65,40 80,50 C90,55 95,25 100,35 V100 H0 Z" fill="url(#adGradientService)" />
                 </svg>
               </div>
             </div>
