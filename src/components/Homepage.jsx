@@ -192,37 +192,37 @@ const Homepage = () => {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center pt-32 pb-16 overflow-hidden bg-black">
+      <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-black">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex flex-col items-center text-center">
             {/* Data Stream Status */}
-            <div className="flex items-center gap-2 px-4 py-1.5 bg-black border border-white/20 rounded-full mb-8 font-mono text-xs text-white">
+            <div className="flex items-center gap-2 px-4 py-1.5 bg-black border border-white/20 rounded-full mb-[1.6rem] font-mono text-xs text-white">
               <div className="w-2 h-2 bg-[#FF4500] rounded-full animate-pulse"></div>
               <span>DATA STREAM ONLINE</span>
             </div>
 
             {/* Main Title */}
-            <h1 className="text-5xl md:text-7xl font-serif font-semibold text-white mb-6 tracking-tight leading-tight">
-              Reddit marketing for brands that can't afford to lose trust
+            <h1 className="text-5xl md:text-7xl font-serif font-semibold text-white mb-[1.2rem] tracking-tight leading-tight">
+              Reddit marketing strategies built on credibility
             </h1>
 
             {/* Subtitle */}
-            <p className="font-elegant text-lg md:text-xl text-gray-300 max-w-3xl mb-8 leading-relaxed">
-              We help <span className="italic">SaaS, consumer, and founder-led brands</span> turn Reddit into a <span className="italic">reliable acquisition and reputation channel</span> — without bans, backlash, or short-term tactics that burn credibility.
+            <p className="font-elegant text-lg md:text-xl text-gray-300 max-w-3xl mb-[1.6rem] leading-relaxed">
+              Reddit is where buyers research, compare, and validate decisions long before they convert. We help brands participate with precision, credibility, and restraint — turning informed discussion into measurable demand.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col items-center gap-4 mb-16">
+            <div className="flex flex-col items-center gap-[0.8rem] mb-[3.2rem]">
               <a 
                 href="#contact" 
                 className="group relative flex items-center gap-2 px-8 py-3.5 bg-white text-black font-semibold text-lg hover:bg-gray-100 transition-all duration-300"
               >
-                Request a Reddit Strategy Assessment
+                Assess Reddit as a growth channel
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
                 </svg>
               </a>
-              <p className="font-mono text-xs text-gray-400">30 minutes. Clear answers. No pitch if it's not a fit.</p>
+              <p className="font-mono italic text-xs text-gray-400">Because trust, not reach, drives outcomes on Reddit</p>
               <a 
                 href="#services" 
                 className="group relative flex items-center gap-2 px-6 py-2.5 border border-white/40 text-white font-mono text-sm hover:border-white transition-all duration-300"
@@ -235,20 +235,18 @@ const Homepage = () => {
             </div>
 
             {/* Financial Overview Section */}
-            <div className="w-full max-w-6xl mx-auto mt-8">
-              <div className="text-center mb-8">
-                <p className="font-mono text-xs text-gray-400 mb-2 tracking-wider">FINANCIAL OVERVIEW</p>
-                <h2 className="text-3xl md:text-4xl font-serif font-semibold text-white mb-2">
-                  Measured results from Reddit-led growth
+            <div className="w-full max-w-6xl mx-auto mt-[1.4rem]">
+              <div className="text-center mb-[1.6rem]">
+                <p className="font-mono text-xs text-gray-400 mb-[0.4rem] tracking-wider">FINANCIAL OVERVIEW</p>
+                <h2 className="text-3xl md:text-4xl font-serif font-semibold text-white mb-[0.4rem]">
+                  Proof comes from outcomes, not promises
                 </h2>
-                <p className="font-mono text-xs text-gray-400 mb-1">
-                  Recent outcomes from managed Reddit campaigns
+                <p className="font-mono text-xs text-gray-400 mb-[0.2rem]">
+                  Performance measured through sustained engagement, qualified demand, and downstream impact.
                 </p>
-                <p className="font-mono text-xs text-[#22C55E]">
-                  Executed without bans, shadowbans, or account resets.
-                </p>
+                <p className="font-mono text-xs text-[#22C55E]"></p>
               </div>
-              <div className="relative border border-white/20 bg-black p-6 mb-8">
+              <div className="relative border border-white/20 bg-black px-6 py-[1.125rem] mb-[1.6rem]">
                 {/* Top Row - 4 Small Metric Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
                   {/* Attributed Revenue */}
@@ -599,9 +597,9 @@ const Homepage = () => {
           </section>
 
       {/* Trusted Partners Section */}
-      <section className="py-16 relative -mt-8 bg-black">
+      <section className="py-12 relative -mt-[1.4rem] bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-6 text-center">TRUSTED PARTNERS</p>
+          <p className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-[1.2rem] text-center">TRUSTED PARTNERS</p>
           <div className="w-full max-w-4xl mx-auto relative flex overflow-hidden" style={{
             maskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)',
             WebkitMaskImage: 'linear-gradient(to right, transparent, black 20%, black 80%, transparent)'
@@ -661,66 +659,56 @@ const Homepage = () => {
       </section>
 
       {/* Our Mission Section */}
-      <section id="about" className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10 bg-black">
+      <section id="about" className="w-full max-w-7xl mx-auto px-4 py-[4.5rem] relative z-10 bg-black">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          <div className="flex items-center gap-4 mb-8 w-full justify-center">
+          <div className="flex items-center gap-4 mb-[1.6rem] w-full justify-center">
             <div className="h-px bg-white/20 flex-1 max-w-[100px]"></div>
-            <p className="font-mono text-xs text-gray-400 tracking-wider">OUR MISSION</p>
+            <p className="font-mono italic text-xs text-gray-400 tracking-wider">Reddit penalizes noise and rewards contribution.</p>
             <div className="h-px bg-white/20 flex-1 max-w-[100px]"></div>
           </div>
-          <blockquote className="font-mission-quote text-3xl md:text-5xl text-white mb-8 leading-relaxed">
-            "We decrypt the chaos of the internet to provide clarity in a noisy world."
+          <blockquote className="font-mission-quote text-3xl md:text-5xl text-white mb-[1.6rem] leading-relaxed">
+            Most brands fail on Reddit because they treat it like every other channel
           </blockquote>
           <p className="text-gray-400 text-lg leading-relaxed max-w-2xl">
-            Redditera leverages <span className="italic">data-driven insights</span> to navigate the complex ecosystems of online communities. We don't just participate; <span className="italic">we engineer the conversation through precision and authenticity</span>.
+            Reddit operates on different rules. Attention is earned through relevance, accuracy, and context — not repetition or promotion. We operate within those constraints deliberately, because shortcuts are visible and credibility is not recoverable once lost.
           </p>
         </div>
       </section>
 
       {/* About / Authority Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10 bg-black">
-        <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-8">
-            Reddit specialists — not generalist marketers
+      <section className="w-full max-w-7xl mx-auto px-4 py-[4.5rem] relative z-10 bg-black">
+        <div className="flex flex-col items-center text-center mb-[3.2rem]">
+          <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-[1.6rem]">
+            This is not social media marketing. It is platform-specific execution.
           </h2>
-          <p className="font-elegant text-lg text-gray-300 max-w-3xl leading-relaxed mb-8">
-            We focus exclusively on Reddit.
+          <p className="font-elegant text-lg text-gray-300 max-w-3xl leading-relaxed mb-[1.6rem]">
+            Reddit requires an understanding of subculture, moderation dynamics, and user intent. What works elsewhere often fails here. Our work is designed around how Reddit actually functions — not how marketers wish it did.
           </p>
           <div className="text-left max-w-3xl">
-            <p className="font-elegant text-lg text-gray-300 leading-relaxed mb-6">
-              That focus allows us to:
-            </p>
-            <ul className="space-y-4 font-elegant text-lg text-gray-300">
+            <p className="font-elegant text-lg text-gray-300 leading-relaxed mb-[1.2rem]"></p>
+            <ul className="space-y-[0.8rem] font-elegant text-lg text-gray-300">
               <li className="flex items-start gap-3">
-                <span className="text-white mt-1">•</span>
-                <span>Navigate subreddit culture and moderation dynamics <span className="italic">confidently</span></span>
+                <span className="text-white mt-1"></span>
+                <span></span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-white mt-1">•</span>
-                <span>Execute campaigns that <span className="italic">withstand scrutiny instead of provoking backlash</span></span>
+                <span className="text-white mt-1"></span>
+                <span></span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-white mt-1">•</span>
-                <span>Build credibility that <span className="italic">compounds instead of burning accounts</span></span>
+                <span className="text-white mt-1"></span>
+                <span></span>
               </li>
             </ul>
-            <p className="font-elegant text-lg text-gray-300 leading-relaxed mt-8">
-              This is Reddit handled with <span className="italic">restraint, context, and intent</span> — not growth hacks.
-            </p>
+            <p className="font-elegant text-lg text-gray-300 leading-relaxed mt-[1.6rem]"></p>
           </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div className="flex flex-col gap-8">
-            <div className="flex flex-col gap-4">
-              <h3 className="text-3xl md:text-4xl font-serif font-semibold text-white">
-                Our mandate
-              </h3>
-              <p className="font-elegant text-lg text-gray-300 leading-relaxed">
-                Help brands earn attention in the <span className="italic">most skeptical environments on the internet</span>.
-              </p>
-              <p className="font-elegant text-lg text-gray-300 leading-relaxed">
-                We turn Reddit into a sustainable growth channel by respecting its communities, understanding its power structures, and <span className="italic">aligning brand presence with real user value</span>.
-              </p>
+          <div className="flex flex-col gap-[1.6rem]">
+            <div className="flex flex-col gap-[0.8rem]">
+              <h3 className="text-3xl md:text-4xl font-serif font-semibold text-white"></h3>
+              <p className="font-elegant text-lg text-gray-300 leading-relaxed"></p>
+              <p className="font-elegant text-lg text-gray-300 leading-relaxed"></p>
             </div>
           </div>
           <div className="relative h-full min-h-[580px] w-full flex items-center justify-center">
@@ -741,29 +729,28 @@ const Homepage = () => {
       </section>
 
       {/* Services Protocol Section */}
-      <section id="services" className="w-full max-w-7xl mx-auto px-4 py-32 relative z-10 bg-black">
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="flex items-center gap-4 mb-8 w-full justify-center">
+      <section id="services" className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10 bg-black">
+        <div className="flex flex-col items-center text-center mb-[3.2rem]">
+          <div className="flex items-center gap-4 mb-[1.6rem] w-full justify-center">
             <div className="h-px bg-white/20 flex-1 max-w-[100px]"></div>
             <p className="font-mono text-xs text-gray-400 tracking-wider">SERVICES PROTOCOL</p>
             <div className="h-px bg-white/20 flex-1 max-w-[100px]"></div>
           </div>
-          <h3 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-6">
-            From attention to trust — and trust to revenue
+          <h3 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-[1.2rem]">
+            How brands participate without damaging trust
           </h3>
           <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-3xl">
-            Reddit users don't respond to promotion.<br />
-            They respond to <span className="italic">insight, relevance, and proof</span>.
+            Every approach is chosen selectively.
           </p>
-          <p className="font-elegant text-lg text-gray-300 leading-relaxed mt-4 max-w-3xl">
-            We position brands inside conversations where <span className="italic">intent already exists</span> — so interest feels discovered, not sold.
+          <p className="font-elegant text-lg text-gray-300 leading-relaxed mt-[0.8rem] max-w-3xl">
+            Community engagement, brand presence, and paid placements are used only when they align with context and expectation.
           </p>
-          <p className="font-elegant text-lg text-white leading-relaxed mt-4 max-w-3xl">
-            The result is <span className="italic">higher-quality traffic, stronger brand perception, and durable demand</span>.
+          <p className="font-elegant text-lg text-white leading-relaxed mt-[0.8rem] max-w-3xl">
+            The objective is not visibility — it is legitimacy.
           </p>
         </div>
 
-        <div className="flex flex-col gap-24">
+        <div className="flex flex-col gap-[4.2rem]">
           {/* Service 1: Strategic Brand Mentions */}
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
             <div className="flex-1 text-left space-y-8">
@@ -895,58 +882,53 @@ const Homepage = () => {
       </section>
 
       {/* Why Reddit Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10 bg-black">
+      <section className="w-full max-w-7xl mx-auto px-4 py-[4.5rem] relative z-10 bg-black">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-8">
-            Reddit is where buying decisions get validated
+          <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-[1.6rem]">
+            Where buyers pressure-test decisions before acting
           </h2>
-          <div className="font-elegant text-lg text-gray-300 leading-relaxed space-y-6">
+          <div className="font-elegant text-lg text-gray-300 leading-relaxed space-y-[1.2rem]">
             <p>
-              When ads lose credibility and reviews feel manufactured, buyers turn to Reddit.
-            </p>
-            <p>
-              They ask questions. They compare experiences. They challenge claims.
+              Reddit is not a discovery platform.
             </p>
             <p>
-              If your brand isn't present — or shows up incorrectly — those decisions still happen. <span className="italic">You just don't influence them</span>.
+              It is where assumptions are challenged, alternatives are debated, and weak claims are exposed.
             </p>
-            <p className="mt-8 text-white">
-              We don't use Reddit to generate noise.<br />
-              We use it to <span className="italic">shape conviction</span>.
+            <p>
+              Brands that withstand this scrutiny earn disproportionate influence downstream.
             </p>
+            <p className="mt-[1.6rem] text-white"></p>
           </div>
         </div>
       </section>
 
       {/* Results Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-24 relative flex flex-col items-center bg-black">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-8">
-          <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-6">
+      <section className="w-full max-w-7xl mx-auto px-4 py-[4.5rem] relative flex flex-col items-center bg-black">
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-[1.6rem]">
+          <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-[1.2rem]">
             What clients typically experience
           </h2>
-          <ul className="text-left max-w-2xl space-y-3 font-elegant text-lg text-gray-300 mb-6">
+          <ul className="text-left max-w-2xl space-y-[0.6rem] font-elegant text-lg text-gray-300 mb-[1.2rem]">
             <li className="flex items-start gap-3">
               <span className="text-white mt-1">•</span>
-              <span>Increased <span className="italic">branded search and inbound demand</span></span>
+              <span>Clear positioning within relevant communities</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-white mt-1">•</span>
-              <span>Higher-intent traffic across <span className="italic">core pages</span></span>
+              <span>Gradual but defensible momentum</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-white mt-1">•</span>
-              <span><span className="italic">Organic mentions</span> outside our direct involvement</span>
+              <span>Fewer spikes, stronger signal quality</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-white mt-1">•</span>
-              <span>Stronger perception inside <span className="italic">niche communities</span></span>
+              <span>Insights that compound beyond Reddit</span>
             </li>
           </ul>
-          <p className="font-elegant text-sm text-gray-400">
-            Results vary by market and timing. <span className="italic">Signal quality consistently improves</span>.
-          </p>
+          <p className="font-elegant text-sm text-gray-400"></p>
         </div>
-        <div className="relative w-full max-w-5xl mx-auto p-4 md:p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden">
+        <div className="relative w-full max-w-5xl mx-auto px-4 py-3 md:px-6 md:py-[1.125rem] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden">
           <div className="relative rounded-2xl overflow-hidden border border-white/5 shadow-2xl bg-[#0F0F11] h-96 flex items-center justify-center">
             <img 
               src="/images/increase_1.webp" 
@@ -963,45 +945,77 @@ const Homepage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-24 bg-black">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <div className="group relative flex flex-col px-5 py-8 md:px-6 md:py-10 border border-white/20 bg-black hover:border-white/30 transition-colors duration-500">
-            <p className="font-elegant text-lg text-white leading-relaxed mb-4">
-              "We stopped getting challenged and started getting inbound."
-            </p>
-            <p className="font-mono text-xs text-gray-400">
-              — Founder, B2B SaaS
+      <section className="w-full max-w-7xl mx-auto px-4 py-[4.5rem] bg-black">
+        <div className="text-center mb-[2.4rem]">
+          <h2 className="text-4xl md:text-5xl font-serif font-semibold text-white mb-[0.8rem]">
+            See what our clients
+          </h2>
+          <p className="text-gray-400 text-base max-w-3xl mx-auto">
+            Explore the testimonials and feedback from our valued clients to gain insights into their experiences and satisfaction with our work.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="border border-white/10 rounded-3xl p-8 bg-[#0b0b0b] flex flex-col gap-4">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full bg-[#d01717] flex items-center justify-center text-white font-bold text-lg">
+                r
+              </div>
+              <div>
+                <p className="font-semibold text-white">Christina</p>
+                <p className="text-xs text-gray-400 uppercase tracking-widest">Marketing Manager — Redwalking</p>
+              </div>
+            </div>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              Working with Redditera has been an exceptional experience. They fully understand our needs, tailor strategies to reach our goals, and consistently explore new approaches to drive results. Their proactive communication and commitment make this collaboration highly effective.
             </p>
           </div>
-          <div className="group relative flex flex-col px-5 py-8 md:px-6 md:py-10 border border-white/20 bg-black hover:border-white/30 transition-colors duration-500">
-            <p className="font-elegant text-lg text-white leading-relaxed mb-4">
-              "Reddit became our <span className="italic">highest-converting organic channel</span>."
+          <div className="border border-white/10 rounded-3xl p-8 bg-[#0b0b0b] flex flex-col gap-4">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full bg-[#d8c1ed] flex items-center justify-center text-[#4b2ea9] font-bold text-lg">
+                C
+              </div>
+              <div>
+                <p className="font-semibold text-white">Hugo</p>
+                <p className="text-xs text-gray-400 uppercase tracking-widest">Director of Commercial Operations — Candy AI</p>
+              </div>
+            </div>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              Working with Redditera is a pleasure. They have been one of our most reliable partners, delivering work that has a sizable impact and building a relationship we truly value. Their guidance opens new opportunities for successful ventures.
             </p>
-            <p className="font-mono text-xs text-gray-400">
-              — Head of Growth, Consumer Brand
+          </div>
+          <div className="border border-white/10 rounded-3xl p-8 bg-[#0b0b0b] flex flex-col gap-4">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full bg-[#222] flex items-center justify-center text-white font-bold text-lg">
+                D
+              </div>
+              <div>
+                <p className="font-semibold text-white">David</p>
+                <p className="text-xs text-gray-400 uppercase tracking-widest">Founder — TechStar</p>
+              </div>
+            </div>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              Redditera consistently goes above and beyond. After a few months we’re seeing outstanding results and just extended our engagement — the long-term partnership keeps producing better outcomes.
             </p>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="w-full max-w-7xl mx-auto px-4 py-24 bg-black">
+      <section id="contact" className="w-full max-w-7xl mx-auto px-4 py-[4.5rem] bg-black">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-serif font-semibold text-white mb-4 text-center">
-            Find out if Reddit is a leverage channel for your brand
+          <h2 className="text-4xl md:text-5xl font-serif font-semibold text-white mb-[0.8rem] text-center">
+            Determine whether Reddit is viable for your category
           </h2>
-          <p className="font-elegant text-lg text-gray-300 text-center mb-6 max-w-2xl mx-auto">
-            Not every brand should be on Reddit — and <span className="italic">doing it wrong is worse than not being there</span>.
+          <p className="font-elegant text-lg text-gray-300 text-center mb-[1.2rem] max-w-2xl mx-auto">
+            A practical assessment based on audience behavior, competitive presence, and risk tolerance.
           </p>
-          <p className="font-elegant text-base text-gray-400 text-center mb-8 max-w-2xl mx-auto">
-            We'll assess:
-          </p>
-          <ul className="font-elegant text-base text-gray-300 text-center mb-8 max-w-2xl mx-auto space-y-2">
-            <li>• Whether Reddit fits your market</li>
-            <li>• The reputational risks involved</li>
-            <li>• What realistic upside looks like</li>
+          <p className="font-elegant text-base text-gray-400 text-center mb-[1.6rem] max-w-2xl mx-auto"></p>
+          <ul className="font-elegant text-base text-gray-300 text-center mb-[1.6rem] max-w-2xl mx-auto space-y-[0.4rem]">
+            <li></li>
+            <li></li>
+            <li></li>
           </ul>
-          <form className="space-y-6">
+          <form className="space-y-[1.2rem]">
             <div>
               <label className="block font-mono text-xs text-gray-400 mb-2 uppercase tracking-wider">Your Name</label>
               <input
@@ -1053,19 +1067,17 @@ const Homepage = () => {
               type="submit"
               className="w-full px-8 py-4 bg-white text-black font-semibold text-lg hover:bg-gray-100 transition-all duration-300"
             >
-              Request a Reddit Strategy Assessment
+              Request an assessment
             </button>
-            <p className="font-mono text-xs text-gray-400 text-center mt-2">
-              Clear direction in one call.
-            </p>
+            <p className="font-mono text-xs text-gray-400 text-center mt-[0.4rem]"></p>
           </form>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/10 bg-black py-12">
+      <footer className="border-t border-white/10 bg-black py-[2.25rem]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-[1.2rem]">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 grid grid-cols-2 gap-0.5">
                 <div className="w-full h-full bg-white"></div>
