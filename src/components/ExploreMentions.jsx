@@ -84,30 +84,30 @@ const ExploreMentions = () => {
       </section>
 
       {/* Service Image */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-16 relative z-10 bg-black">
-        <div className="relative w-full max-w-4xl mx-auto">
-          <div className="relative w-full aspect-[16/13] bg-[#0B0D0E] border border-white/10 rounded-xl overflow-hidden shadow-xl flex flex-col">
-            <div className="h-14 bg-[#0F0F11] border-b border-white/5 flex items-center px-6 justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#FF4500] flex items-center justify-center shadow-[0_0_15px_rgba(255,69,0,0.3)]">
-                  <span className="text-white text-xs font-bold">R</span>
+      <section className="w-full max-w-7xl mx-auto px-4 py-8 relative z-10 bg-black">
+        <div className="relative w-full max-w-3xl mx-auto">
+          <div className="relative w-full aspect-[16/11] bg-[#0B0D0E] border border-white/10 rounded-xl overflow-hidden shadow-xl flex flex-col">
+            <div className="h-12 bg-[#0F0F11] border-b border-white/5 flex items-center px-4 justify-between">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-full bg-[#FF4500] flex items-center justify-center shadow-[0_0_15px_rgba(255,69,0,0.3)]">
+                  <span className="text-white text-[10px] font-bold">R</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-sm font-bold text-gray-200">r/Marketing</span>
-                  <span className="text-xs text-gray-500">u/MarketingGuru</span>
+                  <span className="text-xs font-bold text-gray-200">r/Marketing</span>
+                  <span className="text-[10px] text-gray-500">u/MarketingGuru</span>
                 </div>
               </div>
             </div>
-            <div className="flex-1 p-6 bg-[#0a0a0a]">
-              <div className="mb-4">
-                <h5 className="text-base font-semibold text-white mb-3">How do you guys get customers with a low-priced SaaS product?</h5>
+            <div className="flex-1 p-4 bg-[#0a0a0a]">
+              <div className="mb-3">
+                <h5 className="text-sm font-semibold text-white mb-2">How do you guys get customers with a low-priced SaaS product?</h5>
               </div>
-              <div className="border-l-4 border-purple-500 pl-4 bg-[#0F0F11] p-4 rounded">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-sm font-bold text-blue-400">u/Ape_in_a_Suit</span>
-                  <span className="text-xs text-gray-500">147 points</span>
+              <div className="border-l-4 border-purple-500 pl-3 bg-[#0F0F11] p-3 rounded">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="text-xs font-bold text-blue-400">u/Ape_in_a_Suit</span>
+                  <span className="text-[10px] text-gray-500">147 points</span>
                 </div>
-                <p className="text-sm text-gray-300 leading-relaxed">
+                <p className="text-xs text-gray-300 leading-relaxed">
                   We've had great success with Reddit ads and engaging in relevant subreddits. Our sign-ups increased by 20% after implementing a Reddit-focused strategy.
                 </p>
               </div>

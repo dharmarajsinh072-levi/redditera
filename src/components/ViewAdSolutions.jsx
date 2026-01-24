@@ -84,25 +84,25 @@ const ViewAdSolutions = () => {
       </section>
 
       {/* Service Image */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-16 relative z-10 bg-black">
-        <div className="relative w-full max-w-4xl mx-auto">
-          <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
-            <div className="grid grid-cols-12 gap-6">
-              <div className="col-span-4 space-y-4">
-                <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                  <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">ROAS</div>
-                  <div className="text-2xl font-bold text-white">4.2x</div>
+      <section className="w-full max-w-7xl mx-auto px-4 py-8 relative z-10 bg-black">
+        <div className="relative w-full max-w-3xl mx-auto">
+          <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-4">
+            <div className="grid grid-cols-12 gap-4">
+              <div className="col-span-4 space-y-3">
+                <div className="bg-white/5 rounded-lg p-3 border border-white/5">
+                  <div className="text-[9px] uppercase font-bold text-gray-500 mb-1">ROAS</div>
+                  <div className="text-xl font-bold text-white">4.2x</div>
                 </div>
-                <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                  <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">CTR</div>
-                  <div className="text-2xl font-bold text-white">3.85%</div>
+                <div className="bg-white/5 rounded-lg p-3 border border-white/5">
+                  <div className="text-[9px] uppercase font-bold text-gray-500 mb-1">CTR</div>
+                  <div className="text-xl font-bold text-white">3.85%</div>
                 </div>
-                <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                  <div className="text-[10px] uppercase font-bold text-gray-500 mb-2">Conv. Rate</div>
-                  <div className="text-2xl font-bold text-white">12%</div>
+                <div className="bg-white/5 rounded-lg p-3 border border-white/5">
+                  <div className="text-[9px] uppercase font-bold text-gray-500 mb-1">Conv. Rate</div>
+                  <div className="text-xl font-bold text-white">12%</div>
                 </div>
               </div>
-              <div className="col-span-8 bg-[#0a0a0a]/50 rounded-xl border border-white/5 relative overflow-hidden h-48">
+              <div className="col-span-8 bg-[#0a0a0a]/50 rounded-lg border border-white/5 relative overflow-hidden h-36">
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                   <defs>
                     <linearGradient id="adGradient" x1="0" y1="0" x2="0" y2="1">
