@@ -202,7 +202,7 @@ const Homepage = () => {
             </div>
 
             {/* Main Title */}
-            <h1 className="text-5xl md:text-7xl font-serif font-normal text-white mb-6 tracking-tight leading-tight">
+            <h1 className="text-5xl md:text-7xl font-serif font-medium text-white mb-6 tracking-tight leading-tight">
               Reddit marketing for brands that can't afford to lose trust
             </h1>
 
@@ -238,7 +238,7 @@ const Homepage = () => {
             <div className="w-full max-w-6xl mx-auto mt-8">
               <div className="text-center mb-8">
                 <p className="font-mono text-xs text-gray-400 mb-2 tracking-wider">FINANCIAL OVERVIEW</p>
-                <h2 className="text-3xl md:text-4xl font-serif font-normal text-white mb-2">
+                <h2 className="text-3xl md:text-4xl font-serif font-medium text-white mb-2">
                   Measured results from Reddit-led growth
                 </h2>
                 <p className="font-mono text-xs text-gray-400 mb-1">
@@ -680,7 +680,7 @@ const Homepage = () => {
       {/* About / Authority Section */}
       <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10 bg-black">
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-serif font-normal text-white mb-8">
+          <h2 className="text-4xl md:text-6xl font-serif font-medium text-white mb-8">
             Reddit specialists — not generalist marketers
           </h2>
           <p className="font-elegant text-lg text-gray-300 max-w-3xl leading-relaxed mb-8">
@@ -712,7 +712,7 @@ const Homepage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">
-              <h3 className="text-3xl md:text-4xl font-serif font-normal text-white">
+              <h3 className="text-3xl md:text-4xl font-serif font-medium text-white">
                 Our mandate
               </h3>
               <p className="font-elegant text-lg text-gray-300 leading-relaxed">
@@ -748,7 +748,7 @@ const Homepage = () => {
             <p className="font-mono text-xs text-gray-400 tracking-wider">SERVICES PROTOCOL</p>
             <div className="h-px bg-white/20 flex-1 max-w-[100px]"></div>
           </div>
-          <h3 className="text-4xl md:text-6xl font-serif font-normal text-white mb-6">
+          <h3 className="text-4xl md:text-6xl font-serif font-medium text-white mb-6">
             From attention to trust — and trust to revenue
           </h3>
           <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-3xl">
@@ -841,7 +841,7 @@ const Homepage = () => {
       {/* Why Reddit Section */}
       <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10 bg-black">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-serif font-normal text-white mb-8">
+          <h2 className="text-4xl md:text-6xl font-serif font-medium text-white mb-8">
             Reddit is where buying decisions get validated
           </h2>
           <div className="font-elegant text-lg text-gray-300 leading-relaxed space-y-6">
@@ -862,51 +862,10 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* Strategy Section */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-24 relative z-10 bg-black">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-serif font-normal text-white mb-12 text-center">
-            Our Reddit strategy, end to end
-          </h2>
-          <div className="space-y-8">
-            <div className="border-l-4 border-purple-500 pl-6">
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Step 1 — Audience & Subreddit Intelligence</h3>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                We map where your <span className="italic">buyers already talk</span> — not where marketers post.
-              </p>
-            </div>
-            <div className="border-l-4 border-blue-500 pl-6">
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Step 2 — Account & Reputation Engineering</h3>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                <span className="italic">Credible posting history, tone calibration, and trust signals</span> before visibility.
-              </p>
-            </div>
-            <div className="border-l-4 border-green-500 pl-6">
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Step 3 — Narrative Seeding</h3>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                <span className="italic">Non-promotional threads</span> that surface real problems, use cases, and objections.
-              </p>
-            </div>
-            <div className="border-l-4 border-yellow-500 pl-6">
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Step 4 — Strategic Promotion</h3>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                Paid amplification only when <span className="italic">organic traction already exists</span>.
-              </p>
-            </div>
-            <div className="border-l-4 border-red-500 pl-6">
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Step 5 — Monitoring & Defense</h3>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                <span className="italic">Sentiment tracking, comment control, and moderator-safe execution</span>.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Results Section */}
       <section className="w-full max-w-7xl mx-auto px-4 py-24 relative flex flex-col items-center bg-black">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-8">
-          <h2 className="text-4xl md:text-6xl font-serif font-normal text-white mb-6">
+          <h2 className="text-4xl md:text-6xl font-serif font-medium text-white mb-6">
             What clients typically experience
           </h2>
           <ul className="text-left max-w-2xl space-y-3 font-elegant text-lg text-gray-300 mb-6">
@@ -972,7 +931,7 @@ const Homepage = () => {
       {/* Contact Section */}
       <section id="contact" className="w-full max-w-7xl mx-auto px-4 py-24 bg-black">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-serif font-normal text-white mb-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-serif font-medium text-white mb-4 text-center">
             Find out if Reddit is a leverage channel for your brand
           </h2>
           <p className="font-elegant text-lg text-gray-300 text-center mb-6 max-w-2xl mx-auto">
