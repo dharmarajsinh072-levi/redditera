@@ -620,19 +620,23 @@ const Homepage = () => {
           <div className="flex flex-col gap-6">
             <p className="font-mono text-xs text-gray-400 uppercase tracking-wider">About Us</p>
             <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white">
-              An award-winning Reddit marketing team
+              An <span data-emph-id="hp-award" className="font-serif italic">award-winning</span> Reddit marketing team
             </h2>
             <p className="font-elegant text-lg text-gray-300 leading-relaxed">
               We are not “Reddit hackers” who found the way to cheat Reddit’s algorithm. We simply engage with users in relevant and active discussions, mentioning your brand right in front of your target audience.
             </p>
             <div className="mt-6">
-              <h3 className="text-2xl font-semibold text-white">Our Vision</h3>
+              <h3 className="text-2xl font-semibold text-white">
+                Our <span data-emph-id="hp-vision" className="font-serif italic">Vision</span>
+              </h3>
               <p className="font-elegant text-lg text-gray-300 leading-relaxed mt-6">
                 Our vision is to redefine Reddit marketing, making it accessible and impactful for all brands. We aim to lead with innovation, turning challenges into opportunities for authentic connections and sustained growth.
               </p>
             </div>
             <div className="mt-6">
-              <h3 className="text-2xl font-semibold text-white">Our Mission</h3>
+              <h3 className="text-2xl font-semibold text-white">
+                Our <span data-emph-id="hp-mission" className="font-serif italic">Mission</span>
+              </h3>
               <p className="font-elegant text-lg text-gray-300 leading-relaxed mt-6">
                 Our mission is to harness Reddit's power, connecting brands with communities through tailored, authentic marketing. We focus on creating meaningful engagements and growth by understanding community dynamics and applying data-driven insights.
               </p>
@@ -659,7 +663,7 @@ const Homepage = () => {
       <section className="w-full max-w-7xl mx-auto px-4 py-[4.5rem] relative z-10 bg-black">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-6">
-            Our Process
+            Our <span data-emph-id="hp-process" className="font-serif italic">Process</span>
           </h2>
           <p className="font-elegant text-lg text-gray-300 leading-relaxed mb-6">
             We will always start with the initial discussion over chat/call, to understand your needs and propose what makes the most sense in your specific case. Our goal is to prove you the power of non-traditional channels.
@@ -685,7 +689,9 @@ const Homepage = () => {
             <div className="h-px bg-white/20 flex-1 max-w-[100px]"></div>
           </div>
           <h3 className="text-4xl md:text-6xl font-serif font-semibold text-white mb-[1.2rem]">
-            Leverage Reddit traffic &amp; turn it into loyal customers
+            Leverage{' '}
+            <span data-emph-id="hp-services-reddit-traffic" className="font-serif italic">Reddit traffic</span> &amp; turn it into{' '}
+            <span data-emph-id="hp-services-loyal-customers" className="font-serif italic">loyal customers</span>
           </h3>
           <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-3xl">
             We don’t spam, we engage in relevant discussions. After years of working with Reddit, we leverage our expertise to provide you with tailored strategies for your brand.
@@ -697,7 +703,7 @@ const Homepage = () => {
           <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-6">
             <div className="flex-1 text-left space-y-6">
               <h4 className="text-3xl md:text-5xl font-serif font-semibold text-white">
-                Strategic Brand Mentions
+                <span data-emph-id="hp-service-1" className="font-serif italic">Strategic Brand Mentions</span>
               </h4>
               <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-lg">
                 We will suggest your brand as the best solution, right where your audience is looking for answers.
@@ -744,7 +750,7 @@ const Homepage = () => {
           <div className="flex flex-col lg:flex-row-reverse items-center gap-6 lg:gap-6">
             <div className="flex-1 text-left space-y-6">
               <h4 className="text-3xl md:text-5xl font-serif font-semibold text-white">
-                Sustainable reputation building
+                <span data-emph-id="hp-service-2" className="font-serif italic">Sustainable reputation building</span>
               </h4>
               <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-lg">
                 Our strategies will improve your reputation on Reddit and build a basis for long-term sustainable growth.
@@ -775,7 +781,7 @@ const Homepage = () => {
           <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-6">
             <div className="flex-1 text-left space-y-6">
               <h4 className="text-3xl md:text-5xl font-serif font-semibold text-white">
-                High-impact advertising (when appropriate)
+                <span data-emph-id="hp-service-3" className="font-serif italic">High-impact advertising</span>
               </h4>
               <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-lg">
                 We will collaborate with Reddit ads team to run the most effective ads on the platform maximized for ROAS.
@@ -984,7 +990,7 @@ const Homepage = () => {
       <section id="contact" className="w-full max-w-7xl mx-auto px-4 py-[4.5rem] bg-black">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-serif font-semibold text-white mb-[0.8rem] text-center">
-            Ready to dominate Reddit?
+            Ready to <span data-emph-id="hp-cta-dominate" className="font-serif italic">Dominate Reddit</span>?
           </h2>
           <p className="font-elegant text-lg text-gray-300 text-center mb-[1.2rem] max-w-2xl mx-auto">
             Transform your brand with authentic community engagement.

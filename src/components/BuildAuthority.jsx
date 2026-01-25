@@ -94,7 +94,10 @@ const BuildAuthority = () => {
             Sustainable reputation
           </span>
           <h1 className="text-6xl md:text-8xl font-serif font-light tracking-tighter leading-[0.9] mb-12">
-            Build <span className="italic text-white/90">Authority</span>
+            Build{' '}
+            <span data-emph-id="ba-hero-authority" className="font-serif italic text-white/90">
+              Authority
+            </span>
           </h1>
 
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-400 leading-relaxed font-light mb-16">

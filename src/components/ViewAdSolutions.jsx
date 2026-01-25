@@ -124,7 +124,10 @@ const ViewAdSolutions = () => {
           </span>
 
           <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] font-serif font-light tracking-tighter leading-[0.9] mb-10 md:mb-14 px-4">
-            Strategic <br /> <span className="italic text-white/90">Ad Solutions</span>
+            Strategic <br />{' '}
+            <span data-emph-id="va-hero-ad-solutions" className="font-serif italic text-white/90">
+              Ad Solutions
+            </span>
           </h1>
 
           <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed font-light mb-14 md:mb-20">
