@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useCountUp } from '../hooks/useCountUp'
 import '../styles/Homepage.css'
+import '../styles/ViewAdSolutions.css'
 
 const ViewAdSolutions = () => {
   const navigate = useNavigate()
@@ -27,261 +28,380 @@ const ViewAdSolutions = () => {
     }
   }
 
-  return (
-    <div className="homepage bg-[#0a0a0a] text-white min-h-screen">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5">
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-2">
-              <img 
-                src="/images/cropped-redditera-logo-2.webp" 
-                alt="Redditera Logo" 
-                className="h-8 w-auto"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'flex';
-                }}
-              />
-              <div className="w-8 h-8 bg-reddit-orange rounded-full flex items-center justify-center" style={{ display: 'none' }}>
-                <span className="text-white font-bold text-sm">R</span>
-              </div>
-              <span className="text-xl font-bold text-white">Redditera</span>
-            </Link>
-            <div className="hidden md:flex items-center gap-8">
-              <Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
-              <button onClick={() => handleHomepageLink('#about')} className="text-gray-300 hover:text-white transition-colors">About</button>
-              <button onClick={() => handleHomepageLink('#services')} className="text-gray-300 hover:text-white transition-colors">Services</button>
-            </div>
-            <button 
-              onClick={() => handleHomepageLink('#contact')}
-              className="px-6 py-2.5 bg-white text-black rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)]"
-            >
-              Get Started
-            </button>
-          </div>
-        </nav>
-      </header>
-
-      {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center justify-center pt-16 pb-12 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a] to-[#0a0a0a]"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] blur-[120px] rounded-full"></div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="flex flex-col items-center text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-medium uppercase tracking-wider mb-3">
-              High-Impact Advertising
-            </div>
-            <h1 className="text-5xl md:text-7xl font-serif font-semibold tracking-tight text-white mb-3 text-balance-center">
-              High-Impact <span className="italic text-gray-300">Ad Solutions</span>
-            </h1>
-            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-3">
-              We partner directly with Reddit's advertising team to deliver campaigns that outperform industry benchmarks. Every dollar optimized for maximum ROAS.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Image */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-8 relative z-10 bg-black">
-        <div className="relative w-full max-w-5xl mx-auto">
-          <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
-            <div className="grid grid-cols-12 gap-6">
-              <div className="col-span-4 space-y-3">
-                <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                  <div className="text-xs uppercase font-bold text-gray-500 mb-3">ROAS</div>
-                  <div className="text-3xl font-bold text-white">4.2x</div>
-                </div>
-                <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                  <div className="text-xs uppercase font-bold text-gray-500 mb-3">CTR</div>
-                  <div className="text-3xl font-bold text-white">3.85%</div>
-                </div>
-              </div>
-              <div className="col-span-8 bg-[#0a0a0a]/50 rounded-xl border border-white/5 relative overflow-hidden h-64">
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="adGradientService" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#22C55E" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="#22C55E" stopOpacity="0" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M0,85 C15,80 25,70 40,75 C55,80 65,40 80,50 C90,55 95,25 100,35" fill="none" stroke="#22C55E" strokeWidth="2.5" />
-                  <path d="M0,85 C15,80 25,70 40,75 C55,80 65,40 80,50 C90,55 95,25 100,35 V100 H0 Z" fill="url(#adGradientService)" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-12 relative z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/[0.03] blur-[120px] rounded-full pointer-events-none -z-10"></div>
-        
-        {/* Performance Metrics */}
-        <div className="mb-3">
-          <div className="text-center mb-3">
-            <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-3">
-              Results That <span className="font-serif font-normal italic text-gray-300">Speak for Themselves</span>
-            </h2>
-            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-              Our campaigns consistently outperform industry averages. Here's what clients achieve with our Reddit advertising expertise.
-            </p>
-          </div>
-          <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <MetricCard label="ROAS" value={4.2} suffix="x" description="Return on Ad Spend" comparison="Industry avg: 2.1x" />
-              <MetricCard label="CTR" value={3.85} suffix="%" description="Click-Through Rate" comparison="Industry avg: 0.8%" />
-              <MetricCard label="Conv. Rate" value={12} suffix="%" description="Conversion Rate" comparison="Industry avg: 4.2%" />
-            </div>
-          </div>
-        </div>
-
-        {/* Campaign Types */}
-        <div className="mb-3">
-          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-3 text-center">
-            Campaign <span className="font-serif font-normal italic text-gray-300">Types</span>
-          </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto text-center mb-3">
-            Multiple Reddit ad formats, each optimized for different goals. Choose the approach that aligns with your objectives.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-              <h3 className="text-lg font-bold text-white mb-3">Display Ads</h3>
-              <p className="text-sm text-gray-400 mb-3">Traditional banner ads with high visibility</p>
-              <ul className="space-y-3 text-xs text-gray-500">
-                <li>• Brand awareness campaigns</li>
-                <li>• Top-of-funnel targeting</li>
-                <li>• Broad reach options</li>
-              </ul>
-            </div>
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-              <h3 className="text-lg font-bold text-white mb-3">Promoted Posts</h3>
-              <p className="text-sm text-gray-400 mb-3">Native content that blends seamlessly</p>
-              <ul className="space-y-3 text-xs text-gray-500">
-                <li>• Higher engagement rates</li>
-                <li>• Community-friendly format</li>
-                <li>• Discussion-driven results</li>
-              </ul>
-            </div>
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-              <h3 className="text-lg font-bold text-white mb-3">Video Ads</h3>
-              <p className="text-sm text-gray-400 mb-3">High-impact video content</p>
-              <ul className="space-y-3 text-xs text-gray-500">
-                <li>• Maximum engagement</li>
-                <li>• Storytelling opportunities</li>
-                <li>• Premium placement options</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Our Approach */}
-        <div className="mb-3">
-          <h2 className="text-4xl md:text-5xl font-satoshi font-bold text-white mb-3 text-center">
-            How We <span className="font-serif font-normal italic text-gray-300">Deliver Results</span>
-          </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto text-center mb-3">
-            Our methodology combines Reddit's platform expertise with data-driven optimization to ensure every campaign exceeds expectations.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-              <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mb-3 transition-transform duration-300 hover:scale-110">
-                <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Continuous Data Optimization</h3>
-              <p className="text-gray-400 leading-relaxed">
-                We don't set and forget. Every campaign is monitored in real-time with daily optimizations. Bid adjustments, audience refinements, and creative testing happen continuously to maximize ROAS.
-              </p>
-            </div>
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-              <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-3 transition-transform duration-300 hover:scale-110">
-                <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Direct Reddit Partnership</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Our relationship with Reddit's advertising team gives us early access to new features, beta testing, and direct support. This partnership advantage translates to better campaign performance.
-              </p>
-            </div>
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-              <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-3 transition-transform duration-300 hover:scale-110">
-                <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Precision Audience Targeting</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Reddit's unique targeting—subreddit-based, interest-based, and lookalike audiences—lets us reach exactly who matters. We combine multiple strategies to find your highest-value prospects.
-              </p>
-            </div>
-            <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-8 hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-              <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center mb-3 transition-transform duration-300 hover:scale-110">
-                <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">ROAS-First Campaign Structure</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Every decision—from creative selection to budget allocation—prioritizes ROAS. We structure campaigns to maximize revenue, not just impressions or clicks.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center bg-[#0F0F11] border border-white/5 rounded-3xl p-12">
-          <h2 className="text-3xl md:text-4xl font-satoshi font-bold text-white mb-3">
-            Ready to 2x Your Reddit ROAS?
-          </h2>
-          <p className="text-gray-400 text-lg mb-3 max-w-2xl mx-auto">
-            Stop wasting ad spend on underperforming campaigns. Our expertise delivers 4.2x ROAS—double the industry average. Let's build a campaign that moves the needle.
-          </p>
-          <button 
-            onClick={() => handleHomepageLink('#contact')}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-bold text-lg shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-105 transition-all duration-300"
-          >
-            Get Started
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      </section>
-    </div>
+  const ArrowRight = ({ className }) => (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
+    </svg>
   )
-}
 
-// Metric Card Component with Count-Up Animation
-const MetricCard = ({ label, value, suffix, description, comparison }) => {
-  const [count, ref] = useCountUp(value, 2000, true)
-  
-  const formatNumber = (num) => {
-    if (suffix === 'x') {
-      return num.toFixed(1) + suffix
+  const Eye = ({ className }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  )
+
+  const UserPlus = ({ className }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.5 11a4 4 0 100-8 4 4 0 000 8z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 8v6" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M23 11h-6" />
+    </svg>
+  )
+
+  const Cart = ({ className }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 6h15l-1.5 9h-12L6 6z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 6l-2-2H1" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20a1 1 0 100-2 1 1 0 000 2z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 20a1 1 0 100-2 1 1 0 000 2z" />
+    </svg>
+  )
+
+  const Target = ({ className }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 22a10 10 0 110-20 10 10 0 010 20z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2v3" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M22 12h-3" />
+    </svg>
+  )
+
+  const Monitor = ({ className }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4h16v12H4V4z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 20h8" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 16v4" />
+    </svg>
+  )
+
+  const Brush = ({ className }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 3l6 6" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 8l9 9" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 19c2.5 0 4-1.5 4-4 0-1.1-.9-2-2-2-2.5 0-4 1.5-4 4 0 1.1.9 2 2 2z" />
+    </svg>
+  )
+
+  const Insights = ({ className }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3v18h18" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 14l3-3 3 2 5-6" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 5h3v3" />
+    </svg>
+  )
+
+  const Stat = ({ label, value, suffix = '', accent = false }) => {
+    const [count, ref] = useCountUp(value, 900, true)
+
+    const format = (v) => {
+      if (typeof v !== 'number') return `${v}${suffix}`
+      const rounded = label === 'Ad Score' ? count.toFixed(1) : count.toFixed(1)
+      const trimmed = rounded.replace(/\.0$/, '')
+      return `${trimmed}${suffix}`
     }
-    if (suffix === '%') {
-      if (value < 10) {
-        return num.toFixed(2) + suffix
-      }
-      return num.toFixed(1) + suffix
-    }
-    return Math.floor(num) + suffix
+
+    return (
+      <div ref={ref}>
+        <p className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-2">{label}</p>
+        <p className={`text-2xl md:text-4xl font-bold tracking-tighter ${accent ? 'text-[#00D166]' : 'text-white'}`}>
+          {format(value)}
+        </p>
+      </div>
+    )
   }
 
   return (
-    <div 
-      ref={ref}
-      className="bg-white/5 rounded-xl p-6 border border-white/5 text-center hover:border-white/20 hover:bg-white/10 hover:shadow-[0_8px_24px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
-    >
-      <div className="text-[10px] uppercase font-bold text-gray-500 mb-3">{label}</div>
-      <div className="text-4xl font-bold text-white mb-3">{formatNumber(count)}</div>
-      <p className="text-sm text-gray-400 mb-3">{description}</p>
-      <p className="text-xs text-gray-500">{comparison}</p>
+    <div className="dark view-ad-bg bg-[#050505] text-gray-100 min-h-screen font-sans selection:bg-white selection:text-black antialiased">
+      {/* Hero */}
+      <header className="relative pt-44 md:pt-56 pb-28 md:pb-36 px-6 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1400px] h-[1400px] hero-halo-green -z-10 opacity-80" />
+
+        <div className="max-w-7xl mx-auto text-center relative">
+          <span className="inline-block py-1.5 px-6 rounded-full border border-white/10 text-[11px] font-bold tracking-[0.25em] uppercase mb-12 bg-white/5 backdrop-blur-sm text-[#00D166]">
+            High Impact Performance
+          </span>
+
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] font-serif font-light tracking-tighter leading-[0.9] mb-10 md:mb-14 px-4">
+            Strategic <br /> <span className="italic text-white/90">Ad Solutions</span>
+          </h1>
+
+          <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed font-light mb-14 md:mb-20">
+            Engineered for scale. We build high-performance visual funnels that convert Reddit&apos;s most valuable communities.
+          </p>
+
+          {/* Growth card */}
+          <div className="max-w-3xl mx-auto relative group">
+            <div className="absolute -inset-2 bg-[#00D166]/10 rounded-[3rem] blur-3xl opacity-30 group-hover:opacity-50 transition duration-1000" />
+            <div className="glass-panel-heavy p-7 md:p-12 rounded-[2.25rem] md:rounded-[3rem] relative overflow-hidden flex flex-col items-center gap-8 md:gap-10 border border-white/20">
+              <div className="flex items-center justify-between w-full">
+                <div className="text-left">
+                  <span className="text-xs font-bold tracking-widest text-[#00D166] uppercase mb-2 block">Enterprise Metrics</span>
+                  <h4 className="text-2xl md:text-4xl font-bold tracking-tight">Growth Velocity</h4>
+                </div>
+                <div className="flex gap-3">
+                  <div className="flex flex-col items-end">
+                    <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Active Scale</span>
+                    <span className="text-sm md:text-xl font-bold text-white">24/7 Monitoring</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative w-full h-[170px] sm:h-[200px] md:h-[240px] flex items-center justify-center">
+                <svg className="w-full h-full overflow-visible chart-glow" preserveAspectRatio="none" viewBox="0 0 400 120">
+                  <defs>
+                    <linearGradient id="chart-grad-main" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stopColor="#00D166" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#00D166" stopOpacity="0" />
+                    </linearGradient>
+                    <filter id="glow">
+                      <feGaussianBlur result="coloredBlur" stdDeviation="3" />
+                      <feMerge>
+                        <feMergeNode in="coloredBlur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  <path
+                    d="M0,100 C40,95 80,105 120,70 C160,35 200,60 240,40 C280,20 320,30 400,5"
+                    fill="none"
+                    filter="url(#glow)"
+                    stroke="#00D166"
+                    strokeLinecap="round"
+                    strokeWidth="5"
+                  />
+                  <path
+                    d="M0,100 C40,95 80,105 120,70 C160,35 200,60 240,40 C280,20 320,30 400,5 V120 H0 Z"
+                    fill="url(#chart-grad-main)"
+                  />
+                </svg>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 w-full pt-8 md:pt-10 border-t border-white/10">
+                <Stat label="Campaign ROI" value={2.5} suffix="x" />
+                <div>
+                  <p className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-2">CPA Efficiency</p>
+                  <p className="text-2xl md:text-4xl font-bold text-white tracking-tighter">-30%</p>
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-2">Conversion Lift</p>
+                  <p className="text-2xl md:text-4xl font-bold text-white tracking-tighter">+42%</p>
+                </div>
+                <Stat label="Ad Score" value={9.8} accent />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Campaign Types */}
+      <section className="py-28 md:py-36 px-6 relative border-y border-white/5 bg-white/[0.01]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 md:mb-20">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-5 md:mb-6 leading-tight">
+              Targeted <span className="font-serif italic text-white/90">Campaign Types</span>
+            </h2>
+            <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-light">
+              Precision-engineered funnels designed for the specific nuances of Reddit&apos;s community structure.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+            <div className="glass-panel-heavy neon-glow-card-green p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
+              <div className="absolute -right-8 -top-8 text-8xl md:text-9xl font-bold step-number opacity-10 group-hover:opacity-20 transition-opacity">
+                01
+              </div>
+              <div className="mb-10 text-[#00D166]">
+                <Eye className="w-10 h-10" />
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold mb-6">Brand Awareness</h3>
+              <p className="text-gray-400 text-base leading-relaxed mb-10">
+                Establish presence in key subreddits with native-feeling content that earns upvotes, not just impressions.
+              </p>
+              <div className="pt-8 border-t border-white/10">
+                <div className="flex items-center gap-3 text-[10px] font-bold text-[#00D166] tracking-widest uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00D166] shadow-[0_0_8px_rgba(0,209,102,0.6)]" />
+                  Maximum Market Reach
+                </div>
+              </div>
+            </div>
+
+            <div className="glass-panel-heavy neon-glow-card-blue p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
+              <div className="absolute -right-8 -top-8 text-8xl md:text-9xl font-bold step-number opacity-10 group-hover:opacity-20 transition-opacity">
+                02
+              </div>
+              <div className="mb-10 text-blue-400">
+                <UserPlus className="w-10 h-10" />
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold mb-6">Lead Gen</h3>
+              <p className="text-gray-400 text-base leading-relaxed mb-10">
+                Capture high-intent users directly through native lead forms, integrated with your existing CRM workflow.
+              </p>
+              <div className="pt-8 border-t border-white/10">
+                <div className="flex items-center gap-3 text-[10px] font-bold text-blue-400 tracking-widest uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
+                  High Intent Volume
+                </div>
+              </div>
+            </div>
+
+            <div className="glass-panel-heavy neon-glow-card-purple p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
+              <div className="absolute -right-8 -top-8 text-8xl md:text-9xl font-bold step-number opacity-10 group-hover:opacity-20 transition-opacity">
+                03
+              </div>
+              <div className="mb-10 text-purple-400">
+                <Cart className="w-10 h-10" />
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold mb-6">Conversion</h3>
+              <p className="text-gray-400 text-base leading-relaxed mb-10">
+                Drive direct action with pixel optimization and retargeting that closes the loop on your Reddit traffic.
+              </p>
+              <div className="pt-8 border-t border-white/10">
+                <div className="flex items-center gap-3 text-[10px] font-bold text-purple-400 tracking-widest uppercase">
+                  <span className="w-1.5 h-1.5 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(168,85,247,0.6)]" />
+                  Direct Revenue Action
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How we deliver */}
+      <section className="py-28 md:py-36 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 md:mb-20">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-5 md:mb-6 leading-tight">
+              How We <span className="font-serif italic text-white/90">Deliver Results</span>
+            </h2>
+            <p className="text-gray-400 text-base md:text-lg max-w-3xl mx-auto font-light">
+              A systematic approach to Reddit advertising that eliminates guesswork and focuses on sustainable growth.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div className="glass-panel-heavy p-8 md:p-10 rounded-[2.25rem] md:rounded-[3rem] border border-white/5 flex flex-col group hover:border-[#00D166]/40 transition-all duration-500 relative overflow-hidden">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center relative mb-8 md:mb-10 text-[#00D166]">
+                <div className="absolute inset-0 icon-glow text-[#00D166]" />
+                <Target className="w-9 h-9 md:w-10 md:h-10 relative z-10 group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold mb-6">Precision Targeting</h3>
+              <p className="text-gray-400 text-base leading-relaxed mb-8 flex-grow">
+                We leverage deep-level subreddit alignment and proprietary interest segments to place your brand exactly where conversations matter.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Keyword Alignment</span>
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">
+                  Competitor Conquesting
+                </span>
+              </div>
+            </div>
+
+            <div className="glass-panel-heavy p-8 md:p-10 rounded-[2.25rem] md:rounded-[3rem] border border-white/5 flex flex-col group hover:border-blue-400/40 transition-all duration-500 relative overflow-hidden">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center relative mb-8 md:mb-10 text-blue-400">
+                <div className="absolute inset-0 icon-glow text-blue-400" />
+                <Monitor className="w-9 h-9 md:w-10 md:h-10 relative z-10 group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold mb-6">Continuous Optimization</h3>
+              <p className="text-gray-400 text-base leading-relaxed mb-8 flex-grow">
+                Maintain performance through constant bid adjustments, creative refreshes, and granular placement auditing to combat ad fatigue.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Real-time Bidding</span>
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Pixel Analytics</span>
+              </div>
+            </div>
+
+            <div className="glass-panel-heavy p-8 md:p-10 rounded-[2.25rem] md:rounded-[3rem] border border-white/5 flex flex-col group hover:border-purple-400/40 transition-all duration-500 relative overflow-hidden">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center relative mb-8 md:mb-10 text-purple-400">
+                <div className="absolute inset-0 icon-glow text-purple-400" />
+                <Brush className="w-9 h-9 md:w-10 md:h-10 relative z-10 group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold mb-6">Native Creative</h3>
+              <p className="text-gray-400 text-base leading-relaxed mb-8 flex-grow">
+                Creative designed for Reddit&apos;s “dark mode” culture. We speak the language of the community using native-feel formats and copy.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Dark Mode Optimized</span>
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">
+                  A/B Narrative Testing
+                </span>
+              </div>
+            </div>
+
+            <div className="glass-panel-heavy p-8 md:p-10 rounded-[2.25rem] md:rounded-[3rem] border border-white/5 flex flex-col group hover:border-yellow-400/40 transition-all duration-500 relative overflow-hidden">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center relative mb-8 md:mb-10 text-yellow-400">
+                <div className="absolute inset-0 icon-glow text-yellow-400" />
+                <Insights className="w-9 h-9 md:w-10 md:h-10 relative z-10 group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold mb-6">Advanced Insights</h3>
+              <p className="text-gray-400 text-base leading-relaxed mb-8 flex-grow">
+                Go beyond the basic dashboard. We provide sentiment analysis and attribution modeling to prove true business impact.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Sentiment Analysis</span>
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">
+                  Holistic Attribution
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-36 md:py-48 px-6 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] hero-halo-green -z-10 opacity-60" />
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] font-bold tracking-tighter mb-10 md:mb-12 leading-[0.9]">
+            Scale Your Brand with <br /> <span className="font-serif italic text-white/90">Reddit Ads</span>
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-10 md:mb-14 max-w-3xl mx-auto leading-relaxed font-light">
+            Don&apos;t just run ads. Deploy a performance engine built for modern communities. Our team handles the complexity; you reap the scale.
+          </p>
+          <div className="flex justify-center">
+            <button
+              className="group bg-white text-black px-10 sm:px-12 py-3.5 sm:py-4 rounded-full font-semibold text-sm sm:text-base font-mono hover:bg-gray-200 transition-all flex items-center justify-center gap-2 shadow-2xl shadow-white/10 active:scale-95"
+              onClick={() => handleHomepageLink('#contact')}
+            >
+              Scale Now
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-16 md:py-24 px-8 border-t border-white/10 bg-black/40">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16 items-start">
+          <div className="col-span-1 md:col-span-2">
+            <div className="flex items-center gap-3 mb-6 md:mb-8">
+              <div className="w-10 h-10 bg-reddit-orange rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-xl">R</span>
+              </div>
+              <span className="font-bold tracking-tight text-2xl">Redditera</span>
+            </div>
+            <p className="text-gray-500 max-w-sm text-sm md:text-base leading-relaxed">
+              High-impact advertising and performance marketing engineered for the communities of tomorrow. Scale effectively, ethically, and predictably.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-4 md:gap-6 text-sm">
+            <p className="text-white font-bold mb-1 md:mb-2 text-xs uppercase tracking-widest">Solutions</p>
+            <span className="text-gray-500">Performance Ads</span>
+            <span className="text-gray-500">Creative Studio</span>
+            <span className="text-gray-500">Targeting Engine</span>
+          </div>
+
+          <div className="flex flex-col gap-4 md:gap-6 text-sm">
+            <p className="text-white font-bold mb-1 md:mb-2 text-xs uppercase tracking-widest">Company</p>
+            <span className="text-gray-500">About Us</span>
+            <span className="text-gray-500">Privacy Policy</span>
+            <p className="text-gray-600 mt-6 md:mt-8 text-xs">© 2026 Redditera. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

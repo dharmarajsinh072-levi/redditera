@@ -11,10 +11,33 @@
 
 .animate-scroll {
   animation: scroll 30s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.animate-scroll-slow {
+  animation: scroll 42s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 .animate-scroll:hover {
   animation-play-state: paused;
+}
+
+.animate-scroll-slow:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll {
+    animation: none;
+    transform: none;
+  }
+  .animate-scroll-slow {
+    animation: none;
+    transform: none;
+  }
 }
 
 /* Smooth scrolling */
