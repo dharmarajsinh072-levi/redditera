@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
 import SiteHeader from './components/SiteHeader'
+import SiteFooter from './components/SiteFooter'
 import Homepage from './components/Homepage'
 import ExploreMentions from './components/ExploreMentions'
 import BuildAuthority from './components/BuildAuthority'
@@ -21,6 +22,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
+      <SiteFooter />
     </Router>
   )
 }

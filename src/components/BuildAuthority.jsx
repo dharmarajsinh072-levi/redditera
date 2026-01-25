@@ -355,47 +355,6 @@ const BuildAuthority = () => {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-16 px-8 border-t border-white/5 bg-black/40">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 items-start">
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-2.5 mb-6">
-              <div className="w-7 h-7 bg-reddit-orange rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-base">R</span>
-              </div>
-              <span className="font-bold tracking-tight text-lg">Redditera</span>
-            </div>
-            <p className="text-gray-500 max-w-sm text-sm leading-relaxed">
-              Building the future of community-driven growth. Strategic, ethical, and highly effective authority building for the modern web.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-4 text-sm">
-            <p className="text-white font-bold mb-2 text-xs uppercase tracking-widest">Company</p>
-            <a className="text-gray-500 hover:text-white transition-colors" href="#">
-              About Us
-            </a>
-            <a className="text-gray-500 hover:text-white transition-colors" href="#">
-              Case Studies
-            </a>
-            <a className="text-gray-500 hover:text-white transition-colors" href="#">
-              Contact
-            </a>
-          </div>
-
-          <div className="flex flex-col gap-4 text-sm">
-            <p className="text-white font-bold mb-2 text-xs uppercase tracking-widest">Legal</p>
-            <a className="text-gray-500 hover:text-white transition-colors" href="#">
-              Privacy Policy
-            </a>
-            <a className="text-gray-500 hover:text-white transition-colors" href="#">
-              Terms of Service
-            </a>
-            <p className="text-gray-600 mt-4 text-xs">© 2024 Redditera. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

@@ -371,37 +371,6 @@ const ViewAdSolutions = () => {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-16 md:py-24 px-8 border-t border-white/10 bg-black/40">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16 items-start">
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-3 mb-6 md:mb-8">
-              <div className="w-10 h-10 bg-reddit-orange rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">R</span>
-              </div>
-              <span className="font-bold tracking-tight text-2xl">Redditera</span>
-            </div>
-            <p className="text-gray-500 max-w-sm text-sm md:text-base leading-relaxed">
-              High-impact advertising and performance marketing engineered for the communities of tomorrow. Scale effectively, ethically, and predictably.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-4 md:gap-6 text-sm">
-            <p className="text-white font-bold mb-1 md:mb-2 text-xs uppercase tracking-widest">Solutions</p>
-            <span className="text-gray-500">Performance Ads</span>
-            <span className="text-gray-500">Creative Studio</span>
-            <span className="text-gray-500">Targeting Engine</span>
-          </div>
-
-          <div className="flex flex-col gap-4 md:gap-6 text-sm">
-            <p className="text-white font-bold mb-1 md:mb-2 text-xs uppercase tracking-widest">Company</p>
-            <span className="text-gray-500">About Us</span>
-            <span className="text-gray-500">Privacy Policy</span>
-            <p className="text-gray-600 mt-6 md:mt-8 text-xs">© 2026 Redditera. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

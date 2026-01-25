@@ -98,18 +98,26 @@ const Homepage = () => {
     Q4: ['Oct', 'Nov', 'Dec']
   }
 
-  const currentMonthData = useMemo(() => {
-    return quarterDayData[selectedQuarter] || quarterDayData.Q1
-  }, [selectedQuarter])
-
   const currentQuarterMonths = useMemo(() => quarterMonths[selectedQuarter] || quarterMonths.Q1, [selectedQuarter])
 
-  const totalRevenue = useMemo(() => currentMonthData.reduce((sum, entry) => sum + entry.Revenue, 0), [currentMonthData])
-  const totalProfit = useMemo(() => currentMonthData.reduce((sum, entry) => sum + (entry.Revenue - entry.Expenses), 0), [currentMonthData])
+  const currentChartData = useMemo(() => {
+    const base = quarterDayData[selectedQuarter] || quarterDayData.Q1
+    const months = quarterMonths[selectedQuarter] || quarterMonths.Q1
+    return base.map((row, index) => ({
+      ...row,
+      idx: index,
+      month: months[Math.min(2, Math.floor(index / 5))]
+    }))
+  }, [selectedQuarter])
+
+  const totalRevenue = useMemo(() => currentChartData.reduce((sum, entry) => sum + entry.Revenue, 0), [currentChartData])
+  const totalProfit = useMemo(() => currentChartData.reduce((sum, entry) => sum + (entry.Revenue - entry.Expenses), 0), [currentChartData])
   const revenueGrowth = 24.6
   const profitGrowth = 28.5
+  const revenueColor = '#22C55E' // green
+  const expensesColor = '#EF4444' // red
 
-  const profitData = currentMonthData.map((entry, index) => {
+  const profitData = currentChartData.map((entry, index) => {
     const monthIndex = Math.min(2, Math.floor(index / 5))
     return {
       day: entry.day,
@@ -298,8 +306,8 @@ const Homepage = () => {
                         <option value="Q4">Q4 2025</option>
                       </select>
                     </div>
-                    <div className="flex flex-col gap-6 mb-6 sm:mb-6 pr-24 sm:pr-28">
-                      <div className="font-mono text-xs text-gray-400 mb-6">Total revenue</div>
+                    <div className="flex flex-col gap-5 mb-6 sm:mb-6 pr-24 sm:pr-28">
+                      <div className="font-mono text-xs text-gray-400">Total revenue</div>
                       <div className="flex flex-wrap items-center gap-4">
                         <h3 className="text-2xl sm:text-3xl font-bold text-white">
                           ${(totalRevenue / 1000).toFixed(1)}K
@@ -310,55 +318,54 @@ const Homepage = () => {
                         </div>
                       </div>
                       <div className="flex items-center gap-6 text-xs text-gray-500 font-mono">
-                        <span>Revenue</span>
-                        <span>Expenses</span>
+                        <span className="inline-flex items-center gap-2">
+                          <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: revenueColor }} />
+                          Revenue
+                        </span>
+                        <span className="inline-flex items-center gap-2">
+                          <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: expensesColor }} />
+                          Expenses
+                        </span>
                       </div>
                       <p className="text-xs text-gray-500 font-mono">
-                        {currentMonthData[0]?.day} - {currentMonthData[currentMonthData.length - 1]?.day}
+                        {currentQuarterMonths[0]} - {currentQuarterMonths[currentQuarterMonths.length - 1]}
                       </p>
                     </div>
                     <div className="flex-1 h-48 sm:h-64 min-h-[200px]">
                       <ResponsiveContainer width="100%" height="100%">
-                        <LineChart data={currentMonthData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
+                        <LineChart data={currentChartData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
                           <defs>
-                            <filter id="revenueShadow" x="-50%" y="-50%" width="200%" height="200%">
-                              <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
-                              <feOffset dx="0" dy="2" result="offsetblur" />
-                              <feComponentTransfer>
-                                <feFuncA type="linear" slope="0.15" />
-                              </feComponentTransfer>
-                              <feMerge>
-                                <feMergeNode />
-                                <feMergeNode in="SourceGraphic" />
-                              </feMerge>
+                            <filter id="revenueGlow" x="-40%" y="-40%" width="180%" height="180%">
+                              <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor={revenueColor} floodOpacity="0.45" />
                             </filter>
-                            <filter id="expensesShadow" x="-50%" y="-50%" width="200%" height="200%">
-                              <feGaussianBlur in="SourceAlpha" stdDeviation="2.5" />
-                              <feOffset dx="0" dy="2" result="offsetblur" />
-                              <feComponentTransfer>
-                                <feFuncA type="linear" slope="0.12" />
-                              </feComponentTransfer>
-                              <feMerge>
-                                <feMergeNode />
-                                <feMergeNode in="SourceGraphic" />
-                              </feMerge>
+                            <filter id="expensesGlow" x="-40%" y="-40%" width="180%" height="180%">
+                              <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor={expensesColor} floodOpacity="0.35" />
                             </filter>
                             <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="0%" stopColor="#FF4500" stopOpacity="0.3" />
-                              <stop offset="100%" stopColor="#FF4500" stopOpacity="0" />
+                              <stop offset="0%" stopColor={revenueColor} stopOpacity="0.22" />
+                              <stop offset="100%" stopColor={revenueColor} stopOpacity="0" />
                             </linearGradient>
                             <linearGradient id="expensesGradient" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.18" />
-                              <stop offset="100%" stopColor="#0EA5E9" stopOpacity="0" />
+                              <stop offset="0%" stopColor={expensesColor} stopOpacity="0.16" />
+                              <stop offset="100%" stopColor={expensesColor} stopOpacity="0" />
                             </linearGradient>
                           </defs>
                           <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
                             <XAxis 
-                              dataKey="day" 
-                            stroke="#888" 
-                            tick={{ fill: '#888', fontSize: 10 }}
-                            axisLine={{ stroke: 'rgba(255,255,255,0.1)' }}
-                          />
+                              dataKey="idx"
+                              type="number"
+                              domain={[0, 14]}
+                              ticks={[0, 5, 10]}
+                              stroke="#888" 
+                              tick={{ fill: '#888', fontSize: 10 }}
+                              axisLine={{ stroke: 'rgba(255,255,255,0.1)' }}
+                              tickFormatter={(value) => {
+                                if (value === 0) return currentQuarterMonths[0]
+                                if (value === 5) return currentQuarterMonths[1]
+                                if (value === 10) return currentQuarterMonths[2]
+                                return ''
+                              }}
+                            />
                           <YAxis 
                             stroke="#888" 
                             tick={{ fill: '#888', fontSize: 10 }}
@@ -377,6 +384,10 @@ const Homepage = () => {
                               backdropFilter: 'blur(8px)'
                             }}
                             labelStyle={{ color: '#fff', fontSize: '12px', marginBottom: '6px', fontWeight: '600' }}
+                            labelFormatter={(_label, payload) => {
+                              const p = payload?.[0]?.payload
+                              return p?.month ?? ''
+                            }}
                             formatter={(value, name) => {
                               const formatted = `$${value.toLocaleString()}`;
                               return [formatted, name];
@@ -394,30 +405,29 @@ const Homepage = () => {
                           <Line 
                             type="monotone" 
                             dataKey="Revenue" 
-                            stroke="#FF4500" 
+                            stroke={revenueColor}
                             strokeWidth={4}
                             dot={false}
-                            activeDot={{ r: 12, fill: '#FF4500', stroke: '#fff', strokeWidth: 3, filter: 'drop-shadow(0 0 12px rgba(255, 69, 0, 1))', cursor: 'pointer' }}
+                            activeDot={{ r: 12, fill: revenueColor, stroke: '#fff', strokeWidth: 3, cursor: 'pointer' }}
                             name="Revenue"
                             animationDuration={200}
                             animationBegin={0}
-                            filter="url(#revenueShadow)"
+                            filter="url(#revenueGlow)"
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             isAnimationActive={true}
-                            style={{ filter: 'drop-shadow(0 0 8px rgba(255, 69, 0, 0.8))' }}
                           />
                           <Line 
                             type="monotone" 
                             dataKey="Expenses" 
-                            stroke="#0EA5E9" 
+                            stroke={expensesColor}
                             strokeWidth={2.5}
                             dot={false}
-                            activeDot={{ r: 9, fill: '#0EA5E9', stroke: '#fff', strokeWidth: 2.5, filter: 'drop-shadow(0 4px 8px rgba(14, 165, 233, 0.6))', cursor: 'pointer' }}
+                            activeDot={{ r: 9, fill: expensesColor, stroke: '#fff', strokeWidth: 2.5, cursor: 'pointer' }}
                             name="Expenses"
                             animationDuration={200}
                             animationBegin={100}
-                            filter="url(#expensesShadow)"
+                            filter="url(#expensesGlow)"
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             isAnimationActive={true}
@@ -1042,55 +1052,6 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 bg-black py-[2.25rem]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-6 h-6 grid grid-cols-2 gap-0.5">
-                  <div className="w-full h-full bg-white"></div>
-                  <div className="w-full h-full bg-white"></div>
-                  <div className="w-full h-full bg-white"></div>
-                  <div className="w-full h-full bg-white"></div>
-                </div>
-                <span className="text-lg font-bold text-white tracking-tight">Redditera</span>
-              </div>
-              <p className="text-sm text-gray-400">
-                Helping brands build authentic communities and drive sustainable growth through strategic Reddit marketing.
-              </p>
-            </div>
-            <div>
-              <p className="font-mono text-xs text-gray-400 uppercase tracking-wider mb-6">Product</p>
-              <ul className="space-y-6 text-sm text-gray-300">
-                <li>Services</li>
-                <li>Features</li>
-                <li>Pricing</li>
-                <li>Case Studies</li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-mono text-xs text-gray-400 uppercase tracking-wider mb-6">Company</p>
-              <ul className="space-y-6 text-sm text-gray-300">
-                <li>About Us</li>
-                <li>Careers</li>
-                <li>Blog</li>
-                <li>Contact</li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-mono text-xs text-gray-400 uppercase tracking-wider mb-6">Legal</p>
-              <ul className="space-y-6 text-sm text-gray-300">
-                <li>Privacy Policy</li>
-                <li>Terms of Service</li>
-                <li>Cookie Policy</li>
-              </ul>
-            </div>
-          </div>
-          <p className="font-mono text-xs text-gray-500 mt-6">© 2026 Redditera. All rights reserved.</p>
-        </div>
-      </footer>
-      
     </div>
   )
 }
