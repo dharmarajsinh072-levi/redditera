@@ -34,11 +34,21 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* Modern clean sans-serif for headings */
+/* Headings: clean sans; italic accents: serif */
 .font-serif {
   font-family: 'Inter', sans-serif;
-  font-weight: 700;
   letter-spacing: -0.02em;
+}
+
+/* Make italic emphasis use the serif universally */
+.italic,
+i,
+em,
+.font-serif.italic,
+.font-mission-quote {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-weight: 400;
+  font-style: italic;
 }
 
 /* Serif for mission quote */

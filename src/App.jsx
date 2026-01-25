@@ -1,6 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
+import SiteHeader from './components/SiteHeader'
+import SiteFooter from './components/SiteFooter'
 import Homepage from './components/Homepage'
 import ExploreMentions from './components/ExploreMentions'
 import BuildAuthority from './components/BuildAuthority'
@@ -10,13 +12,17 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/explore-mentions" element={<ExploreMentions />} />
-        <Route path="/build-authority" element={<BuildAuthority />} />
-        <Route path="/view-ad-solutions" element={<ViewAdSolutions />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <SiteHeader />
+      <div className="pt-[64px] md:pt-[72px]">
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/explore-mentions" element={<ExploreMentions />} />
+          <Route path="/build-authority" element={<BuildAuthority />} />
+          <Route path="/view-ad-solutions" element={<ViewAdSolutions />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+      <SiteFooter />
     </Router>
   )
 }

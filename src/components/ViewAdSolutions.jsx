@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useCountUp } from '../hooks/useCountUp'
 import '../styles/Homepage.css'
 import '../styles/ViewAdSolutions.css'
@@ -105,7 +105,7 @@ const ViewAdSolutions = () => {
     return (
       <div ref={ref}>
         <p className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-2">{label}</p>
-        <p className={`text-4xl font-bold tracking-tighter ${accent ? 'text-[#00D166]' : 'text-white'}`}>
+        <p className={`text-2xl md:text-4xl font-bold tracking-tighter ${accent ? 'text-[#00D166]' : 'text-white'}`}>
           {format(value)}
         </p>
       </div>
@@ -114,38 +114,8 @@ const ViewAdSolutions = () => {
 
   return (
     <div className="dark view-ad-bg bg-[#050505] text-gray-100 min-h-screen font-sans selection:bg-white selection:text-black antialiased">
-      {/* Nav (keep same buttons + CTA behavior as other pages) */}
-      <nav className="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center bg-[#050505]/80 backdrop-blur-xl border-b border-white/5">
-        <Link to="/" className="flex items-center gap-2.5">
-          <div className="w-9 h-9 bg-reddit-orange rounded-full flex items-center justify-center shadow-lg shadow-reddit-orange/20">
-            <span className="text-white font-bold text-xl">R</span>
-          </div>
-          <span className="text-xl font-bold tracking-tight">Redditera</span>
-        </Link>
-
-        <div className="hidden md:flex items-center gap-12 font-mono text-sm text-gray-300">
-          <button className="hover:text-white transition-colors" onClick={() => handleHomepageLink('#home')}>
-            Home
-          </button>
-          <button className="hover:text-white transition-colors" onClick={() => handleHomepageLink('#about')}>
-            About
-          </button>
-          <button className="hover:text-white transition-colors" onClick={() => handleHomepageLink('#services')}>
-            Services
-          </button>
-        </div>
-
-        <button
-          className="group px-6 py-2 bg-white text-black font-mono text-sm hover:bg-gray-100 transition-all duration-300 rounded-full inline-flex items-center gap-2 active:scale-95 shadow-xl shadow-white/5"
-          onClick={() => handleHomepageLink('#contact')}
-        >
-          Get Started
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-        </button>
-      </nav>
-
       {/* Hero */}
-      <header className="relative pt-44 md:pt-56 pb-32 md:pb-40 px-6 overflow-hidden">
+      <header className="relative pt-44 md:pt-56 pb-28 md:pb-36 px-6 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1400px] h-[1400px] hero-halo-green -z-10 opacity-80" />
 
         <div className="max-w-7xl mx-auto text-center relative">
@@ -153,32 +123,32 @@ const ViewAdSolutions = () => {
             High Impact Performance
           </span>
 
-          <h1 className="text-7xl md:text-9xl font-bold tracking-tighter leading-[0.9] mb-12 px-4">
-            Strategic <br /> <span className="font-serif italic text-white/90">Ad Solutions</span>
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] font-serif font-light tracking-tighter leading-[0.9] mb-10 md:mb-14 px-4">
+            Strategic <br /> <span className="italic text-white/90">Ad Solutions</span>
           </h1>
 
-          <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-400 leading-relaxed font-light mb-20 md:mb-28">
+          <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed font-light mb-14 md:mb-20">
             Engineered for scale. We build high-performance visual funnels that convert Reddit&apos;s most valuable communities.
           </p>
 
           {/* Growth card */}
-          <div className="max-w-5xl mx-auto relative group">
+          <div className="max-w-3xl mx-auto relative group">
             <div className="absolute -inset-2 bg-[#00D166]/10 rounded-[3rem] blur-3xl opacity-30 group-hover:opacity-50 transition duration-1000" />
-            <div className="glass-panel-heavy p-8 md:p-12 rounded-[3rem] relative overflow-hidden flex flex-col items-center gap-12 border border-white/20">
+            <div className="glass-panel-heavy p-7 md:p-12 rounded-[2.25rem] md:rounded-[3rem] relative overflow-hidden flex flex-col items-center gap-8 md:gap-10 border border-white/20">
               <div className="flex items-center justify-between w-full">
                 <div className="text-left">
                   <span className="text-xs font-bold tracking-widest text-[#00D166] uppercase mb-2 block">Enterprise Metrics</span>
-                  <h4 className="text-3xl md:text-4xl font-bold tracking-tight">Growth Velocity</h4>
+                  <h4 className="text-2xl md:text-4xl font-bold tracking-tight">Growth Velocity</h4>
                 </div>
                 <div className="flex gap-3">
                   <div className="flex flex-col items-end">
                     <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Active Scale</span>
-                    <span className="text-lg md:text-xl font-bold text-white">24/7 Monitoring</span>
+                    <span className="text-sm md:text-xl font-bold text-white">24/7 Monitoring</span>
                   </div>
                 </div>
               </div>
 
-              <div className="relative w-full h-[220px] md:h-[260px] flex items-center justify-center">
+              <div className="relative w-full h-[170px] sm:h-[200px] md:h-[240px] flex items-center justify-center">
                 <svg className="w-full h-full overflow-visible chart-glow" preserveAspectRatio="none" viewBox="0 0 400 120">
                   <defs>
                     <linearGradient id="chart-grad-main" x1="0" x2="0" y1="0" y2="1">
@@ -208,15 +178,15 @@ const ViewAdSolutions = () => {
                 </svg>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 w-full pt-10 md:pt-12 border-t border-white/10">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 w-full pt-8 md:pt-10 border-t border-white/10">
                 <Stat label="Campaign ROI" value={2.5} suffix="x" />
                 <div>
                   <p className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-2">CPA Efficiency</p>
-                  <p className="text-4xl font-bold text-white tracking-tighter">-30%</p>
+                  <p className="text-2xl md:text-4xl font-bold text-white tracking-tighter">-30%</p>
                 </div>
                 <div>
                   <p className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-2">Conversion Lift</p>
-                  <p className="text-4xl font-bold text-white tracking-tighter">+42%</p>
+                  <p className="text-2xl md:text-4xl font-bold text-white tracking-tighter">+42%</p>
                 </div>
                 <Stat label="Ad Score" value={9.8} accent />
               </div>
@@ -226,24 +196,24 @@ const ViewAdSolutions = () => {
       </header>
 
       {/* Campaign Types */}
-      <section className="py-32 md:py-40 px-6 relative border-y border-white/5 bg-white/[0.01]">
+      <section className="py-28 md:py-36 px-6 relative border-y border-white/5 bg-white/[0.01]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 md:mb-24">
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 md:mb-8 leading-tight">
+          <div className="text-center mb-12 md:mb-20">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-5 md:mb-6 leading-tight">
               Targeted <span className="font-serif italic text-white/90">Campaign Types</span>
             </h2>
-            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-light">
               Precision-engineered funnels designed for the specific nuances of Reddit&apos;s community structure.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-            <div className="glass-panel-heavy neon-glow-card-green p-10 md:p-12 rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
+            <div className="glass-panel-heavy neon-glow-card-green p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
               <div className="absolute -right-8 -top-8 text-8xl md:text-9xl font-bold step-number opacity-10 group-hover:opacity-20 transition-opacity">
                 01
               </div>
               <div className="mb-10 text-[#00D166]">
-                <Eye className="w-12 h-12" />
+                <Eye className="w-10 h-10" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Brand Awareness</h3>
               <p className="text-gray-400 text-base leading-relaxed mb-10">
@@ -257,12 +227,12 @@ const ViewAdSolutions = () => {
               </div>
             </div>
 
-            <div className="glass-panel-heavy neon-glow-card-blue p-10 md:p-12 rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
+            <div className="glass-panel-heavy neon-glow-card-blue p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
               <div className="absolute -right-8 -top-8 text-8xl md:text-9xl font-bold step-number opacity-10 group-hover:opacity-20 transition-opacity">
                 02
               </div>
               <div className="mb-10 text-blue-400">
-                <UserPlus className="w-12 h-12" />
+                <UserPlus className="w-10 h-10" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Lead Gen</h3>
               <p className="text-gray-400 text-base leading-relaxed mb-10">
@@ -276,12 +246,12 @@ const ViewAdSolutions = () => {
               </div>
             </div>
 
-            <div className="glass-panel-heavy neon-glow-card-purple p-10 md:p-12 rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
+            <div className="glass-panel-heavy neon-glow-card-purple p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] group ad-card-hover relative overflow-hidden">
               <div className="absolute -right-8 -top-8 text-8xl md:text-9xl font-bold step-number opacity-10 group-hover:opacity-20 transition-opacity">
                 03
               </div>
               <div className="mb-10 text-purple-400">
-                <Cart className="w-12 h-12" />
+                <Cart className="w-10 h-10" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Conversion</h3>
               <p className="text-gray-400 text-base leading-relaxed mb-10">
@@ -299,79 +269,79 @@ const ViewAdSolutions = () => {
       </section>
 
       {/* How we deliver */}
-      <section className="py-40 md:py-48 px-6">
+      <section className="py-28 md:py-36 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 md:mb-24">
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 md:mb-8 leading-tight">
+          <div className="text-center mb-12 md:mb-20">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter mb-5 md:mb-6 leading-tight">
               How We <span className="font-serif italic text-white/90">Deliver Results</span>
             </h2>
-            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto font-light">
+            <p className="text-gray-400 text-base md:text-lg max-w-3xl mx-auto font-light">
               A systematic approach to Reddit advertising that eliminates guesswork and focuses on sustainable growth.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            <div className="glass-panel-heavy p-10 md:p-12 rounded-[3rem] border border-white/5 flex flex-col group hover:border-[#00D166]/40 transition-all duration-500 relative overflow-hidden">
-              <div className="w-24 h-24 rounded-2xl flex items-center justify-center relative mb-12 text-[#00D166]">
+            <div className="glass-panel-heavy p-8 md:p-10 rounded-[2.25rem] md:rounded-[3rem] border border-white/5 flex flex-col group hover:border-[#00D166]/40 transition-all duration-500 relative overflow-hidden">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center relative mb-8 md:mb-10 text-[#00D166]">
                 <div className="absolute inset-0 icon-glow text-[#00D166]" />
-                <Target className="w-12 h-12 relative z-10 group-hover:scale-110 transition-transform duration-500" />
+                <Target className="w-9 h-9 md:w-10 md:h-10 relative z-10 group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Precision Targeting</h3>
-              <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 flex-grow">
+              <p className="text-gray-400 text-base leading-relaxed mb-8 flex-grow">
                 We leverage deep-level subreddit alignment and proprietary interest segments to place your brand exactly where conversations matter.
               </p>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Keyword Alignment</span>
-                <span className="px-4 py-2 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Keyword Alignment</span>
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">
                   Competitor Conquesting
                 </span>
               </div>
             </div>
 
-            <div className="glass-panel-heavy p-10 md:p-12 rounded-[3rem] border border-white/5 flex flex-col group hover:border-blue-400/40 transition-all duration-500 relative overflow-hidden">
-              <div className="w-24 h-24 rounded-2xl flex items-center justify-center relative mb-12 text-blue-400">
+            <div className="glass-panel-heavy p-8 md:p-10 rounded-[2.25rem] md:rounded-[3rem] border border-white/5 flex flex-col group hover:border-blue-400/40 transition-all duration-500 relative overflow-hidden">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center relative mb-8 md:mb-10 text-blue-400">
                 <div className="absolute inset-0 icon-glow text-blue-400" />
-                <Monitor className="w-12 h-12 relative z-10 group-hover:scale-110 transition-transform duration-500" />
+                <Monitor className="w-9 h-9 md:w-10 md:h-10 relative z-10 group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Continuous Optimization</h3>
-              <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 flex-grow">
+              <p className="text-gray-400 text-base leading-relaxed mb-8 flex-grow">
                 Maintain performance through constant bid adjustments, creative refreshes, and granular placement auditing to combat ad fatigue.
               </p>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Real-time Bidding</span>
-                <span className="px-4 py-2 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Pixel Analytics</span>
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Real-time Bidding</span>
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Pixel Analytics</span>
               </div>
             </div>
 
-            <div className="glass-panel-heavy p-10 md:p-12 rounded-[3rem] border border-white/5 flex flex-col group hover:border-purple-400/40 transition-all duration-500 relative overflow-hidden">
-              <div className="w-24 h-24 rounded-2xl flex items-center justify-center relative mb-12 text-purple-400">
+            <div className="glass-panel-heavy p-8 md:p-10 rounded-[2.25rem] md:rounded-[3rem] border border-white/5 flex flex-col group hover:border-purple-400/40 transition-all duration-500 relative overflow-hidden">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center relative mb-8 md:mb-10 text-purple-400">
                 <div className="absolute inset-0 icon-glow text-purple-400" />
-                <Brush className="w-12 h-12 relative z-10 group-hover:scale-110 transition-transform duration-500" />
+                <Brush className="w-9 h-9 md:w-10 md:h-10 relative z-10 group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Native Creative</h3>
-              <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 flex-grow">
+              <p className="text-gray-400 text-base leading-relaxed mb-8 flex-grow">
                 Creative designed for Reddit&apos;s “dark mode” culture. We speak the language of the community using native-feel formats and copy.
               </p>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Dark Mode Optimized</span>
-                <span className="px-4 py-2 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Dark Mode Optimized</span>
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">
                   A/B Narrative Testing
                 </span>
               </div>
             </div>
 
-            <div className="glass-panel-heavy p-10 md:p-12 rounded-[3rem] border border-white/5 flex flex-col group hover:border-yellow-400/40 transition-all duration-500 relative overflow-hidden">
-              <div className="w-24 h-24 rounded-2xl flex items-center justify-center relative mb-12 text-yellow-400">
+            <div className="glass-panel-heavy p-8 md:p-10 rounded-[2.25rem] md:rounded-[3rem] border border-white/5 flex flex-col group hover:border-yellow-400/40 transition-all duration-500 relative overflow-hidden">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center relative mb-8 md:mb-10 text-yellow-400">
                 <div className="absolute inset-0 icon-glow text-yellow-400" />
-                <Insights className="w-12 h-12 relative z-10 group-hover:scale-110 transition-transform duration-500" />
+                <Insights className="w-9 h-9 md:w-10 md:h-10 relative z-10 group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Advanced Insights</h3>
-              <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 flex-grow">
+              <p className="text-gray-400 text-base leading-relaxed mb-8 flex-grow">
                 Go beyond the basic dashboard. We provide sentiment analysis and attribution modeling to prove true business impact.
               </p>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Sentiment Analysis</span>
-                <span className="px-4 py-2 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">Sentiment Analysis</span>
+                <span className="px-3.5 py-1.5 bg-white/5 rounded-full text-xs font-medium text-gray-300 border border-white/10">
                   Holistic Attribution
                 </span>
               </div>
@@ -381,57 +351,26 @@ const ViewAdSolutions = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-48 md:py-60 px-6 relative overflow-hidden">
+      <section className="py-36 md:py-48 px-6 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] hero-halo-green -z-10 opacity-60" />
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-6xl md:text-8xl font-bold tracking-tighter mb-10 md:mb-12 leading-[0.9]">
+          <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] font-bold tracking-tighter mb-10 md:mb-12 leading-[0.9]">
             Scale Your Brand with <br /> <span className="font-serif italic text-white/90">Reddit Ads</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-400 mb-14 md:mb-16 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-10 md:mb-14 max-w-3xl mx-auto leading-relaxed font-light">
             Don&apos;t just run ads. Deploy a performance engine built for modern communities. Our team handles the complexity; you reap the scale.
           </p>
           <div className="flex justify-center">
             <button
-              className="group bg-white text-black px-14 py-5 rounded-full font-semibold text-xl font-mono hover:bg-gray-200 transition-all flex items-center justify-center gap-3 shadow-2xl shadow-white/10 active:scale-95"
+              className="group bg-white text-black px-10 sm:px-12 py-3.5 sm:py-4 rounded-full font-semibold text-sm sm:text-base font-mono hover:bg-gray-200 transition-all flex items-center justify-center gap-2 shadow-2xl shadow-white/10 active:scale-95"
               onClick={() => handleHomepageLink('#contact')}
             >
               Scale Now
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-16 md:py-24 px-8 border-t border-white/10 bg-black/40">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16 items-start">
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-3 mb-6 md:mb-8">
-              <div className="w-10 h-10 bg-reddit-orange rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">R</span>
-              </div>
-              <span className="font-bold tracking-tight text-2xl">Redditera</span>
-            </div>
-            <p className="text-gray-500 max-w-sm text-sm md:text-base leading-relaxed">
-              High-impact advertising and performance marketing engineered for the communities of tomorrow. Scale effectively, ethically, and predictably.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-4 md:gap-6 text-sm">
-            <p className="text-white font-bold mb-1 md:mb-2 text-xs uppercase tracking-widest">Solutions</p>
-            <span className="text-gray-500">Performance Ads</span>
-            <span className="text-gray-500">Creative Studio</span>
-            <span className="text-gray-500">Targeting Engine</span>
-          </div>
-
-          <div className="flex flex-col gap-4 md:gap-6 text-sm">
-            <p className="text-white font-bold mb-1 md:mb-2 text-xs uppercase tracking-widest">Company</p>
-            <span className="text-gray-500">About Us</span>
-            <span className="text-gray-500">Privacy Policy</span>
-            <p className="text-gray-600 mt-6 md:mt-8 text-xs">© 2026 Redditera. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
