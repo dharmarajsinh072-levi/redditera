@@ -43,7 +43,7 @@ export default function SiteHeader() {
   }, [location.pathname])
 
   return (
-    <div className="fixed top-0 left-0 w-full z-[100] bg-black border-b border-white/10">
+    <div className="fixed top-0 left-0 w-full z-[100] bg-[var(--bg)]/70 backdrop-blur-md border-b border-[var(--border-soft)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] md:h-[84px] flex items-center">
         <Link to="/" className="flex items-center gap-3 shrink-0">
           <img
@@ -54,7 +54,7 @@ export default function SiteHeader() {
           />
         </Link>
 
-        <div className="hidden md:flex flex-1 items-center justify-center gap-10 text-gray-300">
+        <div className="hidden md:flex flex-1 items-center justify-center gap-10 text-[var(--text-muted)]">
           <button className="hover:text-white transition-colors" onClick={() => go('#home')}>
             Home
           </button>
@@ -68,7 +68,7 @@ export default function SiteHeader() {
 
         <div className="ml-auto">
           <button
-            className="px-6 py-2 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-colors active:scale-95"
+            className="px-6 py-2 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-colors active:scale-95 shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
             onClick={() => go('#contact')}
           >
             Get Started

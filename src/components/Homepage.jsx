@@ -114,8 +114,9 @@ const Homepage = () => {
   const totalProfit = useMemo(() => currentChartData.reduce((sum, entry) => sum + (entry.Revenue - entry.Expenses), 0), [currentChartData])
   const revenueGrowth = 24.6
   const profitGrowth = 28.5
-  const revenueColor = '#22C55E' // green
-  const expensesColor = '#EF4444' // red
+  // Screenshot palette (logic unchanged)
+  const revenueColor = '#A855F7' // purple
+  const expensesColor = '#0EA5E9' // blue
 
   const profitData = currentChartData.map((entry, index) => {
     const monthIndex = Math.min(2, Math.floor(index / 5))
@@ -126,14 +127,23 @@ const Homepage = () => {
     }
   })
 
-  const barColors = ['#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7', '#0EA5E9', '#A855F7']
+  const barColors = Array.from({ length: 15 }, () => '#0EA5E9')
 
   return (
-    <div className="homepage bg-black text-white min-h-screen">
+    <div className="homepage bg-[var(--bg)] text-[var(--text)] min-h-screen">
+      <div className="noise-overlay" />
       {/* Hero Section */}
-      <section id="home" className="relative min-h-[85vh] flex items-center justify-center pt-24 pb-12 overflow-hidden bg-black">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a] to-black"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] blur-[120px] rounded-full"></div>
+      <section id="home" className="relative min-h-[85vh] flex items-center justify-center pt-24 pb-12 overflow-hidden bg-[var(--bg)]">
+        {/* Screenshot hero background image */}
+        <div
+          className="absolute inset-0 -z-20 bg-center bg-cover"
+          style={{ backgroundImage: "url('/images/backgroundhero.webp')" }}
+          aria-hidden="true"
+        />
+        {/* Dark overlay + subtle vignette */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/80 via-black/70 to-black/90" aria-hidden="true" />
+        <div className="absolute inset-0 -z-10 [background:radial-gradient(closest-side,rgba(255,255,255,0.06),transparent_60%)] opacity-60" aria-hidden="true" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] glow-focal -z-10 opacity-55" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex flex-col items-center text-center">
             <div className="flex items-center gap-6 mb-6">
@@ -160,7 +170,7 @@ const Homepage = () => {
             {/* Main Title */}
             <h1 className="text-5xl md:text-7xl font-serif font-light text-white mb-6 tracking-tight leading-tight">
               Reddit marketing strategies<br />
-              <span className="italic text-gray-300">refined for measurable impact</span>
+              <em className="text-gray-300">refined for measurable impact</em>
             </h1>
 
             {/* Subtitle */}
@@ -183,13 +193,13 @@ const Homepage = () => {
 
             {/* Financial Overview Section */}
             <div className="w-full max-w-6xl mx-auto mt-[1.4rem]">
-              <div className="relative border border-white/20 bg-black px-6 py-[1.125rem] mb-[1.6rem]">
+              <div className="relative border border-[var(--border)] bg-[var(--bg-elevated)]/60 backdrop-blur-md px-4 sm:px-6 py-[1.125rem] mb-[1.6rem] rounded-2xl">
                 {/* Top Row - 4 Small Metric Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
                   {/* Attributed Revenue */}
-                  <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
+                  <div className="bg-[var(--surface)] border border-[var(--border-soft)] rounded-xl p-4 sm:p-5 transition-all duration-200 group hover:border-[var(--border)] hover:bg-[var(--surface-strong)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.35)] focus-within:border-[var(--border)] focus-within:ring-2 focus-within:ring-white/10">
                     <div className="flex justify-between items-start mb-6">
-                      <div className="flex items-center gap-2 text-sm text-gray-400 font-medium group-hover:text-gray-300 transition-colors">
+                      <div className="flex items-center gap-2 text-[11px] sm:text-sm text-[var(--text-dim)] font-medium group-hover:text-[var(--text-muted)] transition-colors">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -201,7 +211,7 @@ const Homepage = () => {
                     </div>
                     <div className="flex items-end gap-6">
                       <span className="text-2xl font-bold text-white group-hover:text-white">50.8K</span>
-                      <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E] group-hover:bg-[#22C55E]/15">
+                      <span className="flex items-center gap-1 text-[11px] sm:text-sm font-bold px-2.5 py-1 rounded-md bg-[rgba(168,85,247,0.14)] text-[var(--accent-purple)] group-hover:bg-[rgba(168,85,247,0.18)]">
                         +28.4%
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -211,9 +221,9 @@ const Homepage = () => {
                   </div>
 
                   {/* Organic Reddit Impressions */}
-                  <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
+                  <div className="bg-[var(--surface)] border border-[var(--border-soft)] rounded-xl p-4 sm:p-5 transition-all duration-200 group hover:border-[var(--border)] hover:bg-[var(--surface-strong)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.35)] focus-within:border-[var(--border)] focus-within:ring-2 focus-within:ring-white/10">
                     <div className="flex justify-between items-start mb-6">
-                      <div className="flex items-center gap-2 text-sm text-gray-400 font-medium group-hover:text-gray-300 transition-colors">
+                      <div className="flex items-center gap-2 text-[11px] sm:text-sm text-[var(--text-dim)] font-medium group-hover:text-[var(--text-muted)] transition-colors">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -226,7 +236,7 @@ const Homepage = () => {
                     </div>
                     <div className="flex items-end gap-6">
                       <span className="text-2xl font-bold text-white group-hover:text-white">23.6K</span>
-                      <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#EF4444]/10 text-[#EF4444] group-hover:bg-[#EF4444]/15">
+                      <span className="flex items-center gap-1 text-[11px] sm:text-sm font-bold px-2.5 py-1 rounded-md bg-[rgba(14,165,233,0.14)] text-[var(--accent-blue)] group-hover:bg-[rgba(14,165,233,0.18)]">
                         -12.6%
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
@@ -236,9 +246,9 @@ const Homepage = () => {
                   </div>
 
                   {/* Comment-to-Click Engagement */}
-                  <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
+                  <div className="bg-[var(--surface)] border border-[var(--border-soft)] rounded-xl p-4 sm:p-5 transition-all duration-200 group hover:border-[var(--border)] hover:bg-[var(--surface-strong)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.35)] focus-within:border-[var(--border)] focus-within:ring-2 focus-within:ring-white/10">
                     <div className="flex justify-between items-start mb-6">
-                      <div className="flex items-center gap-2 text-sm text-gray-400 font-medium group-hover:text-gray-300 transition-colors">
+                      <div className="flex items-center gap-2 text-[11px] sm:text-sm text-[var(--text-dim)] font-medium group-hover:text-[var(--text-muted)] transition-colors">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                         </svg>
@@ -250,7 +260,7 @@ const Homepage = () => {
                     </div>
                     <div className="flex items-end gap-6">
                       <span className="text-2xl font-bold text-white group-hover:text-white">756</span>
-                      <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E] group-hover:bg-[#22C55E]/15">
+                      <span className="flex items-center gap-1 text-[11px] sm:text-sm font-bold px-2.5 py-1 rounded-md bg-[rgba(168,85,247,0.14)] text-[var(--accent-purple)] group-hover:bg-[rgba(168,85,247,0.18)]">
                         +3.1%
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -260,9 +270,9 @@ const Homepage = () => {
                   </div>
 
                   {/* Subscriptions */}
-                  <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-5 transition-all duration-200 group hover:border-white/20 hover:bg-[#121214] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] focus-within:border-white/30 focus-within:ring-2 focus-within:ring-white/10">
+                  <div className="bg-[var(--surface)] border border-[var(--border-soft)] rounded-xl p-4 sm:p-5 transition-all duration-200 group hover:border-[var(--border)] hover:bg-[var(--surface-strong)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.35)] focus-within:border-[var(--border)] focus-within:ring-2 focus-within:ring-white/10">
                     <div className="flex justify-between items-start mb-6">
-                      <div className="flex items-center gap-2 text-sm text-gray-400 font-medium group-hover:text-gray-300 transition-colors">
+                      <div className="flex items-center gap-2 text-[11px] sm:text-sm text-[var(--text-dim)] font-medium group-hover:text-[var(--text-muted)] transition-colors">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -274,7 +284,7 @@ const Homepage = () => {
                     </div>
                     <div className="flex items-end gap-6">
                       <span className="text-2xl font-bold text-white group-hover:text-white">2.3K</span>
-                      <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E] group-hover:bg-[#22C55E]/15">
+                      <span className="flex items-center gap-1 text-[11px] sm:text-sm font-bold px-2.5 py-1 rounded-md bg-[rgba(168,85,247,0.14)] text-[var(--accent-purple)] group-hover:bg-[rgba(168,85,247,0.18)]">
                         +11.3%
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -287,12 +297,12 @@ const Homepage = () => {
                 {/* Middle Row - 2 Large Chart Widgets */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
                   {/* Total Revenue - Line Chart */}
-                  <div className="lg:col-span-1 bg-[#0F0F11] border border-white/5 rounded-xl p-4 sm:p-6 flex flex-col relative">
+                  <div className="lg:col-span-1 bg-[var(--surface)] border border-[var(--border-soft)] rounded-2xl p-4 sm:p-6 flex flex-col relative">
                     <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10">
                       <select
                         value={selectedQuarter}
                         onChange={(e) => setSelectedQuarter(e.target.value)}
-                        className="appearance-none bg-[#0a0a0a] border border-white/10 rounded-lg px-3 py-1.5 pr-8 text-xs font-mono text-white cursor-pointer hover:border-white/20 focus:outline-none focus:border-white/30 transition-all duration-200"
+                        className="appearance-none bg-[var(--bg-elevated)]/70 border border-[var(--border-soft)] rounded-lg px-3 py-1.5 pr-8 text-xs font-mono text-white cursor-pointer hover:border-[var(--border)] focus:outline-none focus:border-[var(--border)] transition-all duration-200"
                         style={{
                           backgroundImage: `url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E\")`,
                           backgroundRepeat: 'no-repeat',
@@ -313,7 +323,7 @@ const Homepage = () => {
                           ${(totalRevenue / 1000).toFixed(1)}K
                         </h3>
                         <div className="flex flex-col">
-                          <span className="text-[#FF4500] font-bold text-lg">+{revenueGrowth}%</span>
+                          <span className="text-[var(--accent-orange)] font-bold text-lg">+{revenueGrowth}%</span>
                           <span className="font-mono text-xs text-gray-400">YOY GROWTH</span>
                         </div>
                       </div>
@@ -339,18 +349,18 @@ const Homepage = () => {
                               <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor={revenueColor} floodOpacity="0.45" />
                             </filter>
                             <filter id="expensesGlow" x="-40%" y="-40%" width="180%" height="180%">
-                              <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor={expensesColor} floodOpacity="0.35" />
+                              <feDropShadow dx="0" dy="0" stdDeviation="3" floodColor={expensesColor} floodOpacity="0.25" />
                             </filter>
                             <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="0%" stopColor={revenueColor} stopOpacity="0.22" />
+                              <stop offset="0%" stopColor={revenueColor} stopOpacity="0.26" />
                               <stop offset="100%" stopColor={revenueColor} stopOpacity="0" />
                             </linearGradient>
                             <linearGradient id="expensesGradient" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="0%" stopColor={expensesColor} stopOpacity="0.16" />
+                              <stop offset="0%" stopColor={expensesColor} stopOpacity="0.14" />
                               <stop offset="100%" stopColor={expensesColor} stopOpacity="0" />
                             </linearGradient>
                           </defs>
-                          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
+                          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
                             <XAxis 
                               dataKey="idx"
                               type="number"
@@ -358,7 +368,7 @@ const Homepage = () => {
                               ticks={[0, 5, 10]}
                               stroke="#888" 
                               tick={{ fill: '#888', fontSize: 10 }}
-                              axisLine={{ stroke: 'rgba(255,255,255,0.1)' }}
+                              axisLine={{ stroke: 'rgba(255,255,255,0.12)' }}
                               tickFormatter={(value) => {
                                 if (value === 0) return currentQuarterMonths[0]
                                 if (value === 5) return currentQuarterMonths[1]
@@ -369,14 +379,14 @@ const Homepage = () => {
                           <YAxis 
                             stroke="#888" 
                             tick={{ fill: '#888', fontSize: 10 }}
-                            axisLine={{ stroke: 'rgba(255,255,255,0.1)' }}
+                            axisLine={{ stroke: 'rgba(255,255,255,0.12)' }}
                             tickFormatter={(value) => `${value/1000}K`}
                             domain={['dataMin', 'dataMax']}
                           />
                           <Tooltip 
                             contentStyle={{ 
-                              backgroundColor: '#1a1a1a', 
-                              border: '1px solid rgba(255,255,255,0.15)', 
+                              backgroundColor: 'rgba(10,10,10,0.92)', 
+                              border: '1px solid rgba(255,255,255,0.14)', 
                               color: '#fff',
                               borderRadius: '8px',
                               padding: '10px 14px',
@@ -392,7 +402,7 @@ const Homepage = () => {
                               const formatted = `$${value.toLocaleString()}`;
                               return [formatted, name];
                             }}
-                            cursor={{ stroke: '#A855F7', strokeWidth: 2, strokeDasharray: '0', opacity: 0.8 }}
+                            cursor={{ stroke: revenueColor, strokeWidth: 2, strokeDasharray: '0', opacity: 0.75 }}
                             animationDuration={200}
                             allowEscapeViewBox={{ x: false, y: false }}
                             shared={true}
@@ -421,7 +431,7 @@ const Homepage = () => {
                             type="monotone" 
                             dataKey="Expenses" 
                             stroke={expensesColor}
-                            strokeWidth={2.5}
+                            strokeWidth={2.25}
                             dot={false}
                             activeDot={{ r: 9, fill: expensesColor, stroke: '#fff', strokeWidth: 2.5, cursor: 'pointer' }}
                             name="Expenses"
@@ -438,7 +448,7 @@ const Homepage = () => {
                   </div>
 
                   {/* Total Profit - Bar Chart */}
-                  <div className="lg:col-span-1 border border-white/20 bg-black p-4 sm:p-6 flex flex-col">
+                  <div className="lg:col-span-1 border border-[var(--border)] bg-[var(--bg-elevated)]/60 backdrop-blur-md p-4 sm:p-6 flex flex-col rounded-2xl">
                     <div className="flex flex-col sm:flex-row justify-between items-start gap-6 mb-6 sm:mb-6">
                       <div className="flex-1">
                         <div className="font-mono text-xs text-gray-400 mb-6">Total profit</div>
@@ -446,7 +456,7 @@ const Homepage = () => {
                           <h3 className="text-2xl sm:text-3xl font-bold text-white">
                             ${(totalProfit / 1000).toFixed(1)}K
                           </h3>
-                          <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
+                          <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[rgba(168,85,247,0.14)] text-[var(--accent-purple)]">
                             +{profitGrowth}%
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -473,7 +483,7 @@ const Homepage = () => {
                                 </feMerge>
                               </filter>
                             </defs>
-                            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.03)" vertical={false} />
+                            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
                             <XAxis 
                               dataKey="day" 
                               stroke="#888" 
@@ -485,8 +495,8 @@ const Homepage = () => {
                             <YAxis hide />
                             <Tooltip 
                               contentStyle={{ 
-                                backgroundColor: '#101012', 
-                                border: '1px solid rgba(255,255,255,0.15)', 
+                                backgroundColor: 'rgba(10,10,10,0.92)', 
+                                border: '1px solid rgba(255,255,255,0.14)', 
                                 color: '#fff',
                                 borderRadius: '6px',
                                 padding: '8px 12px',
@@ -500,7 +510,7 @@ const Homepage = () => {
                                 const month = payload?.[0]?.payload?.month
                                 return month ? `${label} • ${month}` : label
                               }}
-                              cursor={{ fill: 'rgba(168, 85, 247, 0.12)' }}
+                              cursor={{ fill: 'rgba(14, 165, 233, 0.12)' }}
                               animationDuration={200}
                             />
                             <Bar 
@@ -512,12 +522,10 @@ const Homepage = () => {
                               {profitData.map((entry, index) => (
                                 <Cell 
                                   key={`cell-${index}`} 
-                                  fill={index % 2 === 0 ? '#A855F7' : '#0EA5E9'}
+                                  fill={barColors[index] ?? '#0EA5E9'}
                                   style={{ 
                                     transition: 'opacity 0.2s ease',
-                                    background: index % 2 === 0 
-                                      ? 'linear-gradient(135deg, rgba(168, 85, 247, 0.35) 0%, rgba(168, 85, 247, 0.12) 100%)'
-                                      : 'linear-gradient(135deg, rgba(14, 165, 233, 0.35) 0%, rgba(14, 165, 233, 0.12) 100%)',
+                                    background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.40) 0%, rgba(14, 165, 233, 0.12) 100%)',
                                     backdropFilter: 'blur(10px)'
                                   }}
                                 />
@@ -532,11 +540,11 @@ const Homepage = () => {
                         ))}
                       </div>
                     </div>
-                    <div className="mt-6 bg-[#0F0F11] border border-white/5 rounded-xl p-4">
+                    <div className="mt-6 bg-[var(--surface)] border border-[var(--border-soft)] rounded-xl p-4">
                       <div className="text-gray-400 text-sm font-medium mb-2">Total sessions</div>
                       <div className="flex items-center gap-6">
                         <span className="text-2xl font-bold text-white">400</span>
-                        <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[#22C55E]/10 text-[#22C55E]">
+                        <span className="flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-md bg-[rgba(168,85,247,0.14)] text-[var(--accent-purple)]">
                           +16.8%
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />

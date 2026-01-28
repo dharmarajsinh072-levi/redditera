@@ -4,7 +4,7 @@ export default function SiteFooter() {
   return (
     <footer
       data-site-footer="1"
-      className="border-t border-white/10 bg-black py-[2.25rem]"
+      className="border-t border-[var(--border-soft)] bg-[var(--bg)] py-[2.25rem]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -12,14 +12,14 @@ export default function SiteFooter() {
             <div className="flex items-center gap-3 mb-6">
               <img src="/site-logo.png" alt="Redditera" className="h-10 w-auto" />
             </div>
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-[var(--text-muted)]">
               Helping brands build authentic communities and drive sustainable growth through strategic Reddit marketing.
             </p>
           </div>
 
           <div>
-            <p className="font-mono text-xs text-gray-400 uppercase tracking-wider mb-6">Product</p>
-            <ul className="space-y-6 text-sm text-gray-300">
+            <p className="font-mono text-xs text-[var(--text-dim)] uppercase tracking-wider mb-6">Product</p>
+            <ul className="space-y-6 text-sm text-[var(--text-muted)]">
               <li>Services</li>
               <li>Features</li>
               <li>Pricing</li>
@@ -28,8 +28,8 @@ export default function SiteFooter() {
           </div>
 
           <div>
-            <p className="font-mono text-xs text-gray-400 uppercase tracking-wider mb-6">Company</p>
-            <ul className="space-y-6 text-sm text-gray-300">
+            <p className="font-mono text-xs text-[var(--text-dim)] uppercase tracking-wider mb-6">Company</p>
+            <ul className="space-y-6 text-sm text-[var(--text-muted)]">
               <li>About Us</li>
               <li>Careers</li>
               <li>Blog</li>
@@ -38,8 +38,8 @@ export default function SiteFooter() {
           </div>
 
           <div>
-            <p className="font-mono text-xs text-gray-400 uppercase tracking-wider mb-6">Legal</p>
-            <ul className="space-y-6 text-sm text-gray-300">
+            <p className="font-mono text-xs text-[var(--text-dim)] uppercase tracking-wider mb-6">Legal</p>
+            <ul className="space-y-6 text-sm text-[var(--text-muted)]">
               <li>Privacy Policy</li>
               <li>Terms of Service</li>
               <li>Cookie Policy</li>
@@ -47,7 +47,7 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <p className="font-mono text-xs text-gray-500 mt-6">© 2026 Redditera. All rights reserved.</p>
+        <p className="font-mono text-xs text-[var(--text-dim)] mt-6">© 2026 Redditera. All rights reserved.</p>
       </div>
     </footer>
   )
