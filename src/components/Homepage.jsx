@@ -136,14 +136,27 @@ const Homepage = () => {
       <section id="home" className="relative min-h-[85vh] flex items-center justify-center pt-24 pb-12 overflow-hidden bg-[var(--bg)]">
         {/* Screenshot hero background image */}
         <div
-          className="absolute inset-0 -z-20 bg-center bg-cover"
-          style={{ backgroundImage: "url('/images/backgroundhero.webp')" }}
+          className="absolute inset-0 -z-20 bg-center bg-cover scale-[1.06]"
+          style={{ backgroundImage: "url('/images/home-hero-bg.png')" }}
           aria-hidden="true"
         />
-        {/* Dark overlay + subtle vignette */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/80 via-black/70 to-black/90" aria-hidden="true" />
-        <div className="absolute inset-0 -z-10 [background:radial-gradient(closest-side,rgba(255,255,255,0.06),transparent_60%)] opacity-60" aria-hidden="true" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] glow-focal -z-10 opacity-55" />
+        {/* Blur + soften the background image (closer to screenshot) */}
+        <div
+          className="absolute inset-0 -z-10 backdrop-blur-[2px]"
+          aria-hidden="true"
+        />
+        {/* Dark overlay + centered spotlight + vignette */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/75 via-black/70 to-black/90" aria-hidden="true" />
+        <div
+          className="absolute inset-0 -z-10 opacity-90"
+          style={{
+            background:
+              'radial-gradient(circle at 50% 42%, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.06) 22%, rgba(0,0,0,0) 62%)',
+          }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 -z-10 [background:radial-gradient(closest-side,rgba(0,0,0,0),rgba(0,0,0,0.85))] opacity-80" aria-hidden="true" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[950px] h-[950px] glow-focal -z-10 opacity-45" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex flex-col items-center text-center">
             <div className="flex items-center gap-6 mb-6">
@@ -623,41 +636,95 @@ const Homepage = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="w-full max-w-7xl mx-auto px-4 py-[4.5rem] relative z-10 bg-black">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div className="flex flex-col gap-6">
-            <p className="font-mono text-xs text-gray-400 uppercase tracking-wider">About Us</p>
-            <h2 className="text-4xl md:text-6xl font-serif font-semibold text-white">
-              An award-winning Reddit marketing team
+      <section id="about" className="relative z-10 bg-[var(--bg)] py-[5.5rem]">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/65 to-black/90" />
+          <div className="absolute left-1/2 top-[35%] -translate-x-1/2 -translate-y-1/2 w-[980px] h-[640px] glow-focal opacity-25" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Screenshot-matched About header */}
+          <div className="max-w-4xl mx-auto text-center">
+            <span className="inline-flex items-center justify-center px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-[11px] tracking-[0.22em] uppercase text-white/70">
+              About Us
+            </span>
+
+            <h2 className="mt-10 text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter leading-[0.92] text-white">
+              An award-winning
+              <br />
+              <span className="italic text-white/70">Reddit marketing team</span>
             </h2>
-            <p className="font-elegant text-lg text-gray-300 leading-relaxed">
-              We are not “Reddit hackers” who found the way to cheat Reddit’s algorithm. We simply engage with users in relevant and active discussions, mentioning your brand right in front of your target audience.
+
+            <p className="mt-10 text-base sm:text-lg md:text-xl text-white/55 leading-relaxed max-w-3xl mx-auto">
+              We are not “Reddit hackers” who found the way to cheat Reddit’s algorithm.
+              <br />
+              We simply engage with users in relevant and active discussions, mentioning your brand right in front of your target audience.
             </p>
-            <div className="mt-6">
-              <h3 className="text-2xl font-semibold text-white">Our Vision</h3>
-              <p className="font-elegant text-lg text-gray-300 leading-relaxed mt-6">
-                Our vision is to redefine Reddit marketing, making it accessible and impactful for all brands. We aim to lead with innovation, turning challenges into opportunities for authentic connections and sustained growth.
-              </p>
-            </div>
-            <div className="mt-6">
-              <h3 className="text-2xl font-semibold text-white">Our Mission</h3>
-              <p className="font-elegant text-lg text-gray-300 leading-relaxed mt-6">
-                Our mission is to harness Reddit's power, connecting brands with communities through tailored, authentic marketing. We focus on creating meaningful engagements and growth by understanding community dynamics and applying data-driven insights.
-              </p>
-            </div>
           </div>
-          <div className="relative h-full min-h-[420px] w-full flex items-center justify-center">
-            <img 
-              src="/images/redditor2.webp" 
-              alt="Redditor Visualization" 
-              className="w-full h-full object-contain"
-              onError={(e) => {
-                e.target.style.display = 'none';
-                e.target.nextSibling.style.display = 'flex';
-              }}
-            />
-            <div className="w-full h-full bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-2xl flex items-center justify-center" style={{ display: 'none' }}>
-              <div className="text-6xl opacity-30">👽</div>
+
+          {/* Existing content kept, placed below the header */}
+          <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+            <div className="flex flex-col gap-16 lg:gap-20">
+              {/* Our Vision */}
+              <div>
+                <div className="flex items-start gap-5">
+                  <div className="shrink-0 mt-1 w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/85">
+                    {/* vision icon (compass/leaf mark) */}
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3.5c4.7 0 8.5 3.8 8.5 8.5S16.7 20.5 12 20.5 3.5 16.7 3.5 12 7.3 3.5 12 3.5z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.2 13.8l5.3-5.3-2.1 7.4-3.2-2.1z" />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-5xl md:text-6xl font-bold tracking-tighter leading-[0.95] text-white">
+                      Our <span className="italic text-white/70">Vision</span>
+                    </h3>
+                    <p className="mt-6 text-white/55 text-lg md:text-xl leading-relaxed max-w-2xl">
+                      Our vision is to redefine Reddit marketing, making it accessible and impactful for all brands. We aim to lead with innovation, turning challenges into opportunities for authentic connections and sustained growth.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Our Mission */}
+              <div>
+                <div className="flex items-start gap-5">
+                  <div className="shrink-0 mt-1 w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-white/85">
+                    {/* mission icon (target) */}
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <circle cx="12" cy="12" r="8.5" strokeWidth="2" />
+                      <circle cx="12" cy="12" r="4.5" strokeWidth="2" />
+                      <circle cx="12" cy="12" r="1.5" strokeWidth="2" />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-5xl md:text-6xl font-bold tracking-tighter leading-[0.95] text-white">
+                      Our <span className="italic text-white/70">Mission</span>
+                    </h3>
+                    <p className="mt-6 text-white/55 text-lg md:text-xl leading-relaxed max-w-2xl">
+                      Our mission is to harness Reddit's power, connecting brands with communities through tailored, authentic marketing. We focus on creating meaningful engagements and growth by understanding community dynamics and applying data-driven insights.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative h-full min-h-[420px] w-full flex items-center justify-center">
+              <img
+                src="/images/redditor2.webp"
+                alt="Redditor Visualization"
+                className="w-full max-w-[560px] lg:max-w-[640px] h-auto object-contain drop-shadow-[0_40px_120px_rgba(0,0,0,0.75)]"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              <div
+                className="w-full h-full bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-2xl flex items-center justify-center"
+                style={{ display: 'none' }}
+              >
+                <div className="text-6xl opacity-30">👽</div>
+              </div>
             </div>
           </div>
         </div>
@@ -702,46 +769,148 @@ const Homepage = () => {
 
         <div className="flex flex-col gap-[3rem]">
           {/* Service 1: Strategic Brand Mentions */}
-          <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-6">
-            <div className="flex-1 text-left space-y-6">
-              <h4 className="text-3xl md:text-5xl font-serif font-semibold text-white">
-                Strategic Brand Mentions
-              </h4>
-              <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-lg">
-                We will suggest your brand as the best solution, right where your audience is looking for answers.
-              </p>
-              <Link to="/explore-mentions" className="group inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-black font-semibold text-base font-mono transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:scale-105 rounded-full">
-                Explore Mentions
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
-                </svg>
-              </Link>
+          <div className="relative py-16 lg:py-20 overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_46%,rgba(255,69,0,0.10)_0%,rgba(255,69,0,0.05)_18%,rgba(0,0,0,0)_56%)] opacity-70" />
+              <div className="absolute inset-0 [background:radial-gradient(closest-side,rgba(0,0,0,0),rgba(0,0,0,0.88))] opacity-60" />
             </div>
-            <div className="flex-1 w-full relative group">
-              <div className="relative w-full aspect-[16/13] bg-[#0B0D0E] border border-white/10 rounded-xl overflow-hidden shadow-xl flex flex-col">
-                <div className="h-14 bg-[#0F0F11] border-b border-white/5 flex items-center px-6 justify-between">
-                  <div className="flex items-center gap-6">
-                    <div className="w-8 h-8 rounded-full bg-[#FF4500] flex items-center justify-center shadow-[0_0_15px_rgba(255,69,0,0.3)]">
-                      <span className="text-white text-xs font-bold">R</span>
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm font-bold text-gray-200">r/Marketing</span>
-                      <span className="text-xs text-gray-500">u/MarketingGuru</span>
-                    </div>
+
+            <div className="relative flex flex-col lg:flex-row items-center justify-between gap-14 lg:gap-24 px-2 md:px-8">
+              <div className="flex-[1.1] text-left space-y-6">
+                <h4 className="text-5xl lg:text-6xl font-bold tracking-tighter leading-[0.92] text-white">
+                  Strategic <span className="italic text-white/70 font-normal">Brand Mentions</span>
+                </h4>
+                <p className="text-base md:text-lg text-white/50 leading-relaxed max-w-xl">
+                  We will suggest your brand as the best solution, right where your audience is looking for answers.
+                </p>
+                <Link
+                  to="/explore-mentions"
+                  className="group inline-flex items-center gap-2 px-6 py-2.5 bg-white hover:bg-gray-100 text-black font-semibold text-sm transition-all shadow-[0_14px_38px_rgba(0,0,0,0.55)] rounded-full"
+                >
+                  Explore Mentions
+                  <svg className="w-4 h-4 opacity-90 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H9M17 7V15" />
+                  </svg>
+                </Link>
+              </div>
+
+              <div className="flex-[0.9] w-full relative">
+                <div className="relative w-full max-w-[760px] 2xl:max-w-[820px] ml-auto rounded-3xl border border-white/10 bg-[#0B0D0E]/70 backdrop-blur-sm shadow-[0_30px_90px_rgba(0,0,0,0.65)] overflow-hidden">
+                  <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_58%,rgba(255,69,0,0.10)_0%,rgba(255,69,0,0.05)_24%,rgba(0,0,0,0)_62%)] opacity-80" />
                   </div>
-                </div>
-                <div className="flex-1 p-6 bg-[#0a0a0a]">
-                  <div className="mb-6">
-                    <h5 className="text-base font-semibold text-white mb-6">How do you guys get customers with a low-priced SaaS product?</h5>
-                  </div>
-                  <div className="border-l-4 border-purple-500 pl-4 bg-[#0F0F11] p-4 rounded">
-                    <div className="flex items-center gap-2 mb-6">
-                      <span className="text-sm font-bold text-blue-400">u/Ape_in_a_Suit</span>
-                      <span className="text-xs text-gray-500">147 points</span>
+
+                  {/* header */}
+                  <div className="relative flex items-center justify-between px-6 py-4 border-b border-white/5">
+                    <div className="flex items-center gap-4">
+                      <div className="w-11 h-11 rounded-full bg-[#FF4500] shadow-[0_0_22px_rgba(255,69,0,0.25)] flex items-center justify-center">
+                        <div className="w-6 h-6 rounded-full border-2 border-white/70" />
+                      </div>
+                      <div className="leading-tight">
+                        <div className="text-sm font-semibold text-white/90">r/Marketing</div>
+                        <div className="text-xs text-white/35">Posted by u/marketing_guru • 4h ago</div>
+                      </div>
                     </div>
-                    <p className="text-sm text-gray-300 leading-relaxed">
-                      We've had great success with Reddit ads and engaging in relevant subreddits. Our sign-ups increased by 20% after implementing a Reddit-focused strategy.
-                    </p>
+                    <div className="text-white/35 text-xl leading-none select-none">···</div>
+                  </div>
+
+                  {/* body */}
+                  <div className="relative px-6 py-5">
+                    <div className="grid grid-cols-12 gap-5">
+                      {/* votes */}
+                      <div className="hidden md:flex md:col-span-1 flex-col items-center pt-7 text-white/40">
+                        <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 5l7 7H5l7-7z" />
+                        </svg>
+                        <div className="mt-5 text-base font-semibold text-white/70">1.4k</div>
+                        <svg className="mt-5 w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l-7-7h14l-7 7z" />
+                        </svg>
+                        <div className="mt-7 w-px h-[280px] bg-white/10" aria-hidden="true" />
+                      </div>
+
+                      {/* content */}
+                      <div className="col-span-12 md:col-span-11">
+                        <h5 className="text-2xl md:text-[28px] font-semibold text-white/85 leading-[1.22] max-w-[680px]">
+                          How do you guys get consistent traffic for your B2B SaaS without ads?
+                        </h5>
+
+                        <div className="mt-5 flex flex-wrap items-center gap-8 text-sm text-white/35 font-semibold">
+                          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/[0.035] text-white/55 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.02)]">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 15a4 4 0 01-4 4H7l-4 3V7a4 4 0 014-4h10a4 4 0 014 4v8z" />
+                            </svg>
+                            <span>84 Comments</span>
+                          </div>
+                          <div className="inline-flex items-center gap-2">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                              <circle cx="18" cy="5" r="2.5" strokeWidth="2" />
+                              <circle cx="6" cy="12" r="2.5" strokeWidth="2" />
+                              <circle cx="18" cy="19" r="2.5" strokeWidth="2" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.4 13.2l6.9 3.9M15.3 6.9l-6.9 3.9" />
+                            </svg>
+                            Share
+                          </div>
+                          <div className="inline-flex items-center gap-2">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6l7-4z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8l1.2 2.4 2.6.4-1.9 1.9.5 2.7L12 14.1 9.6 15.3l.5-2.7-1.9-1.9 2.6-.4L12 8z" />
+                            </svg>
+                            Mod Award
+                          </div>
+                        </div>
+
+                        {/* comment */}
+                        <div className="mt-6 relative rounded-2xl border border-white/10 bg-white/[0.035] overflow-hidden shadow-[0_18px_60px_rgba(0,0,0,0.55)]">
+                          <div className="absolute left-0 top-0 bottom-0 w-[6px] bg-[#FF4500]" aria-hidden="true" />
+                          <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+                            <div className="absolute -right-36 -top-20 w-[520px] h-[380px] bg-[radial-gradient(circle_at_25%_45%,rgba(255,69,0,0.16)_0%,rgba(255,69,0,0.08)_28%,rgba(0,0,0,0)_70%)] blur-2xl opacity-70" />
+                          </div>
+
+                          <div className="relative p-4 pl-7">
+                            <div className="flex items-center gap-3">
+                              <div className="w-9 h-9 rounded-full bg-black/40 border border-white/10 overflow-hidden">
+                                <div className="w-full h-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.16),rgba(255,255,255,0.02))]" />
+                              </div>
+                              <div className="text-white/85 font-semibold text-sm">u/growth_hacker</div>
+                              <span className="px-3 py-1 rounded-full border border-[rgba(255,69,0,0.28)] bg-[rgba(255,69,0,0.10)] text-[#FF4500] text-[11px] font-semibold">
+                                Top Contributor
+                              </span>
+                              <span className="text-white/30 text-sm">•</span>
+                              <span className="text-white/30 text-sm font-medium">2h ago</span>
+                            </div>
+
+                            <p
+                              className="mt-2 text-white/60 text-[13px] leading-relaxed max-w-[680px]"
+                              style={{
+                                display: '-webkit-box',
+                                WebkitLineClamp: 4,
+                                WebkitBoxOrient: 'vertical',
+                                overflow: 'hidden',
+                              }}
+                            >
+                              Honestly, you should check out <span className="text-white/85 font-semibold">Redditera</span>. We started using them last month to
+                              automate our engagement and the ROI has been insane compared to FB ads. It feels authentic.
+                            </p>
+
+                            <div className="mt-3 flex items-center gap-7 text-white/35">
+                              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[rgba(255,69,0,0.14)] text-[#FF4500] font-semibold">
+                                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 5l7 7H5l7-7z" />
+                                </svg>
+                                <span className="text-sm">342</span>
+                              </div>
+                              <div className="inline-flex items-center gap-3 text-white/35">
+                                <svg className="w-5 h-5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 15a4 4 0 01-4 4H7l-4 3V7a4 4 0 014-4h10a4 4 0 014 4v8z" />
+                                </svg>
+                                Reply
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -749,80 +918,217 @@ const Homepage = () => {
           </div>
 
           {/* Service 2: Sustainable Reputation */}
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-6 lg:gap-6">
-            <div className="flex-1 text-left space-y-6">
-              <h4 className="text-3xl md:text-5xl font-serif font-semibold text-white">
-                Sustainable reputation building
-              </h4>
-              <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-lg">
-                Our strategies will improve your reputation on Reddit and build a basis for long-term sustainable growth.
-              </p>
-              <Link to="/build-authority" className="group inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-black font-semibold text-base font-mono transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:scale-105 rounded-full">
-                Build Authority
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
-                </svg>
-              </Link>
+          <div className="relative py-24 lg:py-32 overflow-hidden isolate">
+            {/* subtle background glow/vignette (matches screenshot) */}
+            <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+              {/* keep green glow on the gauge side only (prevents text wash) */}
+              <div className="absolute left-0 top-0 bottom-0 w-[62%] md:w-[52%] bg-[radial-gradient(circle_at_55%_44%,rgba(34,197,94,0.18)_0%,rgba(34,197,94,0.08)_20%,rgba(0,0,0,0)_58%)] opacity-90" />
+              {/* subtle neutral lift on the text side */}
+              <div className="absolute right-0 top-0 bottom-0 w-[62%] md:w-[56%] bg-[radial-gradient(circle_at_42%_40%,rgba(255,255,255,0.07)_0%,rgba(255,255,255,0.03)_18%,rgba(0,0,0,0)_56%)] opacity-70" />
+              <div className="absolute inset-0 [background:radial-gradient(closest-side,rgba(0,0,0,0),rgba(0,0,0,0.88))] opacity-70" />
             </div>
-            <div className="flex-1 w-full relative">
-              <div className="relative w-full aspect-square bg-[#0B0D0E] border border-white/10 rounded-xl overflow-hidden shadow-xl flex items-center justify-center">
-                <div className="relative w-48 h-48">
-                  <div className="absolute inset-0 rounded-full border-8 border-transparent" style={{
-                    background: 'conic-gradient(from 0deg, #22C55E 0deg 316.8deg, rgba(255,255,255,0.1) 316.8deg 360deg)'
-                  }}></div>
-                  <div className="absolute inset-8 rounded-full bg-[#0a0a0a] flex flex-col items-center justify-center">
-                    <span className="text-3xl font-bold text-white">88/100</span>
-                    <span className="text-xs text-gray-500 uppercase tracking-wider mt-6">Trust Score</span>
+
+            <div className="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16 md:gap-20 lg:gap-24 px-2 md:px-8">
+              {/* Left: trust score gauge (floating, no card box) */}
+              <div className="flex-1 w-full flex items-center justify-center">
+                {/* clip glow so it never bleeds over the text */}
+                <div className="relative w-full max-w-[520px] overflow-hidden">
+                  <div
+                    className="absolute -inset-16 -translate-y-10 blur-3xl opacity-60 pointer-events-none"
+                    style={{
+                      background:
+                        'radial-gradient(circle at 50% 45%, rgba(34,197,94,0.24) 0%, rgba(34,197,94,0.10) 24%, rgba(0,0,0,0) 62%)',
+                    }}
+                    aria-hidden="true"
+                  />
+                  <div className="relative mx-auto w-full max-w-[380px] aspect-[16/9] z-10">
+                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 240 140" aria-hidden="true">
+                      <defs>
+                        <filter id="gGlow" x="-50%" y="-50%" width="200%" height="200%">
+                          <feGaussianBlur stdDeviation="4" result="blur" />
+                          <feMerge>
+                            <feMergeNode in="blur" />
+                            <feMergeNode in="SourceGraphic" />
+                          </feMerge>
+                        </filter>
+                      </defs>
+
+                      {/* background arc */}
+                      <path
+                        d="M30 110 A 90 90 0 0 1 210 110"
+                        fill="none"
+                        stroke="rgba(255,255,255,0.12)"
+                        strokeWidth="18"
+                        strokeLinecap="round"
+                      />
+                      {/* progress arc (~88%) */}
+                      <path
+                        d="M30 110 A 90 90 0 0 1 210 110"
+                        fill="none"
+                        stroke="#22C55E"
+                        strokeWidth="18"
+                        strokeLinecap="round"
+                        filter="url(#gGlow)"
+                        pathLength="100"
+                        strokeDasharray="88 100"
+                      />
+                    </svg>
+
+                    <div className="relative flex flex-col items-center justify-center pt-10">
+                      <div className="font-mono text-[11px] tracking-[0.26em] uppercase text-white/45 mb-2">
+                        Trust Score
+                      </div>
+                      <div className="flex items-end gap-2">
+                        <span className="text-6xl font-bold tracking-tight text-white leading-none">88</span>
+                        <span className="text-xl text-white/45 leading-none pb-2">/100</span>
+                      </div>
+                      <div className="mt-3 text-sm italic text-white/35">~ Community Authority Score</div>
+                    </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Right: copy */}
+              <div className="flex-1 text-left space-y-6 relative z-10">
+                <h4 className="text-5xl lg:text-6xl font-bold tracking-tighter leading-[0.92] text-white">
+                  Sustainable <span className="italic text-white/70 font-normal">Reputation</span>
+                </h4>
+                <p className="text-base md:text-lg text-white/55 leading-relaxed max-w-xl">
+                  Our strategies will improve your reputation on Reddit and build a basis for long-term sustainable growth.
+                </p>
+                <Link
+                  to="/build-authority"
+                  className="group inline-flex items-center gap-2 px-6 py-2.5 bg-white hover:bg-gray-100 text-black font-semibold text-sm transition-all shadow-[0_14px_38px_rgba(0,0,0,0.55)] rounded-full"
+                >
+                  Build Authority
+                  <svg className="w-4 h-4 opacity-90 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H9M17 7V15" />
+                  </svg>
+                </Link>
               </div>
             </div>
           </div>
 
           {/* Service 3: High-Impact Advertising */}
-          <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-6">
-            <div className="flex-1 text-left space-y-6">
-              <h4 className="text-3xl md:text-5xl font-serif font-semibold text-white">
-                High-impact advertising (when appropriate)
-              </h4>
-              <p className="font-elegant text-lg text-gray-300 leading-relaxed max-w-lg">
-                We will collaborate with Reddit ads team to run the most effective ads on the platform maximized for ROAS.
-              </p>
-              <Link to="/view-ad-solutions" className="group inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-black font-semibold text-base font-mono transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:scale-105 rounded-full">
-                View Ad Solutions
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
-                </svg>
-              </Link>
+          <div className="relative py-20 lg:py-24 overflow-hidden">
+            {/* subtle section glow/vignette */}
+            <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_45%,rgba(34,197,94,0.12)_0%,rgba(34,197,94,0.06)_22%,rgba(0,0,0,0)_58%)] opacity-85" />
+              <div className="absolute inset-0 [background:radial-gradient(closest-side,rgba(0,0,0,0),rgba(0,0,0,0.88))] opacity-60" />
             </div>
-            <div className="flex-1 w-full relative">
-              <div className="bg-[#0F0F11] border border-white/5 rounded-xl p-6">
-                <div className="grid grid-cols-12 gap-6">
-                  <div className="col-span-4 space-y-6">
-                    <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-6">ROAS</div>
-                      <div className="text-2xl font-bold text-white">4.2x</div>
-                    </div>
-                    <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-6">CTR</div>
-                      <div className="text-2xl font-bold text-white">3.85%</div>
-                    </div>
-                    <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                      <div className="text-[10px] uppercase font-bold text-gray-500 mb-6">Conv. Rate</div>
-                      <div className="text-2xl font-bold text-white">12%</div>
-                    </div>
+
+            <div className="relative flex flex-col lg:flex-row items-center justify-between gap-14 lg:gap-24 px-2 md:px-8">
+              <div className="flex-1 text-left space-y-6">
+                <h4 className="text-5xl lg:text-6xl font-bold tracking-tighter leading-[0.92] text-white">
+                  High-impact <span className="italic text-white/70 font-normal">Advertising</span>
+                </h4>
+                <p className="text-base md:text-lg text-white/50 leading-relaxed max-w-xl">
+                  We will collaborate with Reddit ads team to run the most effective ads on the platform maximized for ROAS.
+                </p>
+                <Link
+                  to="/view-ad-solutions"
+                  className="group inline-flex items-center gap-2 px-6 py-2.5 bg-white hover:bg-gray-100 text-black font-semibold text-sm transition-all shadow-[0_14px_38px_rgba(0,0,0,0.55)] rounded-full"
+                >
+                  View Ad Solutions
+                  <svg className="w-4 h-4 opacity-90 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H9M17 7V15" />
+                  </svg>
+                </Link>
+              </div>
+
+              <div className="flex-1 w-full relative">
+                <div className="relative w-full max-w-[820px] ml-auto rounded-3xl border border-white/10 bg-[#0B0D0E]/70 backdrop-blur-sm shadow-[0_30px_90px_rgba(0,0,0,0.65)] overflow-hidden">
+                  <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_55%,rgba(34,197,94,0.10)_0%,rgba(34,197,94,0.05)_22%,rgba(0,0,0,0)_60%)] opacity-80" />
                   </div>
-                  <div className="col-span-8 bg-[#0a0a0a]/50 rounded-xl border border-white/5 relative overflow-hidden h-48">
-                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                      <defs>
-                        <linearGradient id="adGradient" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#22C55E" stopOpacity="0.2" />
-                          <stop offset="100%" stopColor="#22C55E" stopOpacity="0" />
-                        </linearGradient>
-                      </defs>
-                      <path d="M0,80 C15,75 25,60 40,65 C55,70 65,30 80,40 C90,45 95,20 100,30" fill="none" stroke="#22C55E" strokeWidth="2" />
-                      <path d="M0,80 C15,75 25,60 40,65 C55,70 65,30 80,40 C90,45 95,20 100,30 V100 H0 Z" fill="url(#adGradient)" />
-                    </svg>
+
+                  {/* header */}
+                  <div className="relative flex items-center justify-between px-6 py-5">
+                    <div className="flex items-center gap-4">
+                      <div className="w-11 h-11 rounded-xl border border-white/10 bg-[rgba(34,197,94,0.10)] flex items-center justify-center">
+                        <svg className="w-6 h-6 text-[#22C55E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 19V5m5 14V9m5 10V7m5 12V11" />
+                        </svg>
+                      </div>
+                      <div className="leading-tight">
+                        <div className="text-sm font-semibold text-white/90">Ad Performance</div>
+                        <div className="text-xs text-white/40">Last 30 Days</div>
+                      </div>
+                    </div>
+                    <div className="text-white/35 text-xl leading-none select-none">···</div>
+                  </div>
+
+                  {/* body */}
+                  <div className="relative px-6 pb-6">
+                    <div className="grid grid-cols-12 gap-5">
+                      {/* metrics */}
+                      <div className="col-span-12 md:col-span-4 space-y-4">
+                        {[
+                          { label: 'ROAS', value: '4.2x' },
+                          { label: 'CTR', value: '3.85%' },
+                          { label: 'CONV. RATE', value: '12%' },
+                        ].map((m) => (
+                          <div
+                            key={m.label}
+                            className="relative rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.02)]"
+                          >
+                            <div className="flex items-start justify-between gap-3">
+                              <div className="text-[10px] uppercase tracking-[0.18em] text-white/35 mb-2 font-semibold">
+                                {m.label}
+                              </div>
+                              <div className="text-[#22C55E]/90">
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H9M17 7V15" />
+                                </svg>
+                              </div>
+                            </div>
+                            <div className="text-2xl font-bold text-white">{m.value}</div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* chart */}
+                      <div className="col-span-12 md:col-span-8">
+                        <div className="relative h-[270px] rounded-2xl border border-white/10 bg-black/30 overflow-hidden">
+                          {/* grid lines */}
+                          <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+                            <div className="absolute left-0 right-0 top-[28%] h-px bg-white/5" />
+                            <div className="absolute left-0 right-0 top-[56%] h-px bg-white/5" />
+                          </div>
+
+                          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                            <defs>
+                              <linearGradient id="adGradient2" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="#22C55E" stopOpacity="0.22" />
+                                <stop offset="100%" stopColor="#22C55E" stopOpacity="0" />
+                              </linearGradient>
+                              <filter id="adLineGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feDropShadow dx="0" dy="0" stdDeviation="1.8" floodColor="#22C55E" floodOpacity="0.55" />
+                              </filter>
+                            </defs>
+                            <path
+                              d="M0,72 C12,66 22,58 34,60 C46,62 56,42 68,44 C80,46 86,30 92,34 C96,36 98,22 100,26"
+                              fill="none"
+                              stroke="#22C55E"
+                              strokeWidth="2"
+                              filter="url(#adLineGlow)"
+                            />
+                            <path
+                              d="M0,72 C12,66 22,58 34,60 C46,62 56,42 68,44 C80,46 86,30 92,34 C96,36 98,22 100,26 V100 H0 Z"
+                              fill="url(#adGradient2)"
+                            />
+                          </svg>
+
+                          {/* x-axis labels */}
+                          <div className="absolute bottom-4 left-0 right-0 flex justify-between px-8 text-[10px] tracking-[0.18em] uppercase text-white/25 font-semibold">
+                            <span>Week 1</span>
+                            <span>Week 2</span>
+                            <span>Week 3</span>
+                            <span>Week 4</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
